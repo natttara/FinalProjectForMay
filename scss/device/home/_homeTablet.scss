@@ -1,0 +1,81 @@
+@media (min-width: $tabletScreen){
+    .fornow {
+        background-color: blue;
+        width: 100%;
+    }
+    //START: Form section
+    .hLayer {
+        padding-left: 10%;
+        justify-content: left;
+        input,
+        button,
+        option {
+            transition: .2s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color1;
+            }
+        }
+        [type="submit"]{
+            transition: .4s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color2;
+            }
+        }
+    }
+    //END: Form section
+    //START: Popular destination section
+    .hDestination {
+        .hBurnaby {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        button {
+            height: 20vh;
+            align-self: flex-end;
+            transition: .4s;
+            &:hover {
+                background-color: whitesmoke;
+            }
+        }
+        figure {
+            width: 32vh;
+            position: relative;
+            overflow: hidden;
+            &:hover figcaption{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                bottom: 0;
+            }
+        }
+        figcaption {
+            position: absolute;
+            background-color: rgba($color: $color1, $alpha: 0.8);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 0;
+            bottom: -20%;
+            row-gap: 3vh;
+            transition: .6s;
+            h3 {
+                color: whitesmoke;
+            }
+        }
+        img {
+            height: 20vh;
+        }
+        input {
+            height: 4vh;
+            width: 4vh;
+            transition: .4s;
+            &:hover{
+                color: $color2;
+                background-color: whitesmoke;
+            }
+        }
+    }
+    //END: Popular destination section
+}

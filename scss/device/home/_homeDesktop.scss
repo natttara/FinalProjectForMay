@@ -1,0 +1,48 @@
+@media (min-width: $desktopScreen){
+    .fornow {
+        background-color: red;
+    }
+    //START: Form section
+    .hLayer {
+        padding-left: 0;
+        justify-content: center;
+        form {
+            flex-direction: row;
+            column-gap: 3vh;
+            align-items: baseline;
+            padding: 7vh 0;
+            height: 25%;
+            width: 110vh;
+            font-size: 20px;
+        }
+        aside {
+            flex-direction: column;
+            align-items: baseline;
+            row-gap: 1vh;
+            width: 18vh;
+        }
+        .hPeople {
+            width: 24vh;
+            padding-right: 3vh;
+        }
+        [for="child"]{
+            display: flex;
+            flex-direction: column;
+        }
+        [type="submit"]{
+            align-self: center;
+        }
+    }
+    //END: Form section
+    //START: Popular destination section
+    .hDestination {
+        .hRichmond {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        figure {
+            width: 30vh;
+        }
+    }
+    //END: Popular destination section
+}

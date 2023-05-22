@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <main class="home">
+        <section class="hForm">
+            <section class="hLayer">
+                <form action="#">
+                    <aside>
+                        <label for="checkIn">Check In:</label>
+                        <input type="date" name="checkIn" id="checkIn">
+                    </aside>
+                    <aside>
+                        <label for="checkOut">Check Out:</label>
+                        <input type="date" name="checkOut" id="checkOut">
+                    </aside>
+                    <aside class="hLocation">
+                        <label for="location">Location:</label>
+                        <select name="location" id="hLocation" multiple>
+                            <option value="vancouver">Vancouver</option>
+                            <option value="burnaby">Burnaby</option>
+                            <option value="richmond">Richmond</option>
+                            <option value="northVancouver">North Vancouver</option>
+                            <option value="westVancouver">West Vancouver</option>
+                        </select>
+                    </aside>
+                    <aside class="hPeople">
+                        <label for="">People:</label>
+                        <section>
+                            <article>
+                                <label for="adult">Adult:</label>
+                                <section>
+                                    <button>−</button>
+                                    <input type="number" name="adult" id="adult">
+                                    <button>+</button>
+                                </section>
+                            </article>
+                            <article>
+                                <label for="child">Child <span>(Under 12):</span></label>
+                                <section>
+                                    <button>−</button>
+                                    <input type="number" name="child" id="child">
+                                    <button>+</button>
+                                </section>
+                            </article>
+                        </section>
+                    </aside>
+                    <input type="submit" value="Search">
+                </form>
+            </section>
+        </section>
+        <section class="hDestination">
+            <article>
+                <h2>Destinations</h2>
+                <p>Find your best place in Vancouver!</p>
+            </article>
+            <section>
+                <button><i class="fa-solid fa-chevron-left"></i></button>
+                <section>
+                    <aside class="hVancouver">
+                        <figure>
+                            <img src="./hDowntown.jpg" alt="vancouver">
+                            <figcaption>
+                                <h3>Downtown</h3>
+                                <input type="button" value="Go">
+                            </figcaption>
+                        </figure>
+                        <article>
+                            <h2>1</h2>
+                            <h3>Vancouver</h3>
+                        </article>
+                    </aside>
+                    <aside class="hBurnaby">
+                        <figure>
+                            <img src="./hMetropolis.jpg" alt="burnaby">
+                            <figcaption>
+                                <h3>Metropolis at Metrotown</h3>
+                                <input type="button" value="Go">
+                            </figcaption>
+                        </figure>
+                        <article>
+                            <h2>2</h2>
+                            <h3>Burnaby</h3>
+                        </article>
+                    </aside>
+                    <aside class="hRichmond">
+                        <figure>
+                            <img src="./hMcarthur.jpg" alt="richmond">
+                            <figcaption>
+                                <h3>McArthurGlen Designer Outlet</h3>
+                                <input type="button" value="Go">
+                            </figcaption>
+                        </figure>
+                        <article>
+                            <h2>3</h2>
+                            <h3>Richmond</h3>
+                        </article>
+                    </aside>
+                    <aside class="hNVancouver">
+                        <figure>
+                            <img src="./hNVancouver.jpg" alt="nVancouver">
+                            <figcaption>
+                                <h3>Lynn Canyon</h3>
+                                <input type="button" value="Go">
+                            </figcaption>
+                        </figure>
+                        <article>
+                            <h2>4</h2>
+                            <h3>North Vancouver</h3>
+                        </article>
+                    </aside>
+                    <aside class="hWVancouver">
+                        <figure>
+                            <img src="./hWVancouver.jpg" alt="wVancouver">
+                            <figcaption>
+                                <h3>Cypress Mountain</h3>
+                                <input type="button" value="Go">
+                            </figcaption>
+                        </figure>
+                        <article>
+                            <h2>5</h2>
+                            <h3>West Vancouver</h3>
+                        </article>
+                    </aside>
+                </section>
+                <button><i class="fa-solid fa-chevron-right"></i></button>
+            </section>
+        </section>
+        <section class="fornow">a</section>
+    </main>
+</body>
+</html>
