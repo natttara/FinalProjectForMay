@@ -1,0 +1,220 @@
+$color1: rgb(34,34,34);
+$color2: rgb(198,164,126);
+@media (min-width: $mobileScreen){
+    .result {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        align-items: center;
+    }
+    //START: Form section
+    .hForm {
+        background-image: url(/result/rFormBg.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+    .hLayer {
+        background-color: rgba($color: $color1, $alpha: 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55vh;
+        form {
+            background-color: rgba($color: $color1, $alpha: 1);
+            color: whitesmoke;
+            height: 80%;
+            width: 50vh;
+            display: flex;
+            flex-direction: column;
+            row-gap: 2vh;
+            justify-content: center;
+            align-items: center;
+            border-radius: 25px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        aside {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            column-gap: 2vh;
+        }
+        .hLocation {
+            align-items: baseline;
+        }
+        .hPeople {
+            flex-direction: column;
+            align-items: baseline;
+            > section {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1vh;
+                width: 100%;
+                font-size: 16px;
+            }
+        }
+        article {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            section {
+                display: flex;
+                width: 40%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 24px;
+                border: 2px solid black;
+                border-radius: 100%;
+                width: 3vh;
+                height: 3vh;
+            }
+        }
+        input,
+        select,
+        button {
+            background-color: rgb(70,70,70);
+            color: whitesmoke;
+        }
+        [type="date"] {
+            height: 3vh;
+            font-weight: 600;
+        }
+        [type="date"]::-webkit-calendar-picker-indicator {
+            background-color: white;
+            font-size: 20px;
+        }
+        select {
+            font-size: 16px;
+            padding: 5px;
+        }
+        [type="number"]{
+            width: 30%;
+            height: 3vh;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        //START: Erasing spin button
+        //for Chrome, Safari
+        [type="number"]::-webkit-outer-spin-button, 
+        [type="number"]::-webkit-inner-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        } 
+        //for FireFox, IE
+        [type="number"] {
+            -moz-appearance:textfield;
+            appearance: textfield;
+        }
+        //END: Erasing spin button
+        [type="submit"]{
+            font-size: 18px;
+            font-weight: 600;
+            background-color: $color2;
+            color: whitesmoke;
+            padding: 5px;
+            border: 3px solid $color2;
+        }
+    } 
+    //END: Form section
+    //START: Title section
+    .rTitle {
+        display: flex;
+        column-gap: 3vh;
+        width: 90%;
+    }
+    //END: Title section
+    //START: List section
+    .rList {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 6vh;
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 45vh;
+        }
+        figure {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height: 30vh;
+        }
+        figcaption {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 95%;
+            padding-top: 1vh;
+            span {
+                background-color: $color2;
+                padding: 5px;
+            }
+            h4 {
+                color: whitesmoke;
+            }
+            i {
+                color: orange;
+                font-size: 30px;
+            }
+        }
+        article {
+            border: 1px solid $color2;
+            border-top: none;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+            align-items: center;
+            text-align: center;
+            color: black;
+            padding-top: 2vh;
+            > section {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+            }
+            aside {
+                display: flex;
+                align-items: center;
+                column-gap: 1vh;
+            }
+            p {
+                width: 90%;
+            }
+        }
+    }
+    //END: List section
+    //START: Go to top section
+    .rToTop {
+        display: flex;
+        justify-content: center;
+        border: 2px solid $color2;
+        a {
+            background-color: $color2;
+            padding: 1vh;
+        }
+        h3 {
+            color: whitesmoke;
+            transition: .6s;
+        }
+    }
+    //END: Go to top section
+}

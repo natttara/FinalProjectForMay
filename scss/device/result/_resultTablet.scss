@@ -1,0 +1,62 @@
+@media (min-width: $tabletScreen){
+    .result {
+        row-gap: 5vh;
+    }
+    //START: Form section
+    .hLayer {
+        padding-left: 10%;
+        justify-content: left;
+        input,
+        button,
+        option {
+            transition: .2s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color1;
+            }
+        }
+        [type="submit"]{
+            transition: .4s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color2;
+            }
+        }
+    }
+    //END: Form section
+    //START: Title section
+    .rTitle {
+        width: 75%;
+    }
+    //END: Title section
+    //START: List section
+    .rList {
+        a {
+            transition: .4s;
+            &:hover {
+                background-color: $color2;
+            }
+            i {
+                transition: .4s;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+    //END: List section
+    //START: Go to top section
+    .rToTop {
+        border: 2px solid $color2;
+        a {
+            transition: .6s;
+            &:hover {
+                background-color: whitesmoke;
+                h3 {
+                    color: $color2;
+                }
+            }
+        }
+    }
+    //END: Go to top section
+}
