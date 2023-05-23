@@ -1,7 +1,4 @@
 @media (min-width: $desktopScreen){
-    .fornow {
-        background-color: red;
-    }
     //START: Form section
     .hLayer {
         padding-left: 0;
@@ -36,6 +33,9 @@
     //END: Form section
     //START: Popular destination section
     .hDestination {
+        > article {
+            width: 100vh;
+        }
         .hRichmond {
             display: flex;
             flex-direction: column-reverse;
@@ -45,4 +45,18 @@
         }
     }
     //END: Popular destination section
+    //START: Special offer section
+    .specialOffer {
+        > article {
+            width: 100vh;
+        }
+        .hSpe3 {
+            display: flex;
+        }
+        a {
+            width: 30vh;
+        }
+    }
+    //END: Special offer section
+
 }
