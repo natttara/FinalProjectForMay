@@ -29,7 +29,7 @@
                         <strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quo fugiat eveniet, velit dicta cupiditate alias! Sunt impedit quasi suscipit.</strong>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum accusantium voluptas sunt accusamus nihil natus similique debitis aut, modi autem qui ratione? Neque ipsa ducimus delectus consectetur voluptatibus odio libero explicabo deserunt fugiat obcaecati rerum praesentium maiores facilis quasi, nesciunt id tempora nisi, vitae itaque non perferendis. Autem, voluptatem dolorum.</p>
                         <aside class="amenities">
-                       <strong> Amenities </strong>
+                        <span><i class="fa-solid fa-tv"></i>   Amenities</span>
                             <ul>
                                 <li>Refrigerator and water</li>
                                 <li>Hairdryer and iron</li>
@@ -40,26 +40,30 @@
                     </article>
                 </article>
                 <article class="right">
-                    <aside class="block">
-                        <p>CHECK - IN</p>
-                        <span>18</span>
-                        <p>Jan, 2019 - Saturday</p>
-                        <button>CHANGE</button>
-                    </aside>
-                    <aside class="block">
-                        <p>CHECK - OUT</p>
-                        <span>21</span>
-                        <p>Feb, 2019 - Tuesday</p>
-                        <button>CHANGE</button>
-                    </aside>
-                    <aside class="block">
-                        <p>GUESTS</p>
-                        <span>3</span>
-                    </aside>
-                    <aside class="block">
-                        <p>Nights</p>
-                        <span>4</span>
-                    </aside>
+                    <section class="top">
+                        <aside class="block">
+                            <p>CHECK - IN</p>
+                            <span>18</span>
+                            <p>Jan, 2019 - Saturday</p>
+                            <button>CHANGE</button>
+                        </aside>
+                        <aside class="block">
+                            <p>CHECK - OUT</p>
+                            <span>21</span>
+                            <p>Feb, 2019 - Tuesday</p>
+                            <button>CHANGE</button>
+                        </aside>
+                    </section>
+                    <section class="bottom">
+                        <aside class="block">
+                            <p>GUESTS</p>
+                            <span>3</span>
+                        </aside>
+                        <aside class="block">
+                            <p>Nights</p>
+                            <span>4</span>
+                        </aside>
+                    </section>
                     <button>BOOK NOW</button>
                 </article>
             </section>
