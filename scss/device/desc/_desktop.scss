@@ -1,0 +1,28 @@
+@media (min-width:1000px) {
+    .body-desc{
+        padding: 9vh;
+        row-gap: 5vh;
+
+        .gallery{
+
+            .banner {
+                height: 75vh;
+            }
+
+            figure {
+                row-gap: 5vh;
+
+                img {
+                    height: 40vh;
+                }
+            }
+        }
+        .main-content {
+            flex-direction: row;
+            column-gap: 4vh;
+            .right {
+                width: 80%;
+            }
+        }
+    }
+}
