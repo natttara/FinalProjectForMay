@@ -1,7 +1,7 @@
 <?php
 
-require_once("./inc/Page.class.php");
+require_once("./inc/Result.class.php");
 
-echo Page::pageHead();
-echo Page::mainContent();
-echo Page::pageEnd();
+echo Result::pageHead();
+echo Result::mainContent();
+echo Result::pageEnd();

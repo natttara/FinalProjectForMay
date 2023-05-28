@@ -2,12 +2,11 @@
     .result {
         row-gap: 5vh;
     }
-    //START: Form section
+    //START: Form section    
     .hLayer {
         padding-left: 10%;
-        justify-content: left;
+        align-items: flex-start;
         input,
-        button,
         option {
             transition: .2s;
             &:hover {
@@ -24,19 +23,52 @@
         }
     }
     //END: Form section
+    //START: Accordion section
+    .accordion {
+        label:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+    }
+    //END: Accordion section
     //START: Title section
     .rTitle {
-        width: 75%;
+        width: 80vh;
     }
     //END: Title section
     //START: List section
     .rList {
+        > article {
+            width: 80vh;
+            display: flex;
+            justify-content: space-between;
+        }
+        > section {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5vh;
+        }
+        img {
+            height: 20vh;
+        }
         a {
             transition: .4s;
+            width: 28vh;
+            h4 {
+                font-size: 14px;
+            }
+            i {
+                font-size: 24px;
+            }
             &:hover {
                 background-color: $color2;
             }
-            i {
+            > article {
+                height: 24vh;
+                justify-content: center;
+            }
+            figcaption i {
                 transition: .4s;
                 &:hover {
                     color: red;

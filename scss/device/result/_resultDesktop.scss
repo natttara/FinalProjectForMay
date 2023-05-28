@@ -2,10 +2,10 @@
     //START: Form section
     .hLayer {
         padding-left: 0;
-        justify-content: center;
+        align-items: center;
         form {
             flex-direction: row;
-            column-gap: 3vh;
+            column-gap: 5vh;
             align-items: baseline;
             padding: 7vh 0;
             height: 25%;
@@ -16,32 +16,39 @@
             flex-direction: column;
             align-items: baseline;
             row-gap: 1vh;
-            width: 18vh;
+            width: 14vh;
         }
-        .hPeople {
-            width: 24vh;
-            padding-right: 3vh;
+        .hLocation {
+            width: 27vh;
         }
-        [for="child"]{
-            display: flex;
-            flex-direction: column;
+        [type="number"]{
+            width: 12vh;
         }
         [type="submit"]{
             align-self: center;
         }
     }
     //END: Form section
+    //START: Accordion section
+    .accordion {
+        width: 110vh;
+        input:checked + label + img {	
+            height: 80vh;
+        }
+    }
+    //END: Accordion section
     //START: Title section
     .rTitle {
-        width: 90vh;
+        width: 72%;
     }
     //END: Title section
     //START: List section
     .rList {
-        width: 100vh;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        > article {
+            width: 80%;
+            justify-content: left;
+            column-gap: 20%;
+        }
     }
     //END: List section
 }
