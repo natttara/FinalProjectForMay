@@ -18,11 +18,14 @@ require_once("./inc/AccDAO.class.php");
 <body>
 
         <?php 
+if (!empty($_GET)) {
     $Accomodation = AccDAO::startDB();
-    $singleAcc = AccDAO::getaCCById(14267);
-    echo ($singleAcc->NAME);
+    $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
+    // 14267
+    echo Desc::body($singleAcc->NAME);
+
+}
         
-        // echo Desc::body();
         
         
         ?>

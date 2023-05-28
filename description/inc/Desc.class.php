@@ -2,8 +2,11 @@
 
     class Desc {
 
-        public static function body() : string{
-            $body = '<section class="body-desc">
+        public static function body($title) : string{
+            $body = '
+            <section class="container">
+            <section class="body-desc">
+            <h1 style="text-align:center; font-size:30px">'. $title.' </h1>
             <section class="gallery">
                 <img class="banner" src="./inc/img/img-1.jpg" alt="">
                 <figure>
@@ -66,6 +69,7 @@
                     </section>
                     <button>BOOK NOW</button>
                 </article>
+            </section>
             </section>
         </section>';
         return $body;
