@@ -6,6 +6,7 @@ $color2: rgb(198,164,126);
         flex-direction: column;
         row-gap: 5vh;
         align-items: center;
+        padding-bottom: 10vh;
     }
     //START: Form section
     .hForm {
@@ -36,7 +37,7 @@ $color2: rgb(198,164,126);
             font-weight: 600;
         }
         aside {
-            width: 60%;
+            width: 90%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -45,42 +46,8 @@ $color2: rgb(198,164,126);
         .hLocation {
             align-items: baseline;
         }
-        .hPeople {
-            flex-direction: column;
-            align-items: baseline;
-            > section {
-                display: flex;
-                flex-direction: column;
-                row-gap: 1vh;
-                width: 100%;
-                font-size: 16px;
-            }
-        }
-        article {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            section {
-                display: flex;
-                width: 40%;
-                justify-content: space-between;
-                align-items: center;
-            }
-            button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                font-size: 24px;
-                border: 2px solid black;
-                border-radius: 100%;
-                width: 3vh;
-                height: 3vh;
-            }
-        }
         input,
-        select,
-        button {
+        select {
             background-color: rgb(70,70,70);
             color: whitesmoke;
         }
@@ -107,8 +74,7 @@ $color2: rgb(198,164,126);
         //for Chrome, Safari
         [type="number"]::-webkit-outer-spin-button, 
         [type="number"]::-webkit-inner-spin-button { 
-            -webkit-appearance: none; 
-            margin: 0; 
+            -webkit-appearance: none;
         } 
         //for FireFox, IE
         [type="number"] {
@@ -138,22 +104,8 @@ $color2: rgb(198,164,126);
         }
         > section {
             display: flex;
-            justify-content: center;
-            column-gap: 1vh;
-            align-items: center;
-            > section {
-                display: flex;
-                column-gap: 2vh;
-                align-items: center;
-            }
-        }
-        button {
-            height: 25vh;
-            width: 3vh;
-            background-color: $color2;
-        }
-        i {
-            font-size: 24px;
+            flex-direction: column;
+            row-gap: 2vh;
         }
         aside {
             display: flex;
@@ -161,29 +113,28 @@ $color2: rgb(198,164,126);
             article {
                 display: flex;
                 align-items: center;
-                justify-content: space-around;
-                width: 50%;
+                column-gap: 5vh;
+                padding-left: 2vh;
             }
-        }
-        .hBurnaby,.hRichmond,.hNVancouver,.hWVancouver{
-            display: none;
         }
         img {
             width: 100%;
-            height: 25vh;
+            height: 28vh;
         }
         figure {
             display: flex;
             flex-direction: column;
-            row-gap: 1vh;
             align-items: center;
-            width: 38vh;
+            width: 44vh;
         }
         figcaption {
             width: 100%;
             display: flex;
             justify-content: space-around;
             align-items: center;
+            border: 1px solid $color2;
+            border-top: none;
+            padding: 1vh 0;
         }
         input {
             background-color: $color2;
@@ -200,34 +151,29 @@ $color2: rgb(198,164,126);
         width: 90%;
         display: flex;
         flex-direction: column;
-        row-gap: 2vh;
+        row-gap: 5vh;
         align-items: center;
         > article {
             width: 40vh;
-        }
-        button {
-            height: 25vh;
-            width: 3vh;
-            background-color: $color2;
-        }
-        i {
-            font-size: 24px;
-        }
-        .hSpe2,
-        .hSpe3 {
-            display: none;
+            i {
+                width: 4vh;
+                text-align: center;
+            }
+            ul {
+                padding-left: 5vh;
+            }
         }
         >section {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            column-gap: 1vh;
-            > section {
-                display: flex;
-                justify-content: center;
-                column-gap: 2vh;
-            }
-            article {
+            flex-direction: column;
+            row-gap: 3vh;
+        } 
+        a {
+            display: flex;
+            flex-direction: column;
+            width: 44vh;
+            > article {
+                width: 100%;
                 border: 1px solid $color2;
                 border-top: none;
                 display: flex;
@@ -236,27 +182,24 @@ $color2: rgb(198,164,126);
                 align-items: center;
                 text-align: center;
                 color: black;
-                padding-top: 2vh;
-                > section {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-evenly;
-                }
-                aside {
-                    display: flex;
-                    align-items: center;
-                    column-gap: 1vh;
-                }
-                p {
-                    width: 90%;
-                }
+                padding: 2vh 0;
             }
-        } 
-        a {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 38vh;
+            section {
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+            }
+            aside {
+                display: flex;
+                align-items: center;
+                column-gap: 1vh;
+            }
+            i {
+                font-size: 18px;
+            }
+            [class="fa-solid fa-person-half-dress"]{
+                font-size: 24px;
+            }
         }
         figure {
             position: relative;
@@ -267,7 +210,7 @@ $color2: rgb(198,164,126);
         }
         img {
             width: 100%;
-            height: 25vh;
+            height: 28vh;
         }
         figcaption {
             position: absolute;
@@ -287,6 +230,10 @@ $color2: rgb(198,164,126);
                 color: orange;
                 font-size: 30px;
             }
+        }
+        span {
+            display: flex;
+            column-gap: 1vh;
         }
     }
     //END: Special Offer Section section
