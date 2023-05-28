@@ -2,7 +2,7 @@
     //START: Form section
     .hLayer {
         padding-left: 0;
-        justify-content: center;
+        align-items: center;
         form {
             flex-direction: row;
             column-gap: 5vh;
@@ -21,11 +21,22 @@
         .hLocation {
             width: 27vh;
         }
+        [type="number"]{
+            width: 12vh;
+        }
         [type="submit"]{
             align-self: center;
         }
     }
     //END: Form section
+    //START: Accordion section
+    .accordion {
+        width: 110vh;
+        input:checked + label + img {	
+            height: 70vh;
+        }
+    }
+    //END: Accordion section
     //START: Popular destination section
     .hDestination {
         > article {
