@@ -1,5 +1,5 @@
 <?php
-    class Page {
+    class Home {
         static function pageHead(){
             $htmlHead = '
             <!DOCTYPE html>

@@ -1,6 +1,6 @@
 <?php
-require_once("./inc/Page.class.php");
+require_once("./inc/Home.class.php");
 
-echo Page::pageHead();
-echo Page::mainContent();
-echo Page::pageEnd();
+echo Home::pageHead();
+echo Home::mainContent();
+echo Home::pageEnd();
