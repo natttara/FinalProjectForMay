@@ -1,5 +1,9 @@
 <?php   
 require_once("./inc/Desc.class.php");
+require_once("./inc/config.inc.php");
+require_once("./inc/Acc.class.php");
+require_once("./inc/PDOService.class.php");
+require_once("./inc/AccDAO.class.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +16,16 @@ require_once("./inc/Desc.class.php");
     <title>Document</title>
 </head>
 <body>
-        <?php  echo Desc::body();  ?>
+
+        <?php 
+    $Accomodation = AccDAO::startDB();
+    $singleAcc = AccDAO::getaCCById(14267);
+    echo ($singleAcc->NAME);
+        
+        // echo Desc::body();
+        
+        
+        ?>
     
 </body> 
 </html>
