@@ -78,7 +78,7 @@
                     <figure class="accordion">
                         <input type="checkbox" id="hMap">
                         <label for="hMap">Vancouver Map <i class="fa-solid fa-chevron-down"></i></label>
-                        <img src="./hMap.jpg" alt="">
+                        <img src="./inc/img/hMap.jpg" alt="">
                     </figure>
                 </section>
             </section>
@@ -96,7 +96,7 @@
                 <section>
                     <aside class="hFairview">
                         <figure>
-                            <img src="./hGranvilleIsland.jpg" alt="">
+                            <img src="./inc/img/hGranvilleIsland.jpg" alt="">
                             <figcaption>
                                 <h3>Granville Island</h3>
                                 <input type="button" value="Go">
@@ -109,7 +109,7 @@
                     </aside>
                     <aside class="hWestEnd">
                         <figure>
-                            <img src="./hStanleyPark.jpg" alt="stanleyPark">
+                            <img src="./inc/img/hStanleyPark.jpg" alt="stanleyPark">
                             <figcaption>
                                 <h3>Stanley Park</h3>
                                 <input type="button" value="Go">
@@ -122,7 +122,7 @@
                     </aside>
                     <aside class="hMountPleasant">
                         <figure>
-                            <img src="./hScienceWorld.jpg" alt="scienceWorld">
+                            <img src="./inc/img/hScienceWorld.jpg" alt="scienceWorld">
                             <figcaption>
                                 <h3>Science World</h3>
                                 <input type="button" value="Go">
@@ -158,7 +158,7 @@
                 <section>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -181,7 +181,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPrice" src="./hRoom1.jpg" alt="">
+                            <img class="rPrice" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -206,7 +206,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -231,7 +231,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -256,7 +256,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -281,7 +281,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -306,7 +306,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -331,7 +331,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -356,7 +356,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>
@@ -381,7 +381,7 @@
                     </a>
                     <a href="#">
                         <figure>
-                            <img class="rPicture" src="./hRoom1.jpg" alt="">
+                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
                             <figcaption>
                                 <span>
                                     <h4 class="rPrice">100 CAD per night</h4>

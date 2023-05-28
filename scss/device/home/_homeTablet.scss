@@ -74,6 +74,14 @@
         }
     }
     //END: Popular destination section
+    //START: Accordion section
+    .accordion {
+        label:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+    }
+    //END: Accordion section
     //START: Special offer section
     .specialOffer {
         > article {
