@@ -9,16 +9,23 @@
         row-gap: 5vh;
         width: 65%;
         .gallery{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
 
             .banner {
-                height: 50vh;
+                height: 61vh;
+                width: 50%;
             }
 
             figure {
-                flex-wrap: nowrap;
+                justify-content: right;
+                width: fit-content;
+                
                 img {
                     height: 30vh;
-                    width: 25%;
+                    width: 48.5%;
 
                 }
             }
