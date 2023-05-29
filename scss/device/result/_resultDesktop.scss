@@ -41,8 +41,7 @@
     .rList {
         > article {
             width: 80%;
-            justify-content: left;
-            column-gap: 20%;
+            justify-content: space-between;
         }
         > aside {
             width: 80%;
