@@ -37,17 +37,15 @@
         }
     }
     //END: Accordion section
-    //START: Title section
-    .rTitle {
-        width: 72%;
-    }
-    //END: Title section
     //START: List section
     .rList {
         > article {
             width: 80%;
             justify-content: left;
             column-gap: 20%;
+        }
+        > aside {
+            width: 80%;
         }
     }
     //END: List section

@@ -135,13 +135,6 @@ $color2: rgb(198,164,126);
         }
     }
     //END: Accordion section
-    //START: Title section
-    .rTitle {
-        display: flex;
-        column-gap: 3vh;
-        width: 90%;
-    }
-    //END: Title section
     //START: List section
     .rList {
         width: 90%;
@@ -150,6 +143,9 @@ $color2: rgb(198,164,126);
         row-gap: 5vh;
         align-items: center;
         > article {
+            display: flex;
+            flex-direction: column;
+            row-gap: 3vh;
             width: 40vh;
             i {
                 width: 4vh;
@@ -159,12 +155,34 @@ $color2: rgb(198,164,126);
                 padding-left: 5vh;
             }
         }
+        .rTitle {
+            display: flex;
+            column-gap: 3vh;
+        }
+        > aside {
+            display: flex;
+            column-gap: 2vh;
+            justify-content: flex-start;
+            align-items: center;
+            width: 44vh;
+            a {
+                background-color: $color2;
+                color: whitesmoke;
+                padding: 2px 1vh;
+                font-weight: 600;
+                border: 3px solid $color2;
+            }
+            i {
+                font-size: 16px;
+            }
+            
+        }
         >section {
             display: flex;
             flex-direction: column;
             row-gap: 3vh;
         } 
-        a {
+        .rAcm {
             display: flex;
             flex-direction: column;
             width: 44vh;

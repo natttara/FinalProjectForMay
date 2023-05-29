@@ -31,17 +31,22 @@
         }
     }
     //END: Accordion section
-    //START: Title section
-    .rTitle {
-        width: 80vh;
-    }
-    //END: Title section
     //START: List section
     .rList {
         > article {
             width: 80vh;
-            display: flex;
+            flex-direction: row;
             justify-content: space-between;
+        }
+        > aside {
+            width: 80vh;
+            a {
+                transition: .4s;
+                &:hover {
+                    background-color: whitesmoke;
+                    color: $color2;
+                }
+            }
         }
         > section {
             flex-direction: row;
@@ -52,7 +57,7 @@
         img {
             height: 20vh;
         }
-        a {
+        .rAcm {
             transition: .4s;
             width: 28vh;
             h4 {
