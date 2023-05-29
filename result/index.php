@@ -20,11 +20,23 @@ echo Result::mainContent();
 if ( !empty($_GET) ) {
     if (!empty($_GET['sortBy'])) {
         $acmRepository->sortAcm($_GET['sortBy']);
-        echo Result::roomList($acmRepository->getAcmList());
+        echo Result::roomList($acmRepository->getAcmList(),"","");
+    }else if(!empty($_GET['location']) && !empty($_GET['guest'])){
+        echo $_GET['location'];
+        echo $_GET['guest'];
+        echo Result::roomList($acmRepository->getAcmList(),$_GET['location'],$_GET['guest']);
+    }else if(!empty($_GET['location']) && empty($_GET['guest'])){
+        echo $_GET['location'];
+        echo Result::roomList($acmRepository->getAcmList(),$_GET['location'],"");
+    }else if(empty($_GET['location']) && !empty($_GET['guest'])){
+        echo $_GET['guest'];
+        echo Result::roomList($acmRepository->getAcmList(),"",$_GET['guest']);
+    }else{
+        echo Result::roomList($acmRepository->getAcmList(),"","");
     }
     
 } else {
-    echo Result::roomList($acmRepository->getAcmList());
+    echo Result::roomList($acmRepository->getAcmList(),"","");
 }
 
 echo Result::toTopRow();

@@ -20,7 +20,6 @@
         static function mainContent(){
             $htmlMain = '<main class="result">';
             $htmlMain .= self::formRow();
-
             return $htmlMain;
         }
 
@@ -40,35 +39,35 @@
                         <aside class="hLocation">
                             <label for="location">Location:</label>
                             <select name="location" id="hLocation" multiple>
-                                <option disabled >Ctrl+click for multiple select!</option>
-                                <option value="westEnd">West End</option>
-                                <option value="k-cCottage">Kensington-Cedar Cottage</option>
-                                <option value="dtEast">Downtown Eastside</option>
-                                <option value="hastings-sunrise">Hastings Sunrise</option>
-                                <option value="grandview-woodland">Grandview-Woodland</option>
-                                <option value="renfrew-collingwood">Renfrew-Collingwood</option>
-                                <option value="mountPleasant">Mount Pleasant</option>
-                                <option value="kitsilano">Kitsilano</option>
-                                <option value="downtown">Downtown</option>
-                                <option value="rileyPark">Riley Park</option>
-                                <option value="arbutusRidge">Arbutus Ridge</option>
-                                <option value="dunbarSouthlands">Dunbar Southlands</option>
-                                <option value="killarney">Killarney</option>
-                                <option value="southCambie">South Cambie</option>
-                                <option value="fairview">Fairview</option>
-                                <option value="westPointGrey">West Point Grey</option>
-                                <option value="strathcona">Strathcona</option>
-                                <option value="sunset">Sunset</option>
-                                <option value="kerrisdale">Kerrisdale</option>
-                                <option value="victoria-fraserview">Victoria-Fraserview</option>
-                                <option value="marpole">Marpole</option>
-                                <option value="shaughnessy">Shaughnessy</option>
-                                <option value="oakridge">Oakridge</option>
+                                <option selected value="">Ctrl+click for multiple select!</option>
+                                <option value="West End">West End</option>
+                                <option value="Kensington-Cedar Cottage">Kensington-Cedar Cottage</option>
+                                <option value="Downtown Eastside">Downtown Eastside</option>
+                                <option value="Hastings Sunrise">Hastings Sunrise</option>
+                                <option value="Grandview-Woodland">Grandview-Woodland</option>
+                                <option value="Renfrew-Collingwood">Renfrew-Collingwood</option>
+                                <option value="Mount Pleasant">Mount Pleasant</option>
+                                <option value="Kitsilano">Kitsilano</option>
+                                <option value="Downtown">Downtown</option>
+                                <option value="Riley Park">Riley Park</option>
+                                <option value="Arbutus Ridge">Arbutus Ridge</option>
+                                <option value="Dunbar Southlands">Dunbar Southlands</option>
+                                <option value="Killarney">Killarney</option>
+                                <option value="South Cambie">South Cambie</option>
+                                <option value="Fairview">Fairview</option>
+                                <option value="West Point Grey">West Point Grey</option>
+                                <option value="Strathcona">Strathcona</option>
+                                <option value="Sunset">Sunset</option>
+                                <option value="Kerrisdale">Kerrisdale</option>
+                                <option value="Victoria-Fraserview">Victoria-Fraserview</option>
+                                <option value="Marpole">Marpole</option>
+                                <option value="Shaughnessy">Shaughnessy</option>
+                                <option value="Oakridge">Oakridge</option>
                             </select>
                         </aside>
                         <aside class="hPeople">
-                            <label for="">Guests:</label>
-                            <input type="number" name="adult" id="adult">
+                            <label for="guest">Guests:</label>
+                            <input type="number" name="guest" id="guest">
                         </aside>
                         <input type="submit" value="Search">
                     </form>
@@ -83,7 +82,7 @@
             return $form;
         }
 
-        static function roomList(array $acmList){
+        static function roomList(array $acmList,$location,$guestNum){
             $htmlList = '
             <section class="rList" id="list">
                 <article>
@@ -107,7 +106,7 @@
                 <section>
             ';
             foreach($acmList as $acm){
-                $htmlList .= self::room($acm);
+                $htmlList .= self::room($acm,$location,$guestNum);
             }
             $htmlList .= '
                 </section>
@@ -117,9 +116,28 @@
             return $htmlList;
         }
 
-        static function room($acm){
+        static function room($acm,$location,$guestNum){
+            $roomIcon = "";
+            $guestDisplay = "";
+            if($acm->getType() == "Entire home/apt"){
+                $roomIcon = '<i class="fa-solid fa-house"></i>';
+            }else if($acm->getType() == "Hotel room"){
+                $roomIcon = '<i class="fa-solid fa-hotel"></i>';
+            }else if($acm->getType() == "Private room"){
+                $roomIcon = '<i class="fa-solid fa-person-shelter"></i>';
+            }else if($acm->getType() == "Shared room"){
+                $roomIcon = '<i class="fa-solid fa-people-roof"></i>';
+            }
+
+            if($location != "" && $acm->getNeighbourhood() != $location){
+                $guestDisplay = 'style="display: none;"';
+            }
+            if($acm->getGuests() < $guestNum){
+                $guestDisplay = 'style="display: none;"';
+            }
+
             $htmlRoom = '
-            <a href="#" class="rAcm">
+            <a href="#" class="rAcm" '.$guestDisplay.'>
                 <figure>
                     <img class="rPicture" src="./inc/img/rRoom1.jpg" alt="">
                     <figcaption>
@@ -131,18 +149,20 @@
                 </figure>
                 <article>
                     <h3>'.$acm->getName().'</h3>
-                    <h4 class="rPlace">'.$acm->getNeighbourhood().'</h4>
-                    <section>
-                        <i class="fa-solid fa-house"></i>
-                        <aside>
+                    <h4 class="rPlace">'.'Location: '.$acm->getNeighbourhood().'</h4>
+                    <section>'.
+                    $roomIcon
+                        .'<aside>
                             <i id="rType" class="fa-solid fa-person-half-dress"></i>
                             <h4 class="rPeople">'.$acm->getGuests().'</h4>
                         </aside>
                     </section>
-                    <span class="rHost"><h5>Host:</h5> <h5 class="hostName">Host: Level Hotels And Furnished Suites</h5></span>
+                    <span class="rHost"><h5 class="hostName">Host: Level Hotels And Furnished Suites</h5></span>
                 </article>
             </a>
             ';
+
+            
             return $htmlRoom;
         }
 
