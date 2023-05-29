@@ -17,12 +17,12 @@ require_once("./inc/AccDAO.class.php");
 </head>
 <body>
 
-        <?php 
+ <?php 
 if (!empty($_GET)) {
     $Accomodation = AccDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
     // 14267
-    echo Desc::body($singleAcc->NAME);
+    echo Desc::body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT);
 
 }
         

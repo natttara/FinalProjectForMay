@@ -4,9 +4,9 @@ class Accommodation {
     private int $id_accommodation;
     private string $name;
     private string $neighbourhood;
-    private string $ROOM_TYPE;
-    private float $PRICE_PER_NIGHT;
-    private string $MAX_GUESTS;
+    private string $room_type;
+    private float $price;
+    private string $max_guests;
     private string $IS_AVAILABLE;
 
     public function getId() {
@@ -34,27 +34,27 @@ class Accommodation {
 	}
 
 	public function getType() {
-		return $this->ROOM_TYPE;
+		return $this->room_type;
 	}
 
-	public function setType(int $ROOM_TYPE) {
-		$this->ROOM_TYPE = $ROOM_TYPE;
+	public function setType(int $room_type) {
+		$this->room_type = $room_type;
 	}
 
 	public function getPrice() {
-		return $this->PRICE_PER_NIGHT;
+		return $this->price;
 	}
 
-	public function setPrice(float $PRICE_PER_NIGHT) {
-		$this->PRICE_PER_NIGHT = $PRICE_PER_NIGHT;
+	public function setPrice(float $price) {
+		$this->price = $price;
 	}
 
 	public function getGuests() {
-		return $this->MAX_GUESTS;
+		return $this->max_guests;
 	}
 
-	public function setGuests(string $MAX_GUESTS) {
-		$this->MAX_GUESTS = $MAX_GUESTS;
+	public function setGuests(string $max_guests) {
+		$this->max_guests = $max_guests;
 	}
 
 	public function getAvailability() {

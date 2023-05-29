@@ -2,7 +2,7 @@
 
     class Desc {
 
-        public static function body($title) : string{
+        public static function body($title,$neighbourhood,$type, $guests,$price) : string{
             $body = '
             <section class="container">
             <section class="body-desc">
@@ -20,12 +20,12 @@
                 <article class="left">
                     <aside class="info-banner">
                         <aside class="icons">
-                            <span><i class="fa-solid fa-map"></i>Acreage: 20ft</span>
-                            <span><i class="fa-regular fa-user"></i>Guests: 5</span>
-                            <span><i class="fa-solid fa-bed"></i>Bed: 2</span>
+                            <span><i class="fa-solid fa-map"></i>Neighbourhood: '.$neighbourhood.'   </span>
+                            <span><i class="fa-regular fa-user"></i>Maximum Guests: '. $guests.'</span>
+                            <span><i class="fa-solid fa-bed"></i>Room Type: '. $type.'  </span>
                         </aside>
                         <aside>
-                            <span>From: <span class="number">$120</span>/DAYS</span>           
+                            <span>From: <span class="number">$'. $price.'</span>/Night</span>           
                         </aside>
                     </aside>
                     <article class="description">

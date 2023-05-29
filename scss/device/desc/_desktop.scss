@@ -26,6 +26,12 @@
         .main-content {
             flex-direction: row;
             column-gap: 4vh;
+            .info-banner {
+                .number {
+                    font-weight: bold;
+                    font-size: 25px;
+                }
+            }
             .right {
                 width: 80%;
             }
