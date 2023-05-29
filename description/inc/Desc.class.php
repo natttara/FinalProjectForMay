@@ -2,11 +2,12 @@
 
     class Desc {
 
-        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name) : string{
+        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star) : string{
             $body = '
             <section class="container">
             <section class="body-desc">
             <h1 style="text-align:center; font-size:30px">'. $title.' </h1>
+            <h2 style=""><span><i class="fa-solid fa-star"></i> '.$star.'   </span></h2>
             <section class="gallery">
                 <img class="banner" src="'.$picture.'" alt="pic">
                 <figure>
