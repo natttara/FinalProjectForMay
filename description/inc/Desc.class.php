@@ -2,13 +2,13 @@
 
     class Desc {
 
-        public static function body($title,$neighbourhood,$type, $guests,$price) : string{
+        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name) : string{
             $body = '
             <section class="container">
             <section class="body-desc">
             <h1 style="text-align:center; font-size:30px">'. $title.' </h1>
             <section class="gallery">
-                <img class="banner" src="./inc/img/img-1.jpg" alt="">
+                <img class="banner" src="'.$picture.'" alt="pic">
                 <figure>
                     <img src="./inc/img/img-2.jpg" alt="img-1">
                     <img src="./inc/img/img-3.jpg" alt="img-2">
@@ -28,9 +28,9 @@
                             <span>From: <span class="number">$'. $price.'</span>/Night</span>           
                         </aside>
                     </aside>
+
                     <article class="description">
-                        <strong>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quo fugiat eveniet, velit dicta cupiditate alias! Sunt impedit quasi suscipit.</strong>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum accusantium voluptas sunt accusamus nihil natus similique debitis aut, modi autem qui ratione? Neque ipsa ducimus delectus consectetur voluptatibus odio libero explicabo deserunt fugiat obcaecati rerum praesentium maiores facilis quasi, nesciunt id tempora nisi, vitae itaque non perferendis. Autem, voluptatem dolorum.</p>
+                        '. $description .'
                         <aside class="amenities">
                         <span><i class="fa-solid fa-tv"></i>   Amenities</span>
                             <ul>
@@ -40,6 +40,7 @@
                                 <li>Dryer</li>
                             </ul>
                         </aside>
+
                     </article>
                 </article>
                 <article class="right">
@@ -68,6 +69,13 @@
                         </aside>
                     </section>
                     <button>BOOK NOW</button>
+                    <h4>The Host</h4>
+                    <article class="profile-user">
+                    <figure>
+                    <img class="circle" src="' .$host_picture.'" alt="img-1">
+                    </figure>
+                    <p>'.$host_name.'</p>
+                     </article>
                 </article>
             </section>
             </section>
