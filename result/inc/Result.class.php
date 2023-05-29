@@ -20,9 +20,6 @@
         static function mainContent(){
             $htmlMain = '<main class="result">';
             $htmlMain .= self::formRow();
-            $htmlMain .= self::listRow();
-            $htmlMain .= self::toTopRow();
-            $htmlMain .= '</main>';
 
             return $htmlMain;
         }
@@ -86,9 +83,9 @@
             return $form;
         }
 
-        static function listRow(){
-            $list = '
-            <section class="rList">
+        static function roomList(array $acmList){
+            $htmlList = '
+            <section class="rList" id="list">
                 <article>
                     <aside class="rTitle">
                         <h2>Rooms in:</h2>
@@ -108,50 +105,63 @@
                     <a href="?sortBy=priceDesc#list">Price <i class="fa-solid fa-angles-up"></i></a>
                 </aside>
                 <section>
-                    <a href="#" class="rAcm">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/rRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>蘑菇小屋提供单独出入的私人空间，无需与房东共享任何设施，单独的卧室，单独的洗手间，还有完整的厨房</h3>
-                            <h4 class="rPlace">kensington-cedar cottage</h4>
-                            <section>
-                                <i class="fa-solid fa-house"></i>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">Host: Level Hotels And Furnished Suites</h5></span>
-                        </article>
-                    </a>
+            ';
+            foreach($acmList as $acm){
+                $htmlList .= self::room($acm);
+            }
+            $htmlList .= '
                 </section>
             </section>
             ';
-            return $list;
+
+            return $htmlList;
+        }
+
+        static function room($acm){
+            $htmlRoom = '
+            <a href="#" class="rAcm">
+                <figure>
+                    <img class="rPicture" src="./inc/img/rRoom1.jpg" alt="">
+                    <figcaption>
+                        <span>
+                            <h4 class="rPrice">'.$acm->getPrice().' CAD per night</h4>
+                        </span>
+                        <i class="fa-solid fa-draw-polygon"></i>
+                    </figcaption>
+                </figure>
+                <article>
+                    <h3>'.$acm->getName().'</h3>
+                    <h4 class="rPlace">'.$acm->getNeighbourhood().'</h4>
+                    <section>
+                        <i class="fa-solid fa-house"></i>
+                        <aside>
+                            <i id="rType" class="fa-solid fa-person-half-dress"></i>
+                            <h4 class="rPeople">'.$acm->getGuests().'</h4>
+                        </aside>
+                    </section>
+                    <span class="rHost"><h5>Host:</h5> <h5 class="hostName">Host: Level Hotels And Furnished Suites</h5></span>
+                </article>
+            </a>
+            ';
+            return $htmlRoom;
         }
 
         static function toTopRow(){
             $toTop = '
-            <aside class="rToTop">
-                <a href="#">
-                    <h3>Go to Top</h3>
-                </a>
-                <!-- jump to header -->
-            </aside>
+                <aside class="rToTop">
+                    <a href="#">
+                        <h3>Go to Top</h3>
+                    </a>
+                    <!-- jump to header -->
+                </aside>
+            </main>
             ';
             return $toTop;
         }
 
         static function pageEnd(){
             $htmlEnd = '
-            </body>
+                </body>
             </html>
             ';
             return $htmlEnd;
