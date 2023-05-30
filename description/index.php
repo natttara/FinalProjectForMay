@@ -22,9 +22,16 @@ if (!empty($_GET)) {
     $Accomodation = AccDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
     // 14267
-    echo Desc::body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS);
+    // echo explode(";",c);
+    // echo explode(";",$singleAcc->AMENITIES);
+     $amenities = explode(";",$singleAcc->AMENITIES);
+    //  echo $amenities[22];
+    // for($i=0;$i<count($amenities);$i++) {
+    //     echo $amenities[$i];
+    // };
+    echo Desc:: body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS,$amenities);
 
-}
+};
         
         
         

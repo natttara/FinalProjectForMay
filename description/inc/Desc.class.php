@@ -1,8 +1,11 @@
 <?php
 
     class Desc {
+        
+       
 
-        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star) : string{
+        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star,$amenArray) : string{
+
             $body = '
             <section class="container">
             <section class="body-desc">
@@ -34,12 +37,11 @@
                         '. $description .'
                         <aside class="amenities">
                         <span><i class="fa-solid fa-tv"></i>   Amenities</span>
-                            <ul>
-                                <li>Refrigerator and water</li>
-                                <li>Hairdryer and iron</li>
-                                <li>Washer</li>
-                                <li>Dryer</li>
-                            </ul>
+                            <ul>';
+                              for ($i=0; $i <count($amenArray) ; $i++) { 
+                                $body.= '<li>'.$amenArray[$i].'</li>';
+                              }
+                              $body.='</ul>
                         </aside>
 
                     </article>
