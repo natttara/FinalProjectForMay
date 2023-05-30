@@ -1,5 +1,5 @@
 <?php
-
+    
 class AccDAO {
     private static $db;
 
@@ -25,5 +25,14 @@ class AccDAO {
         self::$db->execute();
 
         return self:: $db->singleResult();
+    }
+
+    public static function getReviewsId($id) {
+        $sql= "SELECT * FROM tb_reviews WHERE ID_ACCOMMODATION=:id";
+        self::$db->query($sql);
+        self::$db->bind(":id",$id);
+        self::$db->execute();
+
+        return self:: $db->resultSet();
     }
 }

@@ -21,16 +21,13 @@ require_once("./inc/AccDAO.class.php");
 if (!empty($_GET)) {
     $Accomodation = AccDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
-    // 14267
-    // echo explode(";",c);
-    // echo explode(";",$singleAcc->AMENITIES);
+    $reviews = AccDAO::getReviewsId($_GET['accommodation_id']);
      $amenities = explode(";",$singleAcc->AMENITIES);
-    //  echo $amenities[22];
-    // for($i=0;$i<count($amenities);$i++) {
-    //     echo $amenities[$i];
+    echo Desc:: body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS,$amenities, $reviews);
+    // for($i=0;$i<count($reviews);$i++) {
+    //     echo $reviews[$i]->COMMENT;
     // };
-    echo Desc:: body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS,$amenities);
-
+    
 };
         
         

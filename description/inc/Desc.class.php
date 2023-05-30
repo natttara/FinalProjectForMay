@@ -4,7 +4,7 @@
         
        
 
-        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star,$amenArray) : string{
+        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star,$amenArray,$reviews) : string{
 
             $body = '
             <section class="container">
@@ -43,7 +43,17 @@
                               }
                               $body.='</ul>
                         </aside>
-
+                    </article>
+                    <article class="reviews">
+                    <h2>Reviews </h2>';
+                    for($i=0;$i<count($reviews);$i++) {
+                        $body.='<figure>'.'<img src="./inc/img/user.png">'.'<figcaption>'.
+                        '<h3>'.$reviews[$i]->REVIEWER_NAME.'</h3>'.
+                        '<p>'.$reviews[$i]->COMMENT.'</p>'.
+                        '</figcaption>'.
+                        '</figure>';
+                    }
+                    $body.='
                     </article>
                 </article>
                 <article class="right">
