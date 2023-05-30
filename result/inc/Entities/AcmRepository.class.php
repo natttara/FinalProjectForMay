@@ -21,10 +21,11 @@ class AcmRepository {
     }
 
     public static function sortByPrice($acm1, $acm2){
-        return $acm1->getPrice() <=> $acm2->getPrice();
+        return $acm1->PRICE_PER_NIGHT <=> $acm2->PRICE_PER_NIGHT;
     }
+    
     public static function sortByPriceDesc($acm1, $acm2){
-        return $acm2->getPrice() <=> $acm1->getPrice();
+        return $acm2->PRICE_PER_NIGHT <=> $acm1->PRICE_PER_NIGHT;
     }
 
     public function sortAcm( string $sortBy ) : void {
@@ -35,6 +36,9 @@ class AcmRepository {
             break;
             case "priceDesc":
                 usort($this->acmList,'self::sortByPriceDesc');
+            break;
+            case "name":
+                usort($this->acmList,'self::sortByName');
             break;
         }
     }

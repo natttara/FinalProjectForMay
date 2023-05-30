@@ -1,3 +1,8 @@
 <?php
 
-define("CSV_FILE_PATH","./data/test.csv");
+define("DB_USER","root");
+define("DB_PASS","");
+define("DB_HOST","localhost");
+define("DB_NAME","airbnb");
+
+?>

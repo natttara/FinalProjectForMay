@@ -39,7 +39,7 @@
                         <aside class="hLocation">
                             <label for="location">Location:</label>
                             <select name="location" id="hLocation" multiple>
-                                <option selected value="">Ctrl+click for multiple select!</option>
+                                <option selected value="All Vancouver">All Vancouver</option>
                                 <option value="West End">West End</option>
                                 <option value="Kensington-Cedar Cottage">Kensington-Cedar Cottage</option>
                                 <option value="Downtown Eastside">Downtown Eastside</option>
@@ -83,12 +83,16 @@
         }
 
         static function roomList(array $acmList,$location,$guestNum){
+            if($location == ""){//when form is not used
+                $location = "All Vancouver"; //to pop up "Rooms in: All Vancouver"
+            }
+
             $htmlList = '
             <section class="rList" id="list">
                 <article>
                     <aside class="rTitle">
                         <h2>Rooms in:</h2>
-                        <h2 class="rLocation">All Vancouver</h2>
+                        <h2 class="rLocation">'.$location.'</h2>
                         <!-- this part changes due to the selected places -->
                     </aside>
                     <ul>
@@ -100,8 +104,8 @@
                     </ul>
                 </article>
                 <aside>
-                    <a href="?sortBy=price#list">Price <i class="fa-solid fa-angles-down"></i></a>
-                    <a href="?sortBy=priceDesc#list">Price <i class="fa-solid fa-angles-up"></i></a>
+                    <a href="?sortBy=price&checkIn=&checkOut=&location='.$location.'&guest='.$guestNum.'#list">Price <i class="fa-solid fa-angles-down"></i></a>
+                    <a href="?sortBy=priceDesc&checkIn=&checkOut=&location='.$location.'&guest='.$guestNum.'#list">Price <i class="fa-solid fa-angles-up"></i></a>
                 </aside>
                 <section>
             ';
@@ -117,52 +121,46 @@
         }
 
         static function room($acm,$location,$guestNum){
+
+            //START: giving icon according to the room type
             $roomIcon = "";
-            $guestDisplay = "";
-            if($acm->getType() == "Entire home/apt"){
+            if($acm->ROOM_TYPE == "Entire home/apt"){
                 $roomIcon = '<i class="fa-solid fa-house"></i>';
-            }else if($acm->getType() == "Hotel room"){
+            }else if($acm->ROOM_TYPE == "Hotel room"){
                 $roomIcon = '<i class="fa-solid fa-hotel"></i>';
-            }else if($acm->getType() == "Private room"){
+            }else if($acm->ROOM_TYPE == "Private room"){
                 $roomIcon = '<i class="fa-solid fa-person-shelter"></i>';
-            }else if($acm->getType() == "Shared room"){
+            }else if($acm->ROOM_TYPE == "Shared room"){
                 $roomIcon = '<i class="fa-solid fa-people-roof"></i>';
             }
-
-            if($location != "" && $acm->getNeighbourhood() != $location){
-                $guestDisplay = 'style="display: none;"';
-            }
-            if($acm->getGuests() < $guestNum){
-                $guestDisplay = 'style="display: none;"';
-            }
-
+            //END: giving icon according to the room type
+            
             $htmlRoom = '
-            <a href="#" class="rAcm" '.$guestDisplay.'>
+            <a href="#" class="rAcm">
                 <figure>
-                    <img class="rPicture" src="./inc/img/rRoom1.jpg" alt="">
+                    <img class="rPicture" src="'.$acm->PICTURE.'">
                     <figcaption>
                         <span>
-                            <h4 class="rPrice">'.$acm->getPrice().' CAD per night</h4>
+                            <h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD per night</h4>
                         </span>
                         <i class="fa-solid fa-draw-polygon"></i>
                     </figcaption>
                 </figure>
                 <article>
-                    <h3>'.$acm->getName().'</h3>
-                    <h4 class="rPlace">'.'Location: '.$acm->getNeighbourhood().'</h4>
+                    <h3>'.$acm->NAME.'</h3>
+                    <h4 class="rPlace">'.'Location: '.$acm->NEIGHBOURHOOD.'</h4>
                     <section>'.
                     $roomIcon
                         .'<aside>
                             <i id="rType" class="fa-solid fa-person-half-dress"></i>
-                            <h4 class="rPeople">'.$acm->getGuests().'</h4>
+                            <h4 class="rPeople">'.$acm->MAX_GUESTS.'</h4>
                         </aside>
                     </section>
-                    <span class="rHost"><h5 class="hostName">Host: Level Hotels And Furnished Suites</h5></span>
+                    <span class="rHost"><h5 class="hostName">Host: '.$acm->HOST_NAME.'</h5></span>
                 </article>
             </a>
             ';
-
-            
+   
             return $htmlRoom;
         }
 

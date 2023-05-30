@@ -2,43 +2,50 @@
 
 require_once("inc/config.inc.php");
 require_once("inc/Entities/Accommodation.class.php");
+require_once("inc/Utilities/PDOService.class.php");
+require_once("inc/Entities/AccDAO.class.php");
 require_once("inc/Entities/AcmRepository.class.php");
-require_once("inc/Utilities/FileManager.class.php");
-require_once("inc/Utilities/FileParse.acm.class.php");
 require_once("inc/Result.class.php");
 
-echo Result::pageHead();
-
-$fileContent = FileManager::readCsvFile(CSV_FILE_PATH);
-$acmList = FileParse::parseFromStringToAcm($fileContent);
+$Accomodation = AccDAO::startDB();
+$acmList= AccDAO::get50();
 
 $acmRepository = new AcmRepository();
 $acmRepository->setAcmList($acmList);
 
+echo Result::pageHead();
 echo Result::mainContent();
 
 if ( !empty($_GET) ) {
-    if (!empty($_GET['sortBy'])) {
-        $acmRepository->sortAcm($_GET['sortBy']);
-        echo Result::roomList($acmRepository->getAcmList(),"","");
-    }else if(!empty($_GET['location']) && !empty($_GET['guest'])){
-        echo $_GET['location'];
-        echo $_GET['guest'];
-        echo Result::roomList($acmRepository->getAcmList(),$_GET['location'],$_GET['guest']);
-    }else if(!empty($_GET['location']) && empty($_GET['guest'])){
-        echo $_GET['location'];
-        echo Result::roomList($acmRepository->getAcmList(),$_GET['location'],"");
-    }else if(empty($_GET['location']) && !empty($_GET['guest'])){
-        echo $_GET['guest'];
-        echo Result::roomList($acmRepository->getAcmList(),"",$_GET['guest']);
+    if($_GET['location'] == "All Vancouver"){
+        if (!empty($_GET['sortBy'])) {
+            $acmList = AccDAO::getGuest50($_GET['guest']);
+            $acmRepository->sortAcm($_GET['sortBy']);
+            echo Result::roomList($acmRepository->getAcmList(),$_GET['location'],$_GET['guest']);
+        }else if(!empty($_GET['guest'])){
+            $acmList = AccDAO::getGuest50($_GET['guest']);
+            echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+        }else{
+            echo Result::roomList($acmList,$_GET['location'],"");
+        }
     }else{
-        echo Result::roomList($acmRepository->getAcmList(),"","");
+        $acmList = AccDAO::getLocation50($_GET['location']);
+        if (!empty($_GET['sortBy'])) {
+            $acmList = AccDAO::getLocationGuest50($_GET['location'],$_GET['guest']);
+            $acmRepository->sortAcm($_GET['sortBy']);
+            echo Result::roomList($acmRepository->getAcmList(),$_GET['location'],$_GET['guest']);
+        }else if(!empty($_GET['guest'])){
+            $acmList = AccDAO::getLocationGuest50($_GET['location'],$_GET['guest']);
+            echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+        }else{
+            echo Result::roomList($acmList,$_GET['location'],"");
+        }
+
     }
     
 } else {
-    echo Result::roomList($acmRepository->getAcmList(),"","");
+    echo Result::roomList($acmList,"","");
 }
 
 echo Result::toTopRow();
-
 echo Result::pageEnd();
