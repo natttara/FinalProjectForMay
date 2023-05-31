@@ -136,7 +136,7 @@
             //END: giving icon according to the room type
             
             $htmlRoom = '
-            <a href="#" class="rAcm">
+            <a href="../description/?accommodation_id='.$acm->ID_ACCOMMODATION.'" class="rAcm">
                 <figure>
                     <img class="rPicture" src="'.$acm->PICTURE.'">
                     <figcaption>
