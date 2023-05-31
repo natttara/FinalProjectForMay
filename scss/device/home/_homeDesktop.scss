@@ -48,8 +48,7 @@
     .specialOffer {
         > article {
             width: 80%;
-            justify-content: left;
-            column-gap: 20%;
+            justify-content: space-between;
         }
     }
     //END: Special offer section

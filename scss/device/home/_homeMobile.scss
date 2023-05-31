@@ -179,13 +179,17 @@ $color2: rgb(198,164,126);
             border-top: none;
             padding: 1vh 0;
         }
-        input {
+        a {
             background-color: $color2;
             color: whitesmoke;
             border-radius: 100%;
             border: 2px solid $color2;
             height: 3vh;
             width: 3vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
         }
     }
     //END: PopulardDestination section
@@ -197,6 +201,9 @@ $color2: rgb(198,164,126);
         row-gap: 5vh;
         align-items: center;
         > article {
+            display: flex;
+            flex-direction: column;
+            row-gap: 3vh;
             width: 40vh;
             i {
                 width: 4vh;

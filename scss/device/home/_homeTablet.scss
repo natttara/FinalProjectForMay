@@ -63,7 +63,7 @@
         img {
             height: 24vh;
         }
-        input {
+        a {
             height: 4.5vh;
             width: 4.5vh;
             transition: .4s;
@@ -86,7 +86,7 @@
     .specialOffer {
         > article {
             width: 80vh;
-            display: flex;
+            flex-direction: row;
             justify-content: space-between;
         }
         > section {

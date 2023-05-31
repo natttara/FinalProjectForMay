@@ -17,11 +17,11 @@
             return $htmlHead;
         }
 
-        static function mainContent(){
+        static function mainContent($acmList){
             $mainContent = '<main class="home">';
             $mainContent .= self::formRow();
             $mainContent .= self::destinationRow();
-            $mainContent .= self::offerRow();
+            $mainContent .= self::offerRow($acmList);
             $mainContent .= '</main>';
 
             return $mainContent;
@@ -31,7 +31,7 @@
             $form = '
             <section class="hForm">
                 <section class="hLayer">
-                    <form action="#">
+                    <form action="../result/">
                         <aside>
                             <label for="checkIn">Check In:</label>
                             <input type="date" name="checkIn" id="checkIn">
@@ -43,35 +43,35 @@
                         <aside class="hLocation">
                             <label for="location">Location:</label>
                             <select name="location" id="hLocation" multiple>
-                                <option disabled >Ctrl+click for multiple select!</option>
-                                <option value="westEnd">West End</option>
-                                <option value="k-cCottage">Kensington-Cedar Cottage</option>
-                                <option value="dtEast">Downtown Eastside</option>
-                                <option value="hastings-sunrise">Hastings Sunrise</option>
-                                <option value="grandview-woodland">Grandview-Woodland</option>
-                                <option value="renfrew-collingwood">Renfrew-Collingwood</option>
-                                <option value="mountPleasant">Mount Pleasant</option>
-                                <option value="kitsilano">Kitsilano</option>
-                                <option value="downtown">Downtown</option>
-                                <option value="rileyPark">Riley Park</option>
-                                <option value="arbutusRidge">Arbutus Ridge</option>
-                                <option value="dunbarSouthlands">Dunbar Southlands</option>
-                                <option value="killarney">Killarney</option>
-                                <option value="southCambie">South Cambie</option>
-                                <option value="fairview">Fairview</option>
-                                <option value="westPointGrey">West Point Grey</option>
-                                <option value="strathcona">Strathcona</option>
-                                <option value="sunset">Sunset</option>
-                                <option value="kerrisdale">Kerrisdale</option>
-                                <option value="victoria-fraserview">Victoria-Fraserview</option>
-                                <option value="marpole">Marpole</option>
-                                <option value="shaughnessy">Shaughnessy</option>
-                                <option value="oakridge">Oakridge</option>
+                                <option selected value="All Vancouver">All Vancouver</option>
+                                <option value="West End">West End</option>
+                                <option value="Kensington-Cedar Cottage">Kensington-Cedar Cottage</option>
+                                <option value="Downtown Eastside">Downtown Eastside</option>
+                                <option value="Hastings Sunrise">Hastings Sunrise</option>
+                                <option value="Grandview-Woodland">Grandview-Woodland</option>
+                                <option value="Renfrew-Collingwood">Renfrew-Collingwood</option>
+                                <option value="Mount Pleasant">Mount Pleasant</option>
+                                <option value="Kitsilano">Kitsilano</option>
+                                <option value="Downtown">Downtown</option>
+                                <option value="Riley Park">Riley Park</option>
+                                <option value="Arbutus Ridge">Arbutus Ridge</option>
+                                <option value="Dunbar Southlands">Dunbar Southlands</option>
+                                <option value="Killarney">Killarney</option>
+                                <option value="South Cambie">South Cambie</option>
+                                <option value="Fairview">Fairview</option>
+                                <option value="West Point Grey">West Point Grey</option>
+                                <option value="Strathcona">Strathcona</option>
+                                <option value="Sunset">Sunset</option>
+                                <option value="Kerrisdale">Kerrisdale</option>
+                                <option value="Victoria-Fraserview">Victoria-Fraserview</option>
+                                <option value="Marpole">Marpole</option>
+                                <option value="Shaughnessy">Shaughnessy</option>
+                                <option value="Oakridge">Oakridge</option>
                             </select>
                         </aside>
                         <aside class="hPeople">
-                            <label for="">Guests:</label>
-                            <input type="number" name="adult" id="adult">
+                            <label for="guest">Guests:</label>
+                            <input type="number" name="guest" id="guest">
                         </aside>
                         <input type="submit" value="Search">
                     </form>
@@ -99,7 +99,7 @@
                             <img src="./inc/img/hGranvilleIsland.jpg" alt="">
                             <figcaption>
                                 <h3>Granville Island</h3>
-                                <input type="button" value="Go">
+                                <a href="../result/?checkIn=&checkOut=&location=Fairview&guest=">Go</a>
                             </figcaption>
                         </figure>
                         <article>
@@ -112,7 +112,7 @@
                             <img src="./inc/img/hStanleyPark.jpg" alt="stanleyPark">
                             <figcaption>
                                 <h3>Stanley Park</h3>
-                                <input type="button" value="Go">
+                                <a href="../result/?checkIn=&checkOut=&location=West+End&guest=">Go</a>
                             </figcaption>
                         </figure>
                         <article>
@@ -125,7 +125,7 @@
                             <img src="./inc/img/hScienceWorld.jpg" alt="scienceWorld">
                             <figcaption>
                                 <h3>Science World</h3>
-                                <input type="button" value="Go">
+                                <a href="../result/?checkIn=&checkOut=&location=Mount+PLeasant&guest=">Go</a>
                             </figcaption>
                         </figure>
                         <article>
@@ -139,8 +139,8 @@
             return $destination;
         }
 
-        static function offerRow(){
-            $offer = '
+        static function offerRow(array $acmList){
+            $offerList = '
             <section class="specialOffer">
                 <article>
                     <aside>
@@ -155,259 +155,59 @@
                         <li><i class="fa-solid fa-person-half-dress"></i>: Number of guests</li>
                     </ul>
                 </article>
-                <section>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>蘑菇小屋提供单独出入的私人空间，无需与房东共享任何设施，单独的卧室，单独的洗手间，还有完整的厨房</h3>
-                            <h4 class="rPlace">kensington-cedar cottage</h4>
-                            <section>
-                                <i class="fa-solid fa-house"></i>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">Host: Level Hotels And Furnished Suites</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPrice" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>Home</h3>
-                            <h4 class="rPlace">sunset</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-person-shelter"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">K</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
-                    <a href="#">
-                        <figure>
-                            <img class="rPicture" src="./inc/img/hRoom1.jpg" alt="">
-                            <figcaption>
-                                <span>
-                                    <h4 class="rPrice">100 CAD per night</h4>
-                                </span>
-                                <i class="fa-solid fa-draw-polygon"></i>
-                            </figcaption>
-                        </figure>
-                        <article>
-                            <h3>NameNameName</h3>
-                            <h4 class="rPlace">placeplaceplace</h4>
-                            <section>
-                                <aside>
-                                    <i id="rType" class="fa-solid fa-hotel"></i>
-                                </aside>
-                                <aside>
-                                    <i class="fa-solid fa-person-half-dress"></i>
-                                    <h4 class="rPeople">2</h4>
-                                </aside>
-                            </section>
-                            <span class="rHost"><h5>Host:</h5> <h5 class="hostName">hostnamehostname</h5></span>
-                        </article>
-                    </a>
+                <section>';
+            foreach($acmList as $acm){
+                $offerList .= self::offerRoom($acm);
+            }
+            $offerList .= '
                 </section>
             </section>
             ';
-            return $offer;
+            return $offerList;
+        }
+
+        static function offerRoom($acm){
+
+            //START: giving icon according to the room type
+            $roomIcon = "";
+            if($acm->ROOM_TYPE == "Entire home/apt"){
+                $roomIcon = '<i class="fa-solid fa-house"></i>';
+            }else if($acm->ROOM_TYPE == "Hotel room"){
+                $roomIcon = '<i class="fa-solid fa-hotel"></i>';
+            }else if($acm->ROOM_TYPE == "Private room"){
+                $roomIcon = '<i class="fa-solid fa-person-shelter"></i>';
+            }else if($acm->ROOM_TYPE == "Shared room"){
+                $roomIcon = '<i class="fa-solid fa-people-roof"></i>';
+            }
+            //END: giving icon according to the room type
+            
+            $htmlRoom = '
+            <a href="../description/?accommodation_id='.$acm->ID_ACCOMMODATION.'" class="rAcm">
+                <figure>
+                    <img class="rPicture" src="'.$acm->PICTURE.'">
+                    <figcaption>
+                        <span>
+                            <h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD per night</h4>
+                        </span>
+                        <i class="fa-solid fa-draw-polygon"></i>
+                    </figcaption>
+                </figure>
+                <article>
+                    <h3>'.$acm->NAME.'</h3>
+                    <h4 class="rPlace">'.'Location: '.$acm->NEIGHBOURHOOD.'</h4>
+                    <section>'.
+                    $roomIcon
+                        .'<aside>
+                            <i id="rType" class="fa-solid fa-person-half-dress"></i>
+                            <h4 class="rPeople">'.$acm->MAX_GUESTS.'</h4>
+                        </aside>
+                    </section>
+                    <span class="rHost"><h5 class="hostName">Host: '.$acm->HOST_NAME.'</h5></span>
+                </article>
+            </a>
+            ';
+   
+            return $htmlRoom;
         }
 
         static function pageEnd(){
