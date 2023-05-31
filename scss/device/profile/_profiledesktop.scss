@@ -1,0 +1,65 @@
+$color1: rgb(34,34,34);
+$color2: rgb(198,164,126);
+
+@media (min-width: $desktopScreen){
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    .pleft { 
+        width: 30%;
+
+        img {
+            height: 40%;
+            width: 60%;
+            
+        }
+
+        figcaption {
+            font-size: 20px;
+        }
+
+    }
+
+    .leftchoice {
+        font-size: 18px;
+    }
+
+
+    .status{
+        font-size: 20px;
+        row-gap: 2vh;
+    }
+
+    .level {
+
+        > li {
+            
+            height: 2vh;
+            
+        }
+
+    }
+
+    .passw {
+        flex-direction: column;
+        font-size: 16px;
+
+        > aside {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    
+    
+    
+}
