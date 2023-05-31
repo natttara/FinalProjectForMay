@@ -6,6 +6,7 @@ require_once("inc/Utilities/PDOService.class.php");
 require_once("inc/Entities/AccDAO.class.php");
 require_once("inc/Entities/AcmRepository.class.php");
 require_once("inc/Result.class.php");
+require_once("../Footer.Class.php");
 
 $Accomodation = AccDAO::startDB();
 $acmList= AccDAO::get50();
@@ -48,4 +49,5 @@ if ( !empty($_GET) ) {
 }
 
 echo Result::toTopRow();
+echo Footer::footer();
 echo Result::pageEnd();

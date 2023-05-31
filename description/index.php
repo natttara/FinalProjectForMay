@@ -4,6 +4,7 @@ require_once("./inc/config.inc.php");
 require_once("./inc/Acc.class.php");
 require_once("./inc/PDOService.class.php");
 require_once("./inc/AccDAO.class.php");
+require_once("../Footer.Class.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,7 @@ if (!empty($_GET)) {
 };
         
         
+echo Footer::footer();
         
         ?>
     
