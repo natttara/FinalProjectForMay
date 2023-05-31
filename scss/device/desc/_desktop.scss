@@ -1,0 +1,48 @@
+@media (min-width:1000px) {
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+    .body-desc{
+        // padding: 20vh;
+        row-gap: 3vh;
+        width: 65%;
+        .gallery{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            
+
+            .banner {
+                height: 61vh;
+                width: 50%;
+            }
+
+            figure {
+                justify-content: right;
+                width: fit-content;
+                
+                img {
+                    height: 30vh;
+                    width: 48.5%;
+
+                }
+            }
+        }
+        .main-content {
+            flex-direction: row;
+            column-gap: 4vh;
+            .info-banner {
+                .number {
+                    font-weight: bold;
+                    font-size: 25px;
+                }
+            }
+            .right {
+                width: 80%;
+            }
+            
+        }
+    }
+}
