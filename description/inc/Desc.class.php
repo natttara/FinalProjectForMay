@@ -4,15 +4,15 @@
         
        
 
-        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star,$amenArray,$reviews,$offer,$newPrice) : string{
+        public static function body($acc,$amenities,$reviews) : string{
 
             $body = '
             <section class="container">
             <section class="body-desc">
-            <h1 style="text-align:center; font-size:30px">'. $title.' </h1>
-            <h2 style=""><span><i class="fa-solid fa-star"></i> '.$star.'   </span></h2>
+            <h1 style="text-align:center; font-size:30px">'. $acc->NAME.' </h1>
+            <h2 style=""><span><i class="fa-solid fa-star"></i> '.$acc->REVIEWS.'   </span></h2>
             <section class="gallery">
-                <img class="banner" src="'.$picture.'" alt="pic">
+                <img class="banner" src="'.$acc->PICTURE.'" alt="pic">
                 <figure>
                     <img src="./inc/img/img-2.jpg" alt="img-1">
                     <img src="./inc/img/img-3.jpg" alt="img-2">
@@ -24,16 +24,16 @@
                 <article class="left">
                     <aside class="info-banner">
                         <aside class="icons">
-                            <span><i class="fa-solid fa-map"></i>Neighbourhood: '.$neighbourhood.'   </span>
-                            <span><i class="fa-regular fa-user"></i>Maximum Guests: '. $guests.'</span>
-                            <span><i class="fa-solid fa-bed"></i>Room Type: '. $type.'  </span>
+                            <span><i class="fa-solid fa-map"></i>Neighbourhood: '.$acc->NEIGHBOURHOOD.'   </span>
+                            <span><i class="fa-regular fa-user"></i>Maximum Guests: '. $acc->MAX_GUESTS.'</span>
+                            <span><i class="fa-solid fa-bed"></i>Room Type: '. $acc->ROOM_TYPE.'  </span>
                         </aside>
                         <aside>
                             <span>From: ';
-                            if($offer==1) {
-                                $body.='<span class="number"><del>$'. $price.'</del><span> $'.$newPrice.'</span></span>';
+                            if($acc->SPECIAL_OFFER==1) {
+                                $body.='<span class="number"><del>$'. $acc->PRICE_PER_NIGHT.'</del><span> $'.$acc->NEW_PRICE.'</span></span>';
                             }else {
-                                $body.='<span class="number">$'. $price.'</span>';
+                                $body.='<span class="number">$'. $acc->PRICE_PER_NIGHT.'</span>';
                             }
                             
                             $body.=' /Night</span>           
@@ -41,12 +41,12 @@
                     </aside>
 
                     <article class="description">
-                        '. $description .'
+                        '. $acc->DESCRIPTION.'
                         <aside class="amenities">
                         <span><i class="fa-solid fa-tv"></i>   Amenities</span>
                             <ul>';
-                              for ($i=0; $i <count($amenArray) ; $i++) { 
-                                $body.= '<li>'.$amenArray[$i].'</li>';
+                              for ($i=0; $i <count($amenities) ; $i++) { 
+                                $body.= '<li>'.$amenities[$i].'</li>';
                               }
                               $body.='</ul>
                         </aside>
@@ -92,9 +92,9 @@
                     <h4>The Host</h4>
                     <article class="profile-user">
                     <figure>
-                    <img class="circle" src="' .$host_picture.'" alt="img-1">
+                    <img class="circle" src="' .$acc->HOST_PICTURE.'" alt="img-1">
                     </figure>
-                    <p>'.$host_name.'</p>
+                    <p>'.$acc->HOST_NAME.'</p>
                      </article>
                 </article>
             </section>
