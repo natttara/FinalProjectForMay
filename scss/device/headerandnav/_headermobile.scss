@@ -1,0 +1,139 @@
+$color1: rgb(34,34,34);
+$color2: rgb(198,164,126);
+
+@media (min-width: $mobileScreen){
+    .head {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 5vh;
+        
+    
+        a {
+            color: $color2;
+        }
+    }
+
+    nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        color: white;
+        background-color: $color1;
+        padding: 1vh;
+
+        img {
+            width: 7vh;
+        }
+
+        figcaption {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+        }
+
+        h3 {
+            color: $color2;
+            font-style: italic;
+            font-size: 26px;
+        }
+
+        > ul {
+            display: none;
+        }
+
+        > figure {
+            display: flex;
+            column-gap: 1vh;
+        }
+
+        
+
+        > details {
+            width: 95%;
+            text-align: right;
+            position: absolute;
+            > ul {
+                position: absolute;
+                list-style-type: none;
+                background-color: $color1;
+                width: 100%;
+                row-gap: 1vh;
+            }
+    
+            li {
+                display: flex;
+            }
+    
+            a {
+                width: 100%;
+                padding: 2%;
+            }
+    
+        }
+    
+        summary {
+            background-color: $color2;
+            color: white;
+            padding: 2vh;
+            font-size: 20px;
+        }
+    }
+
+    .headbg {
+        background-image: url(/header/inc/img/2.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 30vh;
+        display: flex;
+        
+        
+        > section {
+            background-color: rgba(53, 52, 52, 0.539);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            row-gap: 1vh;
+
+            > a {
+                color: whitesmoke;
+                background-color: $color2;
+                border-radius: 5px;
+                padding: 3%;
+                width: 25%;
+                text-align: center;
+                font-weight: 800;
+                font-size: 16px;
+            }
+            
+        }
+
+        h2 {
+            color: white;
+            font-weight: 700;
+            font-size: 30px;
+                     
+        }
+
+        h5 {
+            color: white;
+            font-size: 20px;
+            text-transform: lowercase;
+        }
+
+        
+    }
+
+    
+
+
+    
+}
