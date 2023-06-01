@@ -1,0 +1,172 @@
+
+@media (min-width: 200px) {
+    .body-desc {
+        padding: 6vh;
+        display:flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        .fa-star {
+            color: #C6A47E;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+            .banner {
+                width: 100%;
+                height: 25vh;
+                border-radius: 3px;
+
+            }
+            figure {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap:1vh;
+                img {
+                    width: 48%;
+                    height: 15vh;
+                border-radius: 3px;
+
+                }
+            }
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column-reverse;
+            row-gap: 4vh;
+
+            .left {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1vh;
+                .reviews {
+                display: flex;
+                flex-direction: column;
+                row-gap: 2vh;
+                    figure {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 2vh;
+                    figcaption {
+                        width: 100%;
+                        text-align: justify;
+                    }
+                    }
+                    img {
+                        width: 10vh;
+                        height: 10vh;
+                    }
+                }
+
+
+                .description {
+                    text-align: justify;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1vh;
+                    .amenities {
+                        display: flex;
+                        flex-direction: column;
+                        row-gap: 1vh;
+                        span {
+                            font-weight: bold;
+                        }
+                        ul {
+                            padding-left: 2vh;
+                        }
+                         li {
+                            list-style-type: circle;
+                         }
+                    }
+                }
+            }
+            .info-banner {
+                height: fit-content;
+                background-color: black;
+                color: white;
+                padding: 1vh;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .icons {
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        // display: flex;
+                        i {
+                            padding-right: 5px;
+                        }
+                    }
+                }
+            }
+            .right {
+             display: flex;
+             flex-direction: column;
+             row-gap: 1vh;
+             h4 {
+                padding-top: 2vh;
+            }
+             .profile-user {
+                display: flex;
+                column-gap: 2vh;
+                align-items: center;
+                padding-left: 1vh;
+                padding-top: 2vh;
+    
+                .circle {
+                    width: 10vh;
+                    height: 10vh;
+                    border-radius: 50%;
+                }
+                font-size: 30px;
+             }
+             >button {
+                color: white;
+                background-color: #C6A47E;
+                border:none;
+                height: 4vh;
+             }
+             .top, .bottom {
+                display: flex;
+                justify-content: space-between;
+                // column-gap: 1vh;
+                .block {
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: black;
+                    width: 100%;
+                    padding: 0.5vh 0.5vh 1vh 0.5vh;
+                    row-gap: 0.5vh;
+                    p {
+                        color: white;
+                    }
+                    span {
+                        color: #C6A47E;
+                        font-size: 32px;
+                        font-weight: bold;
+                    }
+                    button {
+                        color: white;
+                        background-color: #C6A47E;
+                        padding: 0.7vh;
+                        text-align: center;
+                        width: 15vh;
+                border:none;
+
+                    }
+                }
+             }
+
+
+            }
+        }
+    
+    }
+}
+
+
