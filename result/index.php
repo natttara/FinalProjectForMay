@@ -4,15 +4,13 @@ require_once("inc/config.inc.php");
 require_once("inc/Entities/Accommodation.class.php");
 require_once("inc/Utilities/PDOService.class.php");
 require_once("inc/Entities/AccDAO.class.php");
-require_once("inc/Entities/AcmRepository.class.php");
 require_once("inc/Result.class.php");
 require_once("../Footer.Class.php");
 
 $Accomodation = AccDAO::startDB();
 $acmList= AccDAO::get25();
 
-$acmRepository = new AcmRepository();
-$acmRepository->setAcmList($acmList);
+
 
 echo Result::pageHead();
 echo Result::mainContent();
