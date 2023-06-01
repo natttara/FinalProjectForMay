@@ -4,7 +4,7 @@
         
        
 
-        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star,$amenArray,$reviews) : string{
+        public static function body($title,$neighbourhood,$type, $guests,$price,$description,$picture,$host_picture,$host_name,$star,$amenArray,$reviews,$offer,$newPrice) : string{
 
             $body = '
             <section class="container">
@@ -29,7 +29,14 @@
                             <span><i class="fa-solid fa-bed"></i>Room Type: '. $type.'  </span>
                         </aside>
                         <aside>
-                            <span>From: <span class="number">$'. $price.'</span>/Night</span>           
+                            <span>From: ';
+                            if($offer==1) {
+                                $body.='<span class="number"><del>$'. $price.'</del><span> $'.$newPrice.'</span></span>';
+                            }else {
+                                $body.='<span class="number">$'. $price.'</span>';
+                            }
+                            
+                            $body.=' /Night</span>           
                         </aside>
                     </aside>
 
