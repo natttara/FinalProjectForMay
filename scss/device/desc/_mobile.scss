@@ -91,6 +91,12 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                .number{
+                    del{
+                        color: lightcoral;
+                        font-size: 25px;
+                    }
+                }
                 .icons {
                     display: flex;
                     flex-direction: column;
