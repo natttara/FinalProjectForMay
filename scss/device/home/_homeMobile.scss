@@ -221,6 +221,7 @@ $color2: rgb(198,164,126);
         a {
             display: flex;
             flex-direction: column;
+            align-items: center;
             width: 44vh;
             > article {
                 width: 100%;
@@ -274,6 +275,9 @@ $color2: rgb(198,164,126);
                 padding: 5px;
             }
             h4 {
+                display: flex;
+                column-gap: 1vh;
+                align-items: center;
                 color: whitesmoke;
             }
             i {
@@ -284,6 +288,15 @@ $color2: rgb(198,164,126);
         span {
             display: flex;
             column-gap: 1vh;
+
+        }
+        .test {
+            transform: rotate(10deg);
+        }
+        del {
+            color: red;
+            font-size: 12px;
+
         }
     }
     //END: Special Offer Section section

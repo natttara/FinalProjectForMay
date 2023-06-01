@@ -7,7 +7,7 @@ require_once("inc/Entities/AccDAO.class.php");
 require_once("./inc/Home.class.php");
 
 $Accomodation = AccDAO::startDB();
-$acmList= AccDAO::get10();
+$acmList= AccDAO::getSpecialOffer();
 echo Home::pageHead();
 echo Home::mainContent($acmList);
 echo Home::pageEnd();
