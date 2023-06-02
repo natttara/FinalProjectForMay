@@ -9,8 +9,6 @@
             $body = '
             <section class="container">
             <section class="body-desc">
-            <h1 style="text-align:center; font-size:30px">'. $acc->NAME.' </h1>
-            <h2 style=""><span><i class="fa-solid fa-star"></i> '.$acc->REVIEWS.'   </span></h2>
             <section class="gallery">
                 <img class="banner" src="'.$acc->PICTURE.'" alt="pic">
                 <figure>

@@ -18,7 +18,7 @@
             return $htmlHeadPage;
         }
 
-        static function HeaderNav($location){
+        static function HeaderNav($location,$name="name",$star="0"){
             $HeaderNav = '
             <header class="head">
                 <nav>
@@ -55,12 +55,12 @@
                 if($location!="Home") {
                     $HeaderNav.='                <section class="headbg">
                     <section>
-                        <h2>
-                            VANCOUVER BOOKING
+                        <h2>'.
+                            $name.'
                         </h2>
-                        <h5>
-                            A BETTER WAY TO STAY
-                        </h5>
+                        <h3><i class="fa-solid fa-star"></i> '.$star.'
+                            
+                        </h3>
                         
                     </section>
                 </section>';
