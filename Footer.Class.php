@@ -19,8 +19,7 @@
                     <article>
                         <h3>Links</h3>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Room List</a></li>
+                            <li><a href="../home/">Home</a></li>
                             <li><a href="#">Your Profile</a></li>
                             <li><a href="#">Form for owners</a></li>
                             <li><a href="#">Sign in</a></li>

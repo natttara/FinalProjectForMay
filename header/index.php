@@ -1,5 +1,5 @@
 <?php
-require_once("./inc/Home.class.php");
+require_once("../header/inc/Header.class.php");
 
-echo Home::HeadPage();
-echo Home::HeaderNav();
+echo Header::HeadPage();
+echo Header::HeaderNav();

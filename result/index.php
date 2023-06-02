@@ -6,6 +6,7 @@ require_once("inc/Utilities/PDOService.class.php");
 require_once("inc/Entities/AccDAO.class.php");
 require_once("inc/Result.class.php");
 require_once("../Footer.Class.php");
+require_once("../header/inc/Header.class.php");
 
 $Accomodation = AccDAO::startDB();
 $acmList= AccDAO::get25();
@@ -13,6 +14,7 @@ $acmList= AccDAO::get25();
 
 
 echo Result::pageHead();
+echo Header::HeaderNav("Home");
 echo Result::mainContent();
 
 if ( !empty($_GET) ) {
