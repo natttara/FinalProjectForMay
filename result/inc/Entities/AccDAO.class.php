@@ -7,11 +7,12 @@ class AccDAO {
         self:: $db = new PDOService("Accommodation");
      }
 
-    public static function get30() {
+    public static function get30($page) {
+        $limit=($page-1)*30;
         $sql= "SELECT B.ID_ACCOMMODATION,A.PICTURE, A.BEDS,A.REVIEWS,A.HOST_NAME,B.NAME,B.NEIGHBOURHOOD,B.ROOM_TYPE,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.NEW_PRICE,B.SPECIAL_OFFER FROM `tb_acc_details` A 
         INNER JOIN tb_accommodations B 
         ON A.ID_ACCOMMODATION=B.ID_ACCOMMODATION
-        LIMIT 30";
+        LIMIT $limit,30";
         self::$db->query($sql);
         self::$db->execute();
         return self::$db->resultSet();
