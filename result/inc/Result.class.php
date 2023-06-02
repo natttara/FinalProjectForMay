@@ -120,10 +120,11 @@
             return $htmlList;
         }
 
-        static function room($acm,$location,$guestNum){
+        static function room($acm){
 
             //START: giving icon according to the room type
             $roomIcon = "";
+            $price = "";
             if($acm->ROOM_TYPE == "Entire home/apt"){
                 $roomIcon = '<i class="fa-solid fa-house"></i>';
             }else if($acm->ROOM_TYPE == "Hotel room"){
@@ -134,15 +135,20 @@
                 $roomIcon = '<i class="fa-solid fa-people-roof"></i>';
             }
             //END: giving icon according to the room type
+            if($acm->SPECIAL_OFFER==1) {
+                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $acm->PRICE_PER_NIGHT.'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
+            }else {
+                $price .= '<h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD /Night</h4>';
+            }
             
             $htmlRoom = '
             <a href="../description/?accommodation_id='.$acm->ID_ACCOMMODATION.'" class="rAcm">
                 <figure>
                     <img class="rPicture" src="'.$acm->PICTURE.'">
                     <figcaption>
-                        <span>
-                            <h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD per night</h4>
-                        </span>
+                        <span>'
+                            .$price.
+                        '</span>
                         <i class="fa-solid fa-draw-polygon"></i>
                     </figcaption>
                 </figure>
