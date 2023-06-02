@@ -9,7 +9,7 @@ $color2: rgb(198,164,126);
         
     }
     
-    .containerlogin{
+    .containerLogin{
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -27,8 +27,17 @@ $color2: rgb(198,164,126);
         }
     }
     
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
     
-    input[type="text"],input[type="password"]{
+    
+    input[type="text"],
+    input[type="password"]{
+        padding-top: 3%;
         margin-top: 30px;
         height: 45px;
         width: 90%;
@@ -36,12 +45,13 @@ $color2: rgb(198,164,126);
         margin-bottom: 20px;
         background-color: white;
         padding-left: 40px;
+
     }
     
     .form-input::before{
         content: "\f007";
         font-family: "FontAwesome";
-        padding-left: 7px;
+        padding-left: 1%;
         padding-top: 40px;
         position: absolute;
         font-size: 35px;

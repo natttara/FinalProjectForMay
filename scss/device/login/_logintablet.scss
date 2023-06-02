@@ -1,0 +1,32 @@
+@media (min-width: $tabletScreen){    
+    .containerLogin{
+        height: 65vh;
+       
+        img{
+            width: 20vh;
+            height: 20vh;
+        }
+    }
+    
+    
+    input[type="text"],input[type="password"]{
+        font-size: 24px;
+        font-weight: 700;
+        color: $color2;
+        display: inline-flex;
+        
+    }
+    
+    .form-input::before{
+        padding-left: 10px;
+        padding-top: 45px;
+        color: $color1; 
+    }
+    
+    
+    .btn-login{
+        padding: 1vh;
+        width: 50%;
+        font-size: 22px;
+    }
+}

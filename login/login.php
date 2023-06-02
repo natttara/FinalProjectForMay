@@ -1,6 +1,6 @@
 <?php
 require_once("./inc/Login.class.php");
 
-echo Login::headPage();
-echo Login::mainPage();
+echo Login::pageHead();
+echo Login::loginSection();
 echo Login::endPage();
