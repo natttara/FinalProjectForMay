@@ -54,27 +54,10 @@
             justify-content: center;
             gap: 5vh;
         }
-        img {
-            height: 20vh;
-        }
         .rAcm {
             transition: .4s;
-            width: 28vh;
-            h3 {
-                font-size: 16px;
-            }
-            h4 {
-                font-size: 14px;
-            }
-            i {
-                font-size: 24px;
-            }
             &:hover {
                 background-color: $color2;
-            }
-            > article {
-                height: 24vh;
-                justify-content: center;
             }
             figcaption i {
                 transition: .4s;
