@@ -18,12 +18,12 @@
             return $htmlHeadPage;
         }
 
-        static function HeaderNav(){
+        static function HeaderNav($location){
             $HeaderNav = '
             <header class="head">
                 <nav>
                     <figure>
-                        <img src="./img/logo.png" alt="logo">
+                        <img src="../header/inc/img/logo.png" alt="logo">
                         <figcaption>
                             <h3>
                                 Van  
@@ -32,8 +32,8 @@
                         </figcaption>
                     </figure>
                     <ul>
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="#">SPECIAL OFFER</a></li>
+                        <li><a href="../home/">HOME</a></li>
+                        <li><a href="../home#specialOffer">SPECIAL OFFER</a></li>
                         <aside class="log">
                             <li><a href="#">SIGN IN</a></li>
                             <li><a href="#">SIGN UP</a></li>
@@ -51,8 +51,9 @@
                             </aside>
                         </ul>
                     </details>
-                </nav>
-                <section class="headbg">
+                </nav>';
+                if($location!="Home") {
+                    $HeaderNav.='                <section class="headbg">
                     <section>
                         <h2>
                             VANCOUVER BOOKING
@@ -60,14 +61,12 @@
                         <h5>
                             A BETTER WAY TO STAY
                         </h5>
-                        <a href="#">
-                            BOOK NOW
-                        </a>
                         
                     </section>
-                </section>
-            </header>
-            ';
+                </section>';
+                }
+                $HeaderNav.='</header>';
+            
             return $HeaderNav;
         }
     }

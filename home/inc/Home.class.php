@@ -141,7 +141,7 @@
 
         static function offerRow(array $acmList){
             $offerList = '
-            <section class="specialOffer">
+            <section id="specialOffer" class="specialOffer">
                 <article>
                     <aside>
                         <h2>Special Offers</h2>

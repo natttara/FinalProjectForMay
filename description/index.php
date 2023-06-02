@@ -5,6 +5,8 @@ require_once("./inc/Acc.class.php");
 require_once("./inc/PDOService.class.php");
 require_once("./inc/AccDAO.class.php");
 require_once("../Footer.Class.php");
+require_once("../header/inc/Header.class.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,6 +22,8 @@ require_once("../Footer.Class.php");
 
  <?php 
 if (!empty($_GET)) {
+echo Header::HeaderNav("description");
+
     $Accomodation = AccDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
     $reviews = AccDAO::getReviewsId($_GET['accommodation_id']);
@@ -29,11 +33,11 @@ if (!empty($_GET)) {
     // for($i=0;$i<count($reviews);$i++) {
     //     echo $reviews[$i]->COMMENT;
     // };
+echo Footer::footer();
     
 };
         
         
-echo Footer::footer();
         
         ?>
     
