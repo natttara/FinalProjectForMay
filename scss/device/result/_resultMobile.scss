@@ -201,11 +201,13 @@ $color2: rgb(198,164,126);
                 h3,
                 h4 {
                     width: 95%;
-                    overflow-wrap: break-word;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-                }
+                } 
+                i {
+                    font-size: 18px;
+                }   
             }
             section {
                 width: 100%;
@@ -216,9 +218,6 @@ $color2: rgb(198,164,126);
                 display: flex;
                 align-items: center;
                 column-gap: 1vh;
-            }
-            i {
-                font-size: 18px;
             }
             [class="fa-solid fa-person-half-dress"]{
                 font-size: 24px;
@@ -258,17 +257,18 @@ $color2: rgb(198,164,126);
                 background-color: $color2;
                 padding: 5px;
             }
+            del {
+                color: red;
+                font-size: 12px;
+            }
             h4 {
                 display: flex;
                 column-gap: 1vh;
+                align-items: center;
                 color: whitesmoke;
             }
             div {
                 transform: rotate(10deg);
-            }
-            del {
-                color: red;
-                font-size: 12px;
             }
             i {
                 color: orange;
