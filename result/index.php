@@ -9,73 +9,82 @@ require_once("../Footer.Class.php");
 require_once("../header/inc/Header.class.php");
 
 $Accomodation = AccDAO::startDB();
-$acmList= AccDAO::get30();
-
-
-
+$page=1;
+if ( empty($_GET) && empty($_GET['page'])  ) {
+    $page=1 ;
+}else {
+    if(!empty($_GET['page'])){
+        $page=$_GET['page'];
+    }
+};
+$acmList= AccDAO::get30($page);
 echo Result::pageHead();
 echo Header::HeaderNav("Home");
 echo Result::mainContent();
 
-if ( !empty($_GET) ) {
-    if($_GET['location'] == "All Vancouver"){
-        if(!empty($_GET['sortBy'])){
-            if ($_GET['sortBy'] == "price") {
-                if(!empty($_GET['guest'])){
-                    $acmList = AccDAO::getGuestSorted30($_GET['guest'],"");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }else{
-                    $acmList = AccDAO::getSorted30("");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }
-            }else if ($_GET['sortBy'] == "priceDesc") {
-                if(!empty($_GET['guest'])){
-                    $acmList = AccDAO::getGuestSorted30($_GET['guest'],"DESC");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }else{
-                    $acmList = AccDAO::getSorted30("DESC");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }
-        }
-        }else if(!empty($_GET['guest'])){
-            $acmList = AccDAO::getGuest30($_GET['guest']);
-            echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-        }else{
-            echo Result::roomList($acmList,$_GET['location'],"");
-        }
-    }else{
-        $acmList = AccDAO::getLocation30($_GET['location']);
-        if(!empty($_GET['sortBy'])){
-            if ($_GET['sortBy'] == "price") {
-                if(!empty($_GET['guest'])){
-                    $acmList = AccDAO::getLocationGuestSorted30($_GET['location'],$_GET['guest'],"");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }else{
-                    $acmList = AccDAO::getLocationSorted30($_GET['location'],"");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }
-            }else if ($_GET['sortBy'] == "priceDesc") {
-                if(!empty($_GET['guest'])){
-                    $acmList = AccDAO::getLocationGuestSorted30($_GET['location'],$_GET['guest'],"DESC");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }else{
-                    $acmList = AccDAO::getLocationSorted30($_GET['location'],"DESC");
-                    echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
-                }
+if ( !empty($_GET) && empty($_GET['page'])  ) {
+    if(!empty($_GET['location'])){
+        if($_GET['location'] == "All Vancouver"){
+            if(!empty($_GET['sortBy'])){
+                if ($_GET['sortBy'] == "price") {
+                    if(!empty($_GET['guest'])){
+                        $acmList = AccDAO::getGuestSorted30($_GET['guest'],"");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }else{
+                        $acmList = AccDAO::getSorted30("");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }
+                }else if ($_GET['sortBy'] == "priceDesc") {
+                    if(!empty($_GET['guest'])){
+                        $acmList = AccDAO::getGuestSorted30($_GET['guest'],"DESC");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }else{
+                        $acmList = AccDAO::getSorted30("DESC");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }
             }
-        }else if(!empty($_GET['guest'])){
-            $acmList = AccDAO::getLocationGuest30($_GET['location'],$_GET['guest']);
-            echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+            }else if(!empty($_GET['guest'])){
+                $acmList = AccDAO::getGuest30($_GET['guest']);
+                echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+            }else{
+                echo Result::roomList($acmList,$_GET['location'],"");
+            }
         }else{
-            echo Result::roomList($acmList,$_GET['location'],"");
+            $acmList = AccDAO::getLocation30($_GET['location']);
+            if(!empty($_GET['sortBy'])){
+                if ($_GET['sortBy'] == "price") {
+                    if(!empty($_GET['guest'])){
+                        $acmList = AccDAO::getLocationGuestSorted30($_GET['location'],$_GET['guest'],"");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }else{
+                        $acmList = AccDAO::getLocationSorted30($_GET['location'],"");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }
+                }else if ($_GET['sortBy'] == "priceDesc") {
+                    if(!empty($_GET['guest'])){
+                        $acmList = AccDAO::getLocationGuestSorted30($_GET['location'],$_GET['guest'],"DESC");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }else{
+                        $acmList = AccDAO::getLocationSorted30($_GET['location'],"DESC");
+                        echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+                    }
+                }
+            }else if(!empty($_GET['guest'])){
+                $acmList = AccDAO::getLocationGuest30($_GET['location'],$_GET['guest']);
+                echo Result::roomList($acmList,$_GET['location'],$_GET['guest']);
+            }else{
+                echo Result::roomList($acmList,$_GET['location'],"");
+            }
+    
         }
-
     }
+   
     
 } else {
     echo Result::roomList($acmList,"","");
 }
 
 echo Result::toTopRow();
+echo Result::pagination($page);
 echo Footer::footer();
 echo Result::pageEnd();
