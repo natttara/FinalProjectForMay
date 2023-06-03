@@ -1,6 +1,6 @@
 <?php
 
-class Login {
+class SignUp {
     static function pageHead(){
         $htmlHead = '
         <!DOCTYPE html>
@@ -39,10 +39,13 @@ class Login {
                 <img src="./inc/img/luggage-cart.png">
                 <form method="post">
                     <aside class="form-input">
-                        <input type="text" name="email" placeholder="Your email"/>	
+                        <input type="text" name="uName" placeholder="Your username" required/>	
                     </aside>
                     <aside class="form-input">
-                        <input type="password" name="password" placeholder="Your password"/>
+                        <input type="email" name="uEmail" placeholder="Your email" required/>	
+                    </aside>
+                    <aside class="form-input">
+                        <input type="password" name="password" placeholder="Your password" required/>
                     </aside>
                     <input type="submit" type="submit" value="LOGIN" class="btn-login"/>
                 </form>
@@ -51,10 +54,13 @@ class Login {
                 <img src="./inc/img/luggage-cart.png">
                 <form method="post">
                     <aside class="form-input">
-                        <input type="text" name="email" placeholder="Your email"/>	
+                        <input type="text" name="uName" placeholder="Your username" required/>	
                     </aside>
                     <aside class="form-input">
-                        <input type="password" name="password" placeholder="Your password"/>
+                        <input type="email" name="oEmail" placeholder="Your email" required/>	
+                    </aside>
+                    <aside class="form-input">
+                        <input type="password" name="password" placeholder="Your password" required/>
                     </aside>
                     <input type="submit" type="submit" value="LOGIN" class="btn-login"/>
                 </form>

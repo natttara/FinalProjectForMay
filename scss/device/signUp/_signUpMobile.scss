@@ -66,6 +66,7 @@ $color2: rgb(198,164,126);
         
         
         input[type="text"],
+        input[type="email"],
         input[type="password"]{
             padding-top: 3%;
             margin-top: 30px;
@@ -80,6 +81,14 @@ $color2: rgb(198,164,126);
         
         .containerLogin{
             display: none;
+        }
+
+        .form-input:nth-child(2)::before{
+            content: "\f007";
+        }
+
+        .form-input:nth-child(3)::before{
+            content: "\f023";
         }
     }
     

@@ -1,7 +1,9 @@
 @media (min-width: $tabletScreen){   
     
     .signUp {   
-        input[type="text"],input[type="password"]{
+        input[type="email"],
+        input[type="text"],
+        input[type="password"]{
             font-size: 24px;
             font-weight: 700;
             color: $color2;
@@ -10,7 +12,7 @@
         }
         .sDecision,
         .successReg {
-            height: 60vh;
+            height: 65vh;
         }
 
         a:hover{

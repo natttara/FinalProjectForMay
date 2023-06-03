@@ -1,0 +1,19 @@
+@media (min-width: $desktopScreen){    
+    .signUp{       
+        .sDecision,
+        .successReg {
+            height: 60vh;
+        }
+        
+        input[type="email"],
+        input[type="text"],
+        input[type="password"]{
+            width: 100%;
+            padding: 1vh;
+            &::placeholder{
+                padding-left: 5vh;
+            }
+        }
+    }
+    
+}
