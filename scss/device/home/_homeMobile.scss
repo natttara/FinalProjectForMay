@@ -8,6 +8,23 @@ $color2: rgb(198,164,126);
         align-items: center;
         padding-bottom: 10vh;
     }
+
+    .page {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 5vh;
+        column-gap: 4vh;
+        p {
+            font-size: 30px;
+            color: #C6A47E ;
+        }
+        i {
+            font-size: 15px;
+            color: #C6A47E ;
+        }
+        
+    }
     //START: Form section
     .hForm {
         background-image: url(../home/inc/img/hFormBG.jpg);

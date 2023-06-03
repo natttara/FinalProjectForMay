@@ -170,6 +170,26 @@
             return $htmlRoom;
         }
 
+        public static function pagination($number) {
+           $minus;
+            if($number-1<=0){
+                $minus=1;
+            }else {
+                $minus=$number-1;
+
+            }
+            $page='
+            <section class="page">
+            <a href="?page='.($minus).'"><i class="fa-solid fa-chevron-left"></i></a>
+            <p>'.$number.'</p>
+            <a href="?page='.($number+1).'"><i class="fa-solid fa-chevron-right"></i></a>
+            </section>
+
+            ';
+
+            return $page;
+        }
+
         static function toTopRow(){
             $toTop = '
                 <aside class="rToTop">
