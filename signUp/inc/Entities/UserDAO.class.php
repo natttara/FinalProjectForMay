@@ -9,17 +9,27 @@ class UserDAO {
     }
 
     public static function insertUser(User $newUser) {
-        $sql = "INSERT INTO tb_users(userName,email,password,picture) VALUES (:userName,:email,:password,:picture)";
+        // var_dump($newUser);
+        $sql = "INSERT INTO tb_users(email,password) VALUES (:email,:password)";
 
         self::$db->query($sql);
 
-        self::$db->bind(":userName",$newUser->getUserName());
         self::$db->bind(":email",$newUser->getEmail());
         self::$db->bind(":password",$newUser->getPassword());
-        self::$db->bind(":picture",$newUser->getPicture());
 
         self::$db->execute();
 
         return self::$db->lastInsertedId();
+    }
+
+    public static function getUserEmail($email) {
+        $sql = "SELECT * FROM tb_users WHERE email=:email";
+
+        self::$db->query($sql);
+
+        self::$db->bind(":email",$email);
+        self::$db->execute();
+
+        return self::$db->singleResult();
     }
 }

@@ -1,0 +1,29 @@
+@media (min-width: $tabletScreen){   
+    
+    .signUp {   
+        input[type="text"],input[type="password"]{
+            font-size: 24px;
+            font-weight: 700;
+            color: $color2;
+            display: inline-flex;
+            
+        }
+        .sDecision,
+        .successReg {
+            height: 60vh;
+        }
+
+        a:hover{
+            color: black;
+            text-decoration: underline;
+        }
+    }
+    .sDecision {
+        
+        aside:hover {
+            background-color: whitesmoke;
+            color: $color2;
+        }
+    
+    }
+    }

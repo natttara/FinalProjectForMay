@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="signUp">
+    <section class="sDecision">
+        <h2>Which do you want to sign up for?</h2>
+        <article>
+            <aside>
+                <label for="suUser">NORMAL USER</label>
+                <input type="checkbox" name="suUser" id="suUser" class="suUser" hidden>
+            </aside>
+            <aside>
+                <label for="suOwner">ROOM OWNER</label>
+                <input type="checkbox" name="suOwner" id="suOwner" class="suOwner" hidden>
+            </aside>
+        </article>
+    </section>
+    <section class="containerLogin sfUser">
+        <img src="./img/luggage-cart.png">
+		<form method="post">
+			<aside class="form-input">
+				<input type="text" name="text" placeholder="Your username"/>	
+			</aside>
+			<aside class="form-input">
+				<input type="password" name="password" placeholder="Your password"/>
+			</aside>
+			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+		</form>
+    </section>
+    <section class="containerLogin sfOwner">
+        <img src="./img/luggage-cart.png">
+		<form method="post">
+			<aside class="form-input">
+				<input type="text" name="text" placeholder="Your username"/>	
+			</aside>
+			<aside class="form-input">
+				<input type="password" name="password" placeholder="Your password"/>
+			</aside>
+			<input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+		</form>
+    </section>
+    <section class="successReg">
+        <h2>You success ro register!</h2>
+        <a href="">Sign in</a>
+    </section>
+</body>
+</html>
