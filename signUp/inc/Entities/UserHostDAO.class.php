@@ -9,12 +9,12 @@ class UserHostDAO {
     }
 
     public static function insertUser(User $newUser) {
-        $sql = "INSERT INTO tb_users(email,userName,password) VALUES (:email,:userName,:password)";
+        $sql = "INSERT INTO users(name,email,password) VALUES (:name,:email,:password)";
 
         self::$db->query($sql);
 
+        self::$db->bind(":name",$newUser->getName());
         self::$db->bind(":email",$newUser->getEmail());
-        self::$db->bind(":userName",$newUser->getUserName());
         self::$db->bind(":password",$newUser->getPassword());
 
         self::$db->execute();
@@ -24,12 +24,12 @@ class UserHostDAO {
 
     public static function insertHost(Host $newHost) {
         $id = rand(100000000,999900099);
-        $sql = "INSERT INTO tb_hosts(host_id,email,host_name,password) VALUES ($id,:email,:userName,:password)";
+        $sql = "INSERT INTO tb_hosts(host_id,email,host_name,password) VALUES ($id,:email,:name,:password)";
 
         self::$db->query($sql);
 
         self::$db->bind(":email",$newHost->getEmail());
-        self::$db->bind(":userName",$newHost->getHost_name());
+        self::$db->bind(":name",$newHost->getHost_name());
         self::$db->bind(":password",$newHost->getPassword());
 
         self::$db->execute();

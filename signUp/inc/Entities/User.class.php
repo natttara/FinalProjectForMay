@@ -2,10 +2,9 @@
 
 class User {
     private int $id_user;
-    private string $userName;
+    private string $name;
     private string $email;
     private string $password;
-    private string $picture;
 
     
 
@@ -32,9 +31,9 @@ class User {
     /**
      * Get the value of userName
      */ 
-    public function getUserName()
+    public function getName()
     {
-        return $this->userName;
+        return $this->name;
     }
 
     /**
@@ -42,9 +41,9 @@ class User {
      *
      * @return  self
      */ 
-    public function setUserName($userName)
+    public function setName($name)
     {
-        $this->userName = $userName;
+        $this->name = $name;
 
         return $this;
     }
@@ -85,26 +84,6 @@ class User {
     public function setPassword($password)
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of picture
-     */ 
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * Set the value of picture
-     *
-     * @return  self
-     */ 
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
 
         return $this;
     }

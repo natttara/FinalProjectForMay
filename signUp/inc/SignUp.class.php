@@ -39,7 +39,7 @@ class SignUp {
                 <img src="./inc/img/luggage-cart.png">
                 <form method="post">
                     <aside class="form-input">
-                        <input type="text" name="uName" placeholder="Your username" required/>	
+                        <input type="text" name="name" placeholder="Your name" required/>	
                     </aside>
                     <aside class="form-input">
                         <input type="email" name="uEmail" placeholder="Your email" required/>	
@@ -47,14 +47,14 @@ class SignUp {
                     <aside class="form-input">
                         <input type="password" name="password" placeholder="Your password" required/>
                     </aside>
-                    <input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+                    <input type="submit" type="submit" value="SIGN UP" class="btn-login"/>
                 </form>
             </section>
             <section class="containerLogin sfOwner">
                 <img src="./inc/img/luggage-cart.png">
                 <form method="post">
                     <aside class="form-input">
-                        <input type="text" name="uName" placeholder="Your username" required/>	
+                        <input type="text" name="name" placeholder="Your name" required/>	
                     </aside>
                     <aside class="form-input">
                         <input type="email" name="oEmail" placeholder="Your email" required/>	
@@ -62,7 +62,7 @@ class SignUp {
                     <aside class="form-input">
                         <input type="password" name="password" placeholder="Your password" required/>
                     </aside>
-                    <input type="submit" type="submit" value="LOGIN" class="btn-login"/>
+                    <input type="submit" type="submit" value="SIGN UP" class="btn-login"/>
                 </form>
             </section>
         </main>
