@@ -51,40 +51,11 @@
         padding: 1vh;
         text-align: left;
 
-        > .floatLabel {
-        width: 100%;
-        padding: 5px;
-        // padding-bottom: 10px;
-        border-radius: 5px;
-        // height: 20px;
-        margin-top: 0;
-        margin-bottom: 0;
-        }
-    }
-
-
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 2vh;
-
-        > .grid {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1vh;
-        }
-    }
-
-    .controls {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
         align-items: left;
         justify-content: center;
         // position: relative;
         row-gap: 1vh;
-
+    
         > input[type="text"],
         > input[type="email"],
         > input[type="tel"],
@@ -109,6 +80,33 @@
                 }
             }
         }
+
+        > .floatLabel {
+            width: 100%;
+            padding: 10px;
+            // padding-bottom: 10px;
+            border-radius: 5px;
+            // height: 20px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 2vh;
+
+        > .grid {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        }
+    }
+
+    
 
     // .fa-sort {
     //   position: absolute;
@@ -146,11 +144,11 @@
         //     }
         // }
 
-        #comments {
-            resize: none;
-            height: 20vh;
-        }
+    #comments {
+        resize: none;
+        height: 20vh;
     }
+    
 
     button {
         cursor: pointer;

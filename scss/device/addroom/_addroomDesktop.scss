@@ -1,0 +1,108 @@
+@media (min-width: $desktopScreen) {
+  
+    .aroom {
+      border-radius: 15px;
+    
+    }
+  
+    h2.heading {
+      font-size: 26px;
+    }
+  
+    .controls {
+      padding: 2vh;
+      width: 15vw;
+    }
+  
+    .form-group {
+      
+      > .grid {
+        flex-direction: row;
+        column-gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    
+
+
+
+    #top {
+      > article {
+        display: flex;
+
+      }
+
+      #name {
+        padding: 1px;
+      }
+    }
+
+    #bottom{
+      width: 100%;
+    }
+
+    #chkd{
+      justify-content: space-evenly;
+      width: 100%;
+      column-gap: 1vh;
+    }
+
+    
+
+    label {
+      font-size: 16px;
+    }
+  
+    .controls {
+      > input[type="text"],
+      > input[type="email"],
+      > input[type="tel"],
+      > textarea,
+        button {
+            font-size: 18px;        
+
+            &:focus,
+            &:hover {
+                outline: none;
+                border-color: $color1;
+                + label {
+                    color: $color1;
+                    cursor: text;
+                }
+            }
+        }
+  
+    }
+
+    #commentssec{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    
+    #commentsbox {
+        width: 100%;
+        
+    }
+    
+  
+    button {
+        width: 40%;
+        margin-left: 0;
+
+        &:hover {
+            border-radius: 10px;
+            color: $color2;
+            background-color: $color1;
+        }
+
+    }
+  
+    p.info-text {
+      font-size: 22px;
+    }
+  }

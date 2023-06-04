@@ -28,18 +28,20 @@ class addRoom {
                 <form action="add_room.php" method="POST" class="aroom">
                     <section class="form-group" id="top">
                         <h2 class="heading">Booking form & contact</h2>
-                        <aside class="controls">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" class="floatLabel" name="name">
-                        </aside>
-                        <aside class="controls">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="floatLabel" name="email">
-                        </aside>       
-                        <aside class="controls">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" class="floatLabel" name="phone">
-                        </aside>
+                        <article>
+                            <aside class="controls">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="floatLabel" name="name">
+                            </aside>
+                            <aside class="controls">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="floatLabel" name="email">
+                            </aside>       
+                            <aside class="controls">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" class="floatLabel" name="phone">
+                            </aside>
+                        </article>
                     </section>
                     <!--  Details -->
                     <section class="form-group" id="bottom">
@@ -48,13 +50,13 @@ class addRoom {
                             <section class="col-1-4 col-1-4-sm">
                                 <aside class="controls">
                                     <label for="chkin" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Check In</label>
-                                    <input type="date" id="chkin" class="floatLabel" name="chkin" value="';<?php echo date('Y-m-d'); ?>'">
+                                    <input type="date" id="chkin" class="floatLabel" name="chkin" value="<?php echo date('Y-m-d'); ?>">
                                 </aside>      
                             </section>
                             <section class="col-1-4 col-1-4-sm">
                                 <aside class="controls">
                                     <label for="chkout" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Check out</label>
-                                    <input type="date" id="chkout" class="floatLabel" name="chkout" value="';<?php echo date('Y-m-d'); ?>'" />
+                                    <input type="date" id="chkout" class="floatLabel" name="chkout" value="<?php echo date('Y-m-d'); ?>" />
                                 </aside>      
                             </section>
                         </article>
