@@ -21,12 +21,19 @@ require_once("../header/inc/Header.class.php");
 <body>
 
  <?php 
+session_start();
 if (!empty($_GET)) {
     $Accomodation = AccDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
     $reviews = AccDAO::getReviewsId($_GET['accommodation_id']);
     if($singleAcc){
-        echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS);
+        if(!empty($_SESSION["logged"])){
+            var_dump($_SESSION["username"]);
+            echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,true);
+            }else {
+                echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,false);
+            
+            }
          $amenities = explode(";",$singleAcc->AMENITIES);
         // echo Desc:: body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS,$amenities, $reviews,$singleAcc->SPECIAL_OFFER,$singleAcc->NEW_PRICE);
         echo Desc:: body($singleAcc,$amenities,$reviews);
