@@ -16,31 +16,31 @@ if (empty($_POST)) {
     
 }else if(!empty($_POST['name']) && !empty($_POST['uEmail']) && !empty($_POST['password'])){
 
-    // $hashedPass = hash('MD5',$_POST['uEmail']);
-    // echo $hashedPass;
+    $hashedPass = hash('MD5',$_POST['password']);
     echo SignUp::successPage($_POST['name']);
     UserHostDAO::startDb();
     
     $newUser = new User();
     $newUser->setName($_POST['name']);
     $newUser->setEmail($_POST['uEmail']);
-    $newUser->setPassword($_POST['password']);
-    // $newUser->setPassword($hashedPass);
+    $newUser->setPassword($hashedPass);
     
     $insertUser = UserHostDAO::insertUser($newUser);
     
 }else if(!empty($_POST['name']) && !empty($_POST['oEmail']) && !empty($_POST['password'])){
     
-    // $hashedPass = hash('MD5',$_POST['uEmail']);
-    // echo $hashedPass;
     echo SignUp::successPage($_POST['name']);
+
+    $hashedPass = hash('MD5',$_POST['password']);
     UserHostDAO::startDb();
+    $maxIdUser =  UserHostDAO::getMaxIdUser();
+    $newId =  $maxIdUser->HOST_ID +1;
     
     $newHost = new Host();
+    $newHost->setHost_id($newId);
     $newHost->setHost_name($_POST['name']);
     $newHost->setEmail($_POST['oEmail']);
-    $newHost->setPassword($_POST['password']);
-    // $newUser->setPassword($hashedPass);
+    $newHost->setPassword($hashedPass);
 
     $insertHost = UserHostDAO::insertHost($newHost);
 }

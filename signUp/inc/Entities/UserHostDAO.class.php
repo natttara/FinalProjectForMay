@@ -8,6 +8,15 @@ class UserHostDAO {
         self::$db = new PDOService("User");
     }
 
+    public static function getMaxIdUser() {
+        $sql = "SELECT * FROM `tb_hosts` ORDER BY `HOST_ID` DESC LIMIT 1";
+
+        self::$db->query($sql);
+        self::$db->execute();
+
+        return self::$db->singleResult();
+    }
+
     public static function insertUser(User $newUser) {
         $sql = "INSERT INTO users(name,email,password) VALUES (:name,:email,:password)";
 
@@ -23,13 +32,13 @@ class UserHostDAO {
     }
 
     public static function insertHost(Host $newHost) {
-        $id = rand(100000000,999900099);
-        $sql = "INSERT INTO tb_hosts(host_id,email,host_name,password) VALUES ($id,:email,:name,:password)";
+        $sql = "INSERT INTO tb_hosts(host_id,email,host_name,password) VALUES (:id,:email,:name,:password)";
 
         self::$db->query($sql);
 
-        self::$db->bind(":email",$newHost->getEmail());
+        self::$db->bind(":id",$newHost->getHost_id());
         self::$db->bind(":name",$newHost->getHost_name());
+        self::$db->bind(":email",$newHost->getEmail());
         self::$db->bind(":password",$newHost->getPassword());
 
         self::$db->execute();
@@ -37,14 +46,4 @@ class UserHostDAO {
         return self::$db->lastInsertedId();
     }
 
-    // public static function getUserEmail($email) {
-    //     $sql = "SELECT * FROM tb_users WHERE email=:email";
-
-    //     self::$db->query($sql);
-
-    //     self::$db->bind(":email",$email);
-    //     self::$db->execute();
-
-    //     return self::$db->singleResult();
-    // }
 }
