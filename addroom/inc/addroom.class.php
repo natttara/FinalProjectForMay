@@ -98,9 +98,9 @@ class addRoom {
                                 </aside>     
                             </section>
                         </article>
-                        <article class="grid">
+                        <article class="grid" id="commentssec">
                             <p class="info-text">Please describe your needs e.g. Extra beds, children cots</p>
-                            <aside class="controls">
+                            <aside class="controls" id="commentsbox">
                                 <label for="comments">Comments</label>
                                 <textarea name="comments" class="floatLabel" id="comments"></textarea>
                             </aside>
