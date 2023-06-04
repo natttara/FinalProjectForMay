@@ -41,7 +41,7 @@
                             <li><a href="../home/?session=out">Sign Out</a></li>';
                         }else {
                             $HeaderNav.='<li><a href="../login/login.php">SIGN IN</a></li>
-                            <li><a href="#">SIGN UP</a></li>';
+                            <li><a href="../signUp/">SIGN UP</a></li>';
                         }
                         $HeaderNav.='
                         </aside>
