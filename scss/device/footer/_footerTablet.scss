@@ -1,0 +1,21 @@
+@media (min-width: $tabletScreen){
+    //START: footer
+    .footerTop {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        i {
+            transition: .3s;
+            &:hover {
+                color: $color2;
+            }
+        }
+        ul a {
+            transition: .4s;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    //END: footer
+}

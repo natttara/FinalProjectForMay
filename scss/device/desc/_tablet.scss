@@ -1,0 +1,15 @@
+@media (min-width:600px) {
+    .body-desc{
+        .gallery{
+            .banner {
+                height: 40vh;
+            }
+
+            figure {
+                img {
+                    height: 20vh;
+                }
+            }
+        }
+    }
+}

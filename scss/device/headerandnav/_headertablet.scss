@@ -1,0 +1,63 @@
+@media (min-width: $tabletScreen){
+
+    nav {
+        
+        padding: 2vh;
+
+        img {
+            width: 8vh;
+        }
+
+        h3 {
+            font-size: 34px;
+        }
+
+        > details {    
+            a {
+                font-size: 26px;
+            }
+    
+        }
+    
+        summary {
+            background-color: $color2;
+            color: white;
+            padding: 2vh;
+            font-size: 20px;
+        }
+    }
+
+    .headbg {
+        height: 35vh;
+        
+        
+        > section {
+            row-gap: 2vh;
+
+            > a {
+                border-radius: 10px;
+                padding: 2%;
+                width: 15%;
+                font-size: 22px;
+            }
+            
+        }
+
+        h2 {
+            font-weight: 800;
+            font-size: 36px;
+                     
+        }
+
+        h5 {
+            font-size: 28px;
+        }
+
+        
+    }
+
+    
+
+
+    
+}

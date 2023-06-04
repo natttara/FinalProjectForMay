@@ -1,0 +1,85 @@
+@media (min-width: $tabletScreen){
+    .result {
+        row-gap: 5vh;
+    }
+    //START: Form section    
+    .hLayer {
+        padding-left: 10%;
+        align-items: flex-start;
+        input,
+        option {
+            transition: .2s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color1;
+            }
+        }
+        [type="submit"]{
+            transition: .4s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color2;
+            }
+        }
+    }
+    //END: Form section
+    //START: Accordion section
+    .accordion {
+        label:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+    }
+    //END: Accordion section
+    //START: List section
+    .rList {
+        > article {
+            width: 80vh;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        > aside {
+            width: 80vh;
+            a {
+                transition: .4s;
+                &:hover {
+                    background-color: whitesmoke;
+                    color: $color2;
+                }
+            }
+        }
+        > section {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5vh;
+        }
+        .rAcm {
+            transition: .4s;
+            &:hover {
+                background-color: $color2;
+            }
+            figcaption i {
+                transition: .4s;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+    //END: List section
+    //START: Go to top section
+    .rToTop {
+        border: 2px solid $color2;
+        a {
+            transition: .6s;
+            &:hover {
+                background-color: whitesmoke;
+                h3 {
+                    color: $color2;
+                }
+            }
+        }
+    }
+    //END: Go to top section
+}
