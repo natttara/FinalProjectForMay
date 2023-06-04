@@ -1,0 +1,95 @@
+$color1: rgb(34,34,34);
+$color2: rgb(198,164,126);
+@media (min-width: $mobileScreen){
+    .signUp{
+        background-image: url("../login/inc/img/login.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .sDecision,
+        .successReg {
+            background-color: rgba(142, 153, 164, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 7vh;
+            height: 55vh;
+            padding-top: 20vh;
+            padding-bottom: 20vh;
+            
+            > article {
+                display: flex;
+                justify-content: center;
+                column-gap: 10vh;
+                width: 80%;
+            }
+
+            h2 {
+                color: white;
+            }
+            
+            aside {
+                background-color: $color2;
+                color: whitesmoke;
+                padding: 1vh;
+                border: 3px solid black;
+                font-weight: 600;
+                transition: .6s;
+            }
+
+            a {
+                font-size: 24px;
+                font-weight: 600;
+                color: whitesmoke;
+                transition: .6s;
+            }
+            
+        }
+        .sDecision:has([type="checkbox"]:checked){
+            display: none;
+        }
+        .sDecision:has(.suUser:checked) + .sfUser{
+            display: flex;
+        }
+        .sDecision:has(.suOwner:checked) + .sfUser + .sfOwner{
+            display: flex;
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"]{
+            padding-top: 3%;
+            margin-top: 30px;
+            height: 45px;
+            width: 90%;
+            font-size: 18px;
+            margin-bottom: 20px;
+            background-color: white;
+            padding-left: 40px;
+    
+        }
+        
+        .containerLogin{
+            display: none;
+        }
+
+        .form-input:nth-child(2)::before{
+            content: "\f007";
+        }
+
+        .form-input:nth-child(3)::before{
+            content: "\f023";
+        }
+    }
+    
+}
