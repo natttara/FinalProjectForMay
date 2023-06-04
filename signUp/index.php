@@ -9,7 +9,7 @@ require_once("./inc/SignUp.class.php");
 require_once("../Footer.Class.php");
 
 echo SignUp::pageHead();
-echo Header::HeaderNav("Home");
+echo Header::HeaderNav("Home","name","0",false);
 
 if (empty($_POST)) {
     echo SignUp::signUpSection();
@@ -26,6 +26,11 @@ if (empty($_POST)) {
     $newUser->setPassword($hashedPass);
     
     $insertUser = UserHostDAO::insertUser($newUser);
+
+    session_start();
+    $_SESSION["logged"] = true;
+    $_SESSION["username"] = $_POST['name'];
+    header("Location: ../home/");
     
 }else if(!empty($_POST['name']) && !empty($_POST['oEmail']) && !empty($_POST['password'])){
     
@@ -43,6 +48,12 @@ if (empty($_POST)) {
     $newHost->setPassword($hashedPass);
 
     $insertHost = UserHostDAO::insertHost($newHost);
+
+    
+    session_start();
+    $_SESSION["logged"] = true;
+    $_SESSION["username"] = $_POST['name'];
+    header("Location: ../home/");
 }
 
 echo Footer::footer();
