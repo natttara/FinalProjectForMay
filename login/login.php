@@ -32,4 +32,3 @@ echo Login::pageHead();
 echo Login::loginSection();
 echo Login::endPage();
 
-// echo hash('md5', 'The quick brown fox jumped over the lazy dog.');
