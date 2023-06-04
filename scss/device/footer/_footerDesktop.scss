@@ -1,0 +1,12 @@
+@media (min-width: $desktopScreen){
+    //START: footer
+    .footerTop {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        article:nth-child(1) {
+            width: 40%;
+        }
+    }
+    //END: footer
+}
