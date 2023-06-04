@@ -1,0 +1,85 @@
+$color1: rgb(34,34,34);
+$color2: rgb(198,164,126);
+
+@media (min-width: $tabletScreen){
+
+    .profile{
+        flex-direction: row;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h5 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+    .pleft { 
+        width: 35%;
+
+        img {
+            height: 20vh;
+            width: 35vw;
+            
+        }
+
+        figcaption {
+            font-size: larger;
+        }
+
+    }
+
+    .leftchoice {
+        font-size: 22px;
+        row-gap: 2vh ;
+    }
+
+
+    .status{
+        font-size: 24px;
+        row-gap: 3vh;
+    }
+
+    .level {
+       display: flex;
+       flex-direction: column;
+        row-gap: 2vh;
+        width: 90%;
+
+        > li {
+            display: flex;
+            width: 100%;
+            height: 1vh;
+            background-color: lightgray;
+            > h6 {
+                width: 70%;
+            }
+        }
+
+        h6 {
+            width: 80%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            background-color: $color2;
+        }
+
+        small {
+            padding-left: 1vh;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+    }
+
+    .passw {
+        font-size: 16px;
+    }
+    
+    
+}
