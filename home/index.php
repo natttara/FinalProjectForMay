@@ -11,8 +11,16 @@ require_once("../Footer.Class.php");
 
 $Accomodation = AccDAO::startDB();
 $acmList= AccDAO::getSpecialOffer();
+session_start();
+
+if(!empty($_SESSION["logged"])){
+var_dump($_SESSION["username"]);
+echo Header::HeaderNav("Home","name","0",true);
+}else {
+    echo Header::HeaderNav("Home","name","0",false);
+
+}
 echo Home::pageHead();
-echo Header::HeaderNav("Home");
 echo Home::mainContent($acmList);
 echo Footer::footer();
 echo Home::pageEnd();

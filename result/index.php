@@ -7,7 +7,7 @@ require_once("inc/Entities/AccDAO.class.php");
 require_once("inc/Result.class.php");
 require_once("../Footer.Class.php");
 require_once("../header/inc/Header.class.php");
-
+session_start();
 $Accomodation = AccDAO::startDB();
 $page=1;
 if ( empty($_GET) && empty($_GET['page'])  ) {
@@ -19,7 +19,13 @@ if ( empty($_GET) && empty($_GET['page'])  ) {
 };
 $acmList= AccDAO::get30($page);
 echo Result::pageHead();
-echo Header::HeaderNav("Home");
+if(!empty($_SESSION["logged"])){
+    var_dump($_SESSION["username"]);
+    echo Header::HeaderNav("Home","name","0",true);
+    }else {
+        echo Header::HeaderNav("Home","name","0",false);
+    
+    }
 echo Result::mainContent();
 
 if ( !empty($_GET) && empty($_GET['page'])  ) {

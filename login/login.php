@@ -16,6 +16,9 @@ if(!empty($_POST)) {
     if($email!='' && $password!='' ) {
         if(hash('MD5',$password)==$userEmail->PASSWORD) {
             var_dump('good');
+            session_start();
+            $_SESSION["logged"] = true;
+            $_SESSION["username"] = $userEmail->EMAIL;
             header("Location: ../home/");
         }else {
             var_dump('bad');

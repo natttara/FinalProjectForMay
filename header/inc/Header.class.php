@@ -18,7 +18,7 @@
             return $htmlHeadPage;
         }
 
-        static function HeaderNav($location,$name="name",$star="0"){
+        static function HeaderNav($location,$name="name",$star="0",$logged){
             $HeaderNav = '
             <header class="head">
                 <nav>
@@ -32,11 +32,17 @@
                         </figcaption>
                     </figure>
                     <ul>
+
                         <li><a href="../home/">HOME</a></li>
                         <li><a href="../home#specialOffer">SPECIAL OFFER</a></li>
-                        <aside class="log">
-                            <li><a href="#">SIGN IN</a></li>
-                            <li><a href="#">SIGN UP</a></li>
+                        <aside class="log">';
+                        if($logged) {
+                            $HeaderNav.='<li><a href="#">PROFILE</a></li>';
+                        }else {
+                            $HeaderNav.='<li><a href="../login/login.php">SIGN IN</a></li>
+                            <li><a href="#">SIGN UP</a></li>';
+                        }
+                        $HeaderNav.='
                         </aside>
                     </ul>
                     
@@ -45,10 +51,16 @@
                         <ul>
                             <li><a href="#">HOME</a></li>
                             <li><a href="#">SPECIAL OFFER</a></li>
-                            <aside>
-                                <li><a href="#">SIGN IN</a></li>
-                                <li><a href="#">SIGN UP</a></li>
-                            </aside>
+                            <aside>';
+                            if($logged) {
+                                $HeaderNav.='<li><a href="#">PROFILE</a></li>';
+                            }else {
+                                $HeaderNav.='<li><a href="#">SIGN IN</a></li>
+                                <li><a href="#">SIGN UP</a></li>';
+
+                            };
+
+                            $HeaderNav.='</aside>
                         </ul>
                     </details>
                 </nav>';
