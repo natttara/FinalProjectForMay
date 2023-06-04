@@ -12,11 +12,12 @@
                 <link rel="stylesheet" href="../css/style.css">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
             </head>
-            <body>
+            <body class="pBody">
             ';
             return $htmlHead;
         }
 
+                                    // <?php echo $_SESSION['name']; 
         static function mainContent(){
             $htmlMain = '
             <main class="profile">
@@ -26,7 +27,7 @@
                         <figcaption>
                             <article>
                                 <h2>
-                                    <?php echo $_SESSION['name']; ?>
+                                    name
                                 </h2>
                                 <h5>
                                     <a href="#">

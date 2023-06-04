@@ -2,35 +2,40 @@ $color1: rgb(34,34,34);
 $color2: rgb(198,164,126);
 
 @media (min-width: $mobileScreen){
-    body {
+    .pBody {
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column; 
+
+        h2 {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
     }
 
-    .profile,
-    figure,
-    figcaption {
+    .profile {
         display: flex;
         flex-direction: column;
         row-gap: 4vh;
     }
 
 
-    h2 {
-        font-size: 30px;
-        font-weight: 600;
-    }
-
-    h5 {
-        font-size: 20px;
-    }
 
     .pleft { 
         display: flex; 
         flex-direction: column;  
         padding: 2vh;    
         row-gap: 4vh;
+        
+        figure,
+        figcaption {
+            display: flex;
+            flex-direction: column;
+            row-gap: 4vh;
+        }
 
         figure{
             padding: 2vh;
@@ -192,4 +197,119 @@ $color2: rgb(198,164,126);
         flex-direction: column;
         row-gap: 2vh;
     }
+
+    .wishList {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        padding: 3vh;
+        border: 1px solid $color1;     
+        box-shadow: 0 0 12px lightgray;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 1vh;
+            width: 100%;
+        }
+    
+        li {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            > a {
+                display: flex;
+                align-items: center;
+                transition: .4s;
+            }
+        }
+    
+        figure {
+            position: relative;
+            width: 22vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        img {
+            width: 100%;
+            height: 15vh;
+        }
+        figcaption {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 95%;
+            padding-top: 1vh;
+            
+            span {
+                background-color: $color2;
+                padding: 5px;
+            }
+            del {
+                color: red;
+                font-size: 12px;
+            }
+            h4 {
+                display: flex;
+                column-gap: 1vh;
+                align-items: center;
+                color: whitesmoke;
+                font-size: 12px;
+            }
+            div {
+                transform: rotate(10deg);
+            }
+        }
+        [class="fa-solid fa-draw-polygon"] {
+            color: red;
+            font-size: 25px;
+        }
+    
+        article {
+            height: 15vh;
+            width: 15vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 3vh;
+            border: 1px solid $color2;
+            border-left: none;
+            text-align: center;
+            color: black;
+            h3,
+            h4 {
+                width: 95%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            } 
+            i {
+                font-size: 18px;
+            }   
+        }
+
+        aside {
+            display: flex;
+            column-gap: 1vh;
+            align-items: center;
+        }
+    
+        .shiver{  
+            animation-name: room-shiver;
+            animation-duration: 0.3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes room-shiver {
+            0%{ transform:rotate(0);}
+            25%{ transform:rotate(10deg);}
+            50%{ transform:rotate(0deg);}
+            75%{ transform:rotate(-10deg);}
+            100%{ transform:rotate(0deg);}
+        } 
+    }
+    
 }
