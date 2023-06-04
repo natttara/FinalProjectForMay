@@ -1,0 +1,91 @@
+@media (min-width: $tabletScreen) {
+    .forAdd {
+      padding: 10vh;
+    }
+  
+    .aroom {
+      border-radius: 10px;
+    
+    }
+  
+    h2.heading {
+      font-size: 22px;
+    }
+  
+    .controls {
+      padding: 1vh;
+    }
+  
+    .form-group {
+      padding-bottom: 2vh;
+  
+      > .grid {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+      }
+    }
+
+    #top {
+      > article {
+        display: flex;
+
+      }
+
+      #name {
+        padding: 1px;
+      }
+    }
+
+    #bottom{
+      width: 100%;
+    }
+
+    #chkd{
+      flex-direction: row;
+      width: 100%;
+      column-gap: 4vh;
+    }
+
+    label {
+      font-weight: 700;
+    }
+  
+    .controls {
+      > input[type="text"],
+      > input[type="email"],
+      > input[type="tel"],
+      > textarea,
+      button {
+        font-size: 18px;        
+  
+        &:focus,
+        &:hover {
+          outline: none;
+          border-color: $color2;
+          + label {
+            color: $color2;
+            cursor: text;
+          }
+        }
+      }
+  
+      #comments {
+        height: 15vh;
+      }
+    }
+  
+    button {
+      border: 1px solid $color2;
+      width: 50%;
+      margin-left: 150px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+  
+    p.info-text {
+      padding-top: 3vh;
+      text-align: left;
+      width: 100%;
+    }
+  }

@@ -26,7 +26,7 @@ class addRoom {
         <main class="mainRoom">
             <section class="forAdd">
                 <form action="add_room.php" method="POST" class="aroom">
-                    <section class="form-group">
+                    <section class="form-group" id="top">
                         <h2 class="heading">Booking form & contact</h2>
                         <aside class="controls">
                             <label for="name">Name</label>
@@ -42,9 +42,9 @@ class addRoom {
                         </aside>
                     </section>
                     <!--  Details -->
-                    <section class="form-group">
+                    <section class="form-group" id="bottom">
                         <h2 class="heading">Details</h2>
-                        <article class="grid">
+                        <article class="grid" id="chkd">
                             <section class="col-1-4 col-1-4-sm">
                                 <aside class="controls">
                                     <label for="chkin" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Check In</label>
