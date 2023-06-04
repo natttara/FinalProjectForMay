@@ -18,7 +18,7 @@ if (empty($_POST)) {
 
     // $hashedPass = hash('MD5',$_POST['uEmail']);
     // echo $hashedPass;
-    echo SignUp::successPage();
+    echo SignUp::successPage($_POST['uName']);
     UserHostDAO::startDb();
     
     $newUser = new User();
@@ -33,7 +33,7 @@ if (empty($_POST)) {
     
     // $hashedPass = hash('MD5',$_POST['uEmail']);
     // echo $hashedPass;
-    echo SignUp::successPage();
+    echo SignUp::successPage($_POST['uName']);
     UserHostDAO::startDb();
     
     $newHost = new Host();

@@ -70,11 +70,11 @@ class SignUp {
         return $htmlSignUp;
     } 
 
-    static function successPage(){
+    static function successPage($name){
         $htmlSuccess = '
         <main class="signUp">
             <section class="successReg">
-                <h2>You success ro register!</h2>
+                <h2>'.$name.', you are registered!</h2>
                 <a href="">Sign in</a>
             </section>
         </main>
