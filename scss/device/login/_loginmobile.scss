@@ -6,7 +6,9 @@ $color2: rgb(198,164,126);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .containerLogin{
@@ -17,13 +19,13 @@ $color2: rgb(198,164,126);
         justify-content: center;
         align-items: center;
         text-align: center;
-        background-color: rgba(142, 153, 164, 0.7);
+        // background-color: rgba(142, 153, 164, 0.7);
         padding-top: 20vh;
         padding-bottom: 20vh;
        
         img{
-            width: 150px;
-            height: 150px;
+            width: 30vw;
+            height: 15vh;
         }
     }
     
@@ -32,42 +34,73 @@ $color2: rgb(198,164,126);
         flex-direction: column;
         align-items: center;
         text-align: center;
+
+        box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+        border: 2px solid white;
+        border-radius: 15px;
+        padding: 6vh;
+        background-color: $color2;
+        // background-color: rgba(142, 153, 164, 0.7);
+        row-gap: 2vh;
+
+        > h2{
+            font-size: 30px;
+            font-weight: 700;
+            padding-bottom: 1vh;
+        }
+
+
     }
     
     
     input[type="text"],
     input[type="password"]{
-        padding-top: 3%;
-        margin-top: 30px;
-        height: 45px;
+        display: block;
+        border: 2px solid $color1;
+        // padding-top: 3%;
+        // margin-top: 30px;
+        // height: 45px;
         width: 90%;
-        font-size: 18px;
-        margin-bottom: 20px;
-        background-color: white;
-        padding-left: 40px;
+        // font-size: 18px;
+        // margin-bottom: 20px;
+        // background-color: white;
+        // padding-left: 40px;
+        padding: 1vh;
+        border-radius: 5px;
 
     }
-    
-    .form-input::before{
-        content: "\f007";
-        font-family: "FontAwesome";
-        padding-left: 1%;
-        padding-top: 40px;
-        position: absolute;
-        font-size: 35px;
-        color: $color1; 
+
+    .form-input{
+        display: flex;
+        flex-direction: column;
+        >label {
+          text-align: left; 
+          font-size: 16px; 
+        }
     }
+
     
-    .form-input:nth-child(2)::before{
-        content: "\f023";
-    }
+    // .form-input::before{
+    //     content: "\f007";
+    //     font-family: "FontAwesome";
+    //     padding-left: 1%;
+    //     padding-top: 40px;
+    //     position: absolute;
+    //     font-size: 35px;
+    //     color: $color1; 
+    // }
+    
+    // .form-input:nth-child(2)::before{
+    //     content: "\f023";
+    // }
     
     .btn-login{
-        padding: 15px 25px;
-        border: 3px solid $color1;
+        padding: 10px 20px;
+        border: 2px solid $color1;
+        border-radius: 5px;
         background-color: $color2;
         color: $color1;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 700;
     }
 }

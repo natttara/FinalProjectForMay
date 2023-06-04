@@ -22,13 +22,18 @@ class Login {
     static function loginSection(){
         $htmlLogin = '
         <section class="containerLogin">
-            <img src="./img/luggage-cart.png">
-            <form>
+            <form action="login.php" method="post">
+                <figure>
+                    <img src="./img/luggage-cart.png">
+                </figure>
+                <h2>LOGIN</h2>
                 <aside class="form-input">
-                    <input type="text" name="text" placeholder="Enter your username"/>	
+                    <label>User Name</label>
+                    <input type="text" name="uname" placeholder="Enter your username"/>	
                 </aside>
                 <aside class="form-input">
-                    <input type="password" name="password" placeholder="password"/>
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder=" your password"/>
                 </aside>
                 <input type="submit" type="submit" value="LOGIN" class="btn-login"/>
             </form>

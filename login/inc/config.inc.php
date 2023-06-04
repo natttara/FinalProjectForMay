@@ -1,13 +1,13 @@
 <?php
 
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD','');
-define('DB_NAME', 'testlogin');
- 
-// $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
+$sname= "localhost";
+$uname= "root";
+$password = "";
 
-// if($link === false){
-//     die("ERROR: Could not connect. " . mysqli_connect_error());
-// }
+$db_name = "db_vanbooking";
+
+$conn = mysqli_connect($sname, $uname, $password, $db_name);
+
+if (!$conn) {
+	echo "Connection failed!";
+}
