@@ -1,6 +1,3 @@
-$color1: rgb(34,34,34);
-$color2: rgb(198,164,126);
-
 @media (min-width: $mobileScreen){
     .pBody {
         display: flex;
@@ -74,6 +71,9 @@ $color2: rgb(198,164,126);
             padding: 2%;
             column-gap: 2vh;
             background-color: $color2;
+        }
+        a {
+            color: whitesmoke;
         }
     }
 
