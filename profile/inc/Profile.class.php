@@ -18,7 +18,7 @@
         }
 
                                     // <?php echo $_SESSION['name']; 
-        static function mainContent(){
+        static function mainContent($user,$acm){
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
@@ -26,9 +26,9 @@
                         <img src="../profile/img/profile.jpg" alt="profile">
                         <figcaption>
                             <article>
-                                <h2>
-                                    name
-                                </h2>
+                                <h2>'
+                                    .$user->NAME.
+                                '</h2>
                                 <h5>
                                     <a href="#">
                                         CHANGE INFORMATION <i class="fa-solid fa-pen-to-square"></i>
@@ -40,7 +40,7 @@
                                 <strong>
                                     Email :
                                 </strong>
-                                <a href = "mailto: lalalisa@mail.com">lalalis@mail.com</a>
+                                <a href = "mailto: '.$user->EMAIL.'">'.$user->EMAIL.'</a>
                             </aside>
                             <aside>
                                 <strong>
@@ -195,10 +195,53 @@
                             </section>
                         </aside> -->
                     </section>
+                    <section class="wishList">
+                    <aside>
+                        <h3>WISH LIST</h3>
+                    </aside>
+                    <ul>';
+            // foreach($wishList as $wish){
+            //     $htmlMain .= self::wishListRoom($wish);
+            // }
+            $htmlMain .= self::wishListRoom($acm);
+            $htmlMain .= 
+                    '</ul>
+                </section>
                 </section>
             </main>
             ';
             return $htmlMain;
+        }
+
+        static function wishListRoom($wish){
+            if($wish->SPECIAL_OFFER==1) {
+                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $wish->PRICE_PER_NIGHT.'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
+            }else {
+                $price = '<h4 class="rPrice">'.$wish->PRICE_PER_NIGHT.' CAD /Night</h4>';
+            }
+            $htmlWLRoom = '
+            <li>
+                <a href="#">
+                    <figure>
+                        <img src="'.$wish->PICTURE.'">
+                        <figcaption>
+                            <span>'
+                                .$price.
+                            '</span>
+                            <i class="fa-solid fa-draw-polygon"></i>
+                        </figcaption>
+                    </figure>
+                    <article>
+                        <h3>'.$wish->NAME.'</h3>
+                        <h4>'.$wish->NEIGHBOURHOOD.'</h4>
+                        <aside>        
+                            <i class="fa-solid fa-person-half-dress"></i>
+                            <h4>'.$wish->MAX_GUESTS.'</h4>
+                        </aside>
+                    </article>
+                </a>
+            </li>';
+            return $htmlWLRoom;
         }
 
         static function endPage(){
