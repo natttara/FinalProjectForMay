@@ -82,7 +82,7 @@
             return $form;
         }
 
-        static function roomList(array $acmList,$location,$guestNum){
+        static function roomList(array $acmList,$location,$guestNum,$sort){
             if($location == ""){//when form is not used
                 $location = "All Vancouver"; //to pop up "Rooms in: All Vancouver"
             }
@@ -110,7 +110,7 @@
                 <section>
             ';
             foreach($acmList as $acm){
-                $htmlList .= self::room($acm,$location,$guestNum);
+                $htmlList .= self::room($acm,$location,$guestNum,$sort);
             }
             $htmlList .= '
                 </section>
@@ -120,7 +120,7 @@
             return $htmlList;
         }
 
-        static function room($acm){
+        static function room($acm,$location,$guestNum,$sort){
 
             //START: giving icon according to the room type
             $roomIcon = "";
@@ -149,7 +149,15 @@
                         <span>'
                             .$price.
                         '</span>
-                        <i class="fa-solid fa-draw-polygon"></i>
+                        <form action="" method="get">
+                            <input type="hidden" name="wish" value="'.$acm->ID_ACCOMMODATION.'">
+                            <input type="hidden" name="sortBy" value="'.$sort.'">
+                            <input type="hidden" name="location" value="'.$location.'">
+                            <input type="hidden" name="guest" value="'.$guestNum.'">
+                            <label for="submit"><i class="fa-solid fa-draw-polygon"></i></label>
+                            <input type="submit">
+                        </form>
+                        
                     </figcaption>
                 </figure>
                 <article>
