@@ -37,7 +37,7 @@
                         <li><a href="../home#specialOffer">SPECIAL OFFER</a></li>
                         <aside class="log">';
                         if($logged) {
-                            $HeaderNav.='<li><a href="#">PROFILE</a></li>
+                            $HeaderNav.='<li><a href="../profile/">PROFILE</a></li>
                             <li><a href="../home/?session=out">Sign Out</a></li>';
                         }else {
                             $HeaderNav.='<li><a href="../login/login.php">SIGN IN</a></li>
@@ -54,7 +54,7 @@
                             <li><a href="#">SPECIAL OFFER</a></li>
                             <aside>';
                             if($logged) {
-                                $HeaderNav.='<li><a href="#">PROFILE</a></li>';
+                                $HeaderNav.='<li><a href="../profile/">PROFILE</a></li>';
                             }else {
                                 $HeaderNav.='<li><a href="#">SIGN IN</a></li>
                                 <li><a href="#">SIGN UP</a></li>';

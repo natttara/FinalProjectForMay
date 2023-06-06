@@ -19,6 +19,7 @@ if(!empty($_POST)) {
             session_start();
             $_SESSION["logged"] = true;
             $_SESSION["username"] = $userEmail->EMAIL;
+            $_SESSION["name"] = $userEmail->NAME;
             header("Location: ../home/");
         }else {
             var_dump('bad');

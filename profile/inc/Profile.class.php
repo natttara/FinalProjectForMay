@@ -25,8 +25,7 @@
                         <img src="../profile/img/profile.jpg" alt="profile">
                         <figcaption>
                             <article>
-                                <h2>
-                                    <?php echo $_SESSION['name']; ?>
+                                <h2>'.$_SESSION['name'].'
                                 </h2>
                                 <h5>
                                     <a href="#">
@@ -39,7 +38,7 @@
                                 <strong>
                                     Email :
                                 </strong>
-                                <a href = "mailto: lalalisa@mail.com">lalalis@mail.com</a>
+                                <a href = "mailto:">'.$_SESSION['username'].'</a>
                             </aside>
                             <aside>
                                 <strong>
