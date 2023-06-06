@@ -2,7 +2,7 @@
 
 class addRoom {
 
-    static function pageHead(){
+    public static function pageHead(){
         $htmlHeadPage ='
 
         <!DOCTYPE html>
@@ -21,103 +21,118 @@ class addRoom {
         return $htmlHeadPage;
     }
 
-    static function detailBooking(){
+    public static function detailBooking(){
         $htmlDetailBooking ='
-        <main class="mainRoom">
-            <section class="forAdd">
-                <form action="add_room.php" method="POST" class="aroom">
-                    <section class="form-group" id="top">
-                        <h2 class="heading">Booking form & contact</h2>
-                        <article>
-                            <aside class="controls">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" class="floatLabel" name="name">
-                            </aside>
-                            <aside class="controls">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" class="floatLabel" name="email">
-                            </aside>       
-                            <aside class="controls">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" class="floatLabel" name="phone">
-                            </aside>
-                        </article>
-                    </section>
-                    <!--  Details -->
-                    <section class="form-group" id="bottom">
-                        <h2 class="heading">Details</h2>
-                        <article class="grid" id="chkd">
-                            <section class="col-1-4 col-1-4-sm">
+            <main class="mainRoom">
+                <section class="forAdd">
+                    <form action="add_room.php" method="POST" class="aroom">
+                        <section class="form-group" id="top">
+                            <h2 class="heading">Add Room</h2>
+                            <article>
+                                <section class="hrname">
+                                    <aside class="controls">
+                                        <label for="name">Host Name</label>
+                                        <input type="text" id="name" class="floatLabel" name="name">
+                                    </aside> 
+                                    <aside class="controls">
+                                        <label for="name">Room Name</label>
+                                        <input type="text" id="name" class="floatLabel" name="name">
+                                    </aside>
+                                </section>
                                 <aside class="controls">
-                                    <label for="chkin" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Check In</label>
-                                    <input type="date" id="chkin" class="floatLabel" name="chkin" value="<?php echo date('Y-m-d'); ?>">
-                                </aside>      
-                            </section>
-                            <section class="col-1-4 col-1-4-sm">
+                                    <label for="bed">Beds</label>
+                                    <input type="number" id="bed" class="floatLabel" name="bed">
+                                </aside> 
                                 <aside class="controls">
-                                    <label for="chkout" class="label-date"><i class="fa fa-calendar"></i>&nbsp;&nbsp;Check out</label>
-                                    <input type="date" id="chkout" class="floatLabel" name="chkout" value="<?php echo date('Y-m-d'); ?>" />
-                                </aside>      
-                            </section>
-                        </article>
-                        <article class="grid">
-                            <section class="col-1-3 col-1-3-sm">
+                                    <label for="guest">Maximum guest</label>
+                                    <input type="number" id="guest" class="floatLabel" name="guest">
+                                </aside>  
                                 <aside class="controls">
-                                    <label for="people"><i class="fa fa-male"></i>&nbsp;&nbsp;People</label>
-                                    <!-- <i class="fa fa-sort"></i> -->
-                                    <select class="floatLabel">
-                                        <option value="blank"></option>
-                                        <option value="1">1</option>
-                                        <option value="2" selected>2</option>
-                                        <option value="3">3</option>
-                                    </select>
-                                </aside>      
-                            </section>
-                            <section class="col-1-3 col-1-3-sm">
+                                    <label for="price">Price per night (CAD)</label>
+                                    <input type="number" id="price" class="floatLabel" name="price">
+                                </aside>                         
                                 <aside class="controls">
-                                    <label for="room">Room</label>
-                                    <!-- <i class="fa fa-sort"></i> -->
-                                    <select class="floatLabel">
-                                        <option value="blank"></option>
-                                        <option value="wbf" selected>With Breakfast</option>
-                                        <option value="wobf">Without Breakfast</option>
-                                    </select>
-                                </aside>     
-                            </section>
-                            <section class="col-1-3 col-1-3-sm">
+                                    <label for="myfile">Select pictures of the room file:</label>
+                                    <input type="file" id="myfile" name="myfile" />
+                                </aside>
                                 <aside class="controls">
-                                    <label for="bed">Type of Bed</label>
-                                    <!-- <i class="fa fa-sort"></i> -->
-                                    <select class="floatLabel">
-                                        <option value="blank"></option>
-                                        <option value="single-bed">Single bed</option>
-                                        <option value="double-bed">Double bed</option>
-                                        <option value="queen-bed" selected>Queen size bed</option>
-                                        <option value="king-bed">King size bed</option>
-                                    </select>
-                                </aside>     
-                            </section>
-                        </article>
-                        <article class="grid" id="commentssec">
-                            <p class="info-text">Please describe your needs e.g. Extra beds, children cots</p>
-                            <aside class="controls" id="commentsbox">
-                                <label for="comments">Comments</label>
-                                <textarea name="comments" class="floatLabel" id="comments"></textarea>
-                            </aside>
-                            <button type="submit" value="Submit" class="col-1-4">Submit</button>
-                        </article>  
-                    </section> 
-                </form>
+                                    <label for="myfile">Select a picture of the host file:</label>
+                                    <input type="file" id="myfile" name="myfile" />
+                                </aside>
+                            </article>
+                        </section>
+                        <!--  Details -->
+                        <section class="form-group" id="bottom">
+                            <h2 class="heading">Details</h2>
+                            <article class="grid">
+                                <section class="col-1-3 col-1-3-sm">
+                                    <aside class="controls">
+                                        <label for="people"><i class="fa fa-male"></i>Type of room</label>
+                                        <select class="floatLabel">
+                                            <option value="blank">Entire home/apt</option>
+                                            <option value="1">Hotel room</option>
+                                            <option value="2" selected>Private room</option>
+                                            <option value="3">Shared room</option>
+                                        </select>
+                                    </aside>      
+                                </section>
+                                <section class="col-1-3 col-1-3-sm">
+                                    <aside class="controls">
+                                        <label for="room">Location</label>
+                                        <select class="floatLabel">
+                                            <label for="location">Location:</label>
+                                
+                                            <option value="westEnd">West End</option>
+                                            <option value="k-cCottage">Kensington-Cedar Cottage</option>
+                                            <option value="dtEast">Downtown Eastside</option>
+                                            <option value="hastings-sunrise">Hastings Sunrise</option>
+                                            <option value="grandview-woodland">Grandview-Woodland</option>
+                                            <option value="renfrew-collingwood">Renfrew-Collingwood</option>
+                                            <option value="mountPleasant">Mount Pleasant</option>
+                                            <option value="kitsilano">Kitsilano</option>
+                                            <option value="downtown">Downtown</option>
+                                            <option value="rileyPark">Riley Park</option>
+                                            <option value="arbutusRidge">Arbutus Ridge</option>
+                                            <option value="dunbarSouthlands">Dunbar Southlands</option>
+                                            <option value="killarney">Killarney</option>
+                                            <option value="southCambie">South Cambie</option>
+                                            <option value="fairview">Fairview</option>
+                                            <option value="westPointGrey">West Point Grey</option>
+                                            <option value="strathcona">Strathcona</option>
+                                            <option value="sunset">Sunset</option>
+                                            <option value="kerrisdale">Kerrisdale</option>
+                                            <option value="victoria-fraserview">Victoria-Fraserview</option>
+                                            <option value="marpole">Marpole</option>
+                                            <option value="shaughnessy">Shaughnessy</option>
+                                            <option value="oakridge">Oakridge</option>
+                                
+                                        </select>
+                                    </aside>     
+                                </section>
+                            </article>
+                            <article class="grid" id="commentssec">
+                                <p class="info-text">Please describe your room details</p>
+                                <aside class="controls" id="commentsbox">
+                                    <label for="comments">Description</label>
+                                    <textarea name="comments" class="floatLabel" id="comments"></textarea>
+                                </aside>
+                                <aside class="controls" id="commentsbox">
+                                    <label for="comments">Amenities</label>
+                                    <textarea name="comments" class="floatLabel" id="comments"></textarea>
+                                </aside>
+                                <button type="submit" value="Submit" class="col-1-4">Submit</button>
+                            </article>  
+                        </section> 
+                    </form>
 
-            </section>
-        </main>    
-
+                </section>
+            </main>     
         ';
         return $htmlDetailBooking;
 
     }
 
-    static function endPage(){
+    public static function endPage(){
         $htmlEndPage = '
             </body>
         </html>

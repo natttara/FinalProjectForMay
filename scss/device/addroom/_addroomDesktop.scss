@@ -1,43 +1,42 @@
 @media (min-width: $desktopScreen) {
+  .forAdd {
+    padding-right: 1vh;
+    width: 90%;
+    align-items: center;
+  }
+  .aroom {
+    flex-direction: column;
+    width: 80%
+  }
   
-    .aroom {
-      border-radius: 15px;
+  h2.heading {
+    font-size: 32px;
+  }
+  
+  .controls {
+    padding: 2vh;
+  }
+  
+  // .form-group {
     
-    }
-  
-    h2.heading {
-      font-size: 26px;
-    }
-  
-    .controls {
-      padding: 2vh;
-      width: 15vw;
-    }
-  
-    .form-group {
-      
-      > .grid {
-        flex-direction: row;
-        column-gap: 10px;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
+  //   > .grid {
+  //     flex-direction: row;
+  //     column-gap: 10px;
+  //     align-items: center;
+  //     justify-content: space-between;
+  //   }
+  // }
 
+
+  #top {
+    flex-direction: column;
     
 
-
-
-    #top {
-      > article {
-        display: flex;
-
-      }
-
-      #name {
-        padding: 1px;
-      }
+    #name {
+      padding: 1px;
+      width: 110%;
     }
+  }
 
     #bottom{
       width: 100%;
