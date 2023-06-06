@@ -17,14 +17,24 @@
             return $htmlHead;
         }
 
-                                    // <?php echo $_SESSION['name']; 
         static function mainContent($user,$acmlist){
+            if($user->PICTURE == ""){
+                $user->PICTURE = "http://i.imgur.com/uc5X9Lc.png";
+            }
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
                     <figure>
-                        <img src="../profile/img/profile.jpg" alt="profile">
+                        <form action="#" method="post" class="eForm">
+                            <input type="hidden" name="erase" value="pic">
+                            <input type="submit" value="DELETE PICTURE">
+                        </form>
+                        <img src="'.$user->PICTURE.'" alt="profile">
                         <figcaption>
+                            <form action="#" method="post" class="fForm" enctype="multipart/form-data">
+                                <input type="file" name="upfile" value="picture" required>
+                                <input type="submit" value="UPLOAD">
+                            </form>
                             <article>
                                 <h2>'
                                     .$user->NAME.
@@ -203,7 +213,6 @@
             foreach($acmlist as $acm){
                 $htmlMain .= self::wishListRoom($acm);
             }
-            // $htmlMain .= self::wishListRoom($acm);
             $htmlMain .= 
                     '</ul>
                 </section>
@@ -221,14 +230,13 @@
             }
             $htmlWLRoom = '
             <li>
-                <a href="#">
+                <a href="../description/?accommodation_id='.$acm->ID_ACCOMMODATION.'">
                     <figure>
                         <img src="'.$acm->PICTURE.'">
                         <figcaption>
                             <span>'
                                 .$price.
                             '</span>
-                            <i class="fa-solid fa-draw-polygon"></i>
                         </figcaption>
                     </figure>
                     <article>
@@ -237,6 +245,10 @@
                         <aside>        
                             <i class="fa-solid fa-person-half-dress"></i>
                             <h4>'.$acm->MAX_GUESTS.'</h4>
+                            <form action="#" class="dForm" method="post">
+                                <input type="hidden" name="delete" value="'.$acm->ID_ACCOMMODATION.'">
+                                <input type="submit" value="Remove from wishlist">
+                            </form>
                         </aside>
                     </article>
                 </a>
