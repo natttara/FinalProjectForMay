@@ -75,25 +75,17 @@
                     <section class="top">
                         <aside class="block">
                             <p>CHECK - IN</p>
-                            <span>18</span>
-                            <p>Jan, 2019 - Saturday</p>
-                            <button>CHANGE</button>
+                            <input type=date>
                         </aside>
                         <aside class="block">
                             <p>CHECK - OUT</p>
-                            <span>21</span>
-                            <p>Feb, 2019 - Tuesday</p>
-                            <button>CHANGE</button>
+                            <input type=date>
                         </aside>
                     </section>
                     <section class="bottom">
                         <aside class="block">
                             <p>GUESTS</p>
-                            <span>3</span>
-                        </aside>
-                        <aside class="block">
-                            <p>Nights</p>
-                            <span>4</span>
+                            <input type=number>
                         </aside>
                     </section>
                     <button>BOOK NOW</button>'
