@@ -1,5 +1,3 @@
-$color1: rgb(34,34,34);
-$color2: rgb(198,164,126);
 @media (min-width: $mobileScreen){
     .home {
         display: flex;
@@ -251,6 +249,13 @@ $color2: rgb(198,164,126);
                 text-align: center;
                 color: black;
                 padding: 2vh 0;
+                h3,
+                h4 {
+                    width: 95%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                } 
             }
             section {
                 width: 100%;
@@ -269,6 +274,19 @@ $color2: rgb(198,164,126);
                 font-size: 24px;
             }
         }
+        .shiver{  
+            transform: rotate(10deg);
+            animation-name: room-shiver;
+            animation-duration: 0.3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes room-shiver {
+            0%{ transform:rotate(0);}
+            25%{ transform:rotate(10deg);}
+            50%{ transform:rotate(0deg);}
+            75%{ transform:rotate(-10deg);}
+            100%{ transform:rotate(0deg);}
+        } 
         figure {
             position: relative;
             display: flex;
@@ -306,9 +324,6 @@ $color2: rgb(198,164,126);
             display: flex;
             column-gap: 1vh;
 
-        }
-        .test {
-            transform: rotate(10deg);
         }
         del {
             color: red;

@@ -1,12 +1,30 @@
 <?php
 
+require_once("./inc/config.inc.php");
+require_once("./inc/Entities/User.class.php");
+require_once("./inc/Entities/Accommodation.class.php");
+require_once("./inc/Utilities/PDOService.class.php");
+require_once("./inc/Entities/WishListDAO.class.php");
+require_once("../header/inc/Header.class.php");
 require_once("./inc/Profile.class.php");
 require_once("../Footer.Class.php");
-require_once("../header/inc/Header.class.php");
-// require_once("../result/inc/Utilities/PDOService.class.php");
-// require_once("inc/Entities/AccDAO.class.php");
-// require_once("inc/Result.class.php");
+
 session_start();
+$email = $_SESSION['username'];
+WishListDAO::startDB();
+$user = WishListDAO::getUserByEmail($email);
+
+$idlist = [];
+$wishlist = WishListDAO::getIdByEmail($email);
+foreach($wishlist as $wish){
+    $idlist[] = $wish->ID_ACCOMMODATION;
+}
+
+$acmlist = [];
+foreach ($idlist as $id) {
+    $acm = WishListDAO::getAccById($id);
+    $acmlist[] = $acm;
+}
 if(!empty($_SESSION["logged"])){
     var_dump($_SESSION["username"]);
     echo Header::HeaderNav("Home","name","0",true);
@@ -15,6 +33,6 @@ if(!empty($_SESSION["logged"])){
     
     }
 echo Profile::headPage();
-echo Profile::mainContent();
+echo Profile::mainContent($user,$acmlist);
 echo Profile::endPage();
 echo Footer::footer();

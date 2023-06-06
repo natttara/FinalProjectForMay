@@ -12,12 +12,13 @@
                 <link rel="stylesheet" href="../css/style.css">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
             </head>
-            <body>
+            <body class="pBody">
             ';
             return $htmlHead;
         }
 
-        static function mainContent(){
+                                    // <?php echo $_SESSION['name']; 
+        static function mainContent($user,$acmlist){
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
@@ -193,10 +194,53 @@
                             </section>
                         </aside> -->
                     </section>
+                    <section class="wishList">
+                    <aside>
+                        <h3>WISH LIST</h3>
+                    </aside>
+                    <ul>';
+            foreach($acmlist as $acm){
+                $htmlMain .= self::wishListRoom($acm);
+            }
+            // $htmlMain .= self::wishListRoom($acm);
+            $htmlMain .= 
+                    '</ul>
+                </section>
                 </section>
             </main>
             ';
             return $htmlMain;
+        }
+
+        static function wishListRoom($acm){
+            if($acm->SPECIAL_OFFER==1) {
+                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $acm->PRICE_PER_NIGHT.'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
+            }else {
+                $price = '<h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD /Night</h4>';
+            }
+            $htmlWLRoom = '
+            <li>
+                <a href="#">
+                    <figure>
+                        <img src="'.$acm->PICTURE.'">
+                        <figcaption>
+                            <span>'
+                                .$price.
+                            '</span>
+                            <i class="fa-solid fa-draw-polygon"></i>
+                        </figcaption>
+                    </figure>
+                    <article>
+                        <h3>'.$acm->NAME.'</h3>
+                        <h4>'.$acm->NEIGHBOURHOOD.'</h4>
+                        <aside>        
+                            <i class="fa-solid fa-person-half-dress"></i>
+                            <h4>'.$acm->MAX_GUESTS.'</h4>
+                        </aside>
+                    </article>
+                </a>
+            </li>';
+            return $htmlWLRoom;
         }
 
         static function endPage(){

@@ -4,8 +4,18 @@
         
        
 
-        public static function body($acc,$amenities,$reviews) : string{
+        public static function body($acc,$amenities,$reviews,$logged,$id) : string{
 
+            if($logged){
+                $wish = '
+                <form action="#" class="wForm">
+                    <input type="hidden" name="accommodation_id" value="'.$id.'">
+                    <input type="hidden" name="wish" value="true">
+                    <input type="submit" value="Add to wishlist">
+                </form>';
+            }else {
+                $wish = "";
+            }
             $body = '
             <section class="container">
             <section class="body-desc">
@@ -78,8 +88,9 @@
                             <input type=number>
                         </aside>
                     </section>
-                    <button>BOOK NOW</button>
-                    <h4>The Host</h4>
+                    <button>BOOK NOW</button>'
+                    .$wish.
+                    '<h4>The Host</h4>
                     <article class="profile-user">
                     <figure>
                     <img class="circle" src="' .$acc->HOST_PICTURE.'" alt="img-1">

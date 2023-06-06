@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
-<body>
+<body class="pBody">
     <main class="profile">
         <!-- left section -->
         <section class="pleft">
@@ -17,7 +17,8 @@
                 <figcaption>
                     <article>
                         <h2>
-                            <?php echo $_SESSION['name']; ?>
+                            name
+                            <!-- <?php echo $_SESSION['name']; ?> -->
                         </h2>
                         <h5>
                              <a href="#">
@@ -136,7 +137,6 @@
                         </li>
                     </ul>
                 </aside>
-                <h6></h6>
                 <aside>
                     <h4>
                         Save My Credit Card Information
@@ -184,6 +184,55 @@
                         </label>
                     </section>
                 </aside> -->
+            </section>
+            <section class="wishList">
+                <aside>
+                    <h3>WISH LIST</h3>
+                </aside>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <figure>
+                                <img src="./img/profile.jpg" alt="">
+                                <figcaption>
+                                    <span>
+                                        <h4 class="rPrice"><div class="shiver"><del>$5</del></div>100 CAD /Night</h4>
+                                    </span>
+                                    <i class="fa-solid fa-draw-polygon"></i>
+                                </figcaption>
+                            </figure>
+                            <article>
+                                <h3>namenamenamneamename</h3>
+                                <h4>locationlocation</h4>
+                                <aside>        
+                                    <i id="rType" class="fa-solid fa-person-half-dress"></i>
+                                    <h4 class="rPeople">5</h4>
+                                </aside>
+                            </article>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <figure>
+                                <img src="./img/profile.jpg" alt="">
+                                <figcaption>
+                                    <span>
+                                        <h4 class="rPrice">100 CAD /Night</h4>
+                                    </span>
+                                    <i class="fa-solid fa-draw-polygon"></i>
+                                </figcaption>
+                            </figure>
+                            <article>
+                                <h3>namenamenamneamename</h3>
+                                <h4>locationlocation</h4>
+                                <aside>        
+                                    <i id="rType" class="fa-solid fa-person-half-dress"></i>
+                                    <h4 class="rPeople">5</h4>
+                                </aside>
+                            </article>
+                        </a>
+                    </li>
+                </ul>
             </section>
         </section>
         <!-- right section END -->
