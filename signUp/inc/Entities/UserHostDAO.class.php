@@ -42,7 +42,7 @@ class UserHostDAO {
     }
 
     public static function insertHost(Host $newHost) {
-        $sql = "INSERT INTO tb_hosts(host_id,email,host_name,password) VALUES (:id,:email,:name,:password)";
+        $sql = "INSERT INTO tb_hosts(host_id,email,name,password) VALUES (:id,:email,:name,:password)";
 
         self::$db->query($sql);
 

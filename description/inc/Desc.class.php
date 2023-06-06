@@ -13,8 +13,35 @@
                     <input type="hidden" name="wish" value="true">
                     <input type="submit" value="Add to wishlist">
                 </form>';
+
+                $booking = '
+                <form method="POST">
+                <section class="top">
+                <aside class="block">
+                    <p>CHECK - IN</p>
+                    <input name="checkIn" type=date>
+                </aside>
+                <aside class="block">
+                    <p>CHECK - OUT</p>
+                    <input name="checkOut" type=date>
+                </aside>
+            </section>
+            <section class="bottom">
+                <aside class="block">
+                    <p>GUESTS</p>
+                    <input name="guests" type=number>
+                </aside>
+            </section>
+            <button class="buttonB">BOOK NOW</button>
+            </form>'
+            ;
             }else {
                 $wish = "";
+                $booking='<section class="not-logged">
+                <p>You need to sign in to book a room</p>
+                <a href="../login/login.php">Sign In</a>
+                </section>
+                ';
             }
             $body = '
             <section class="container">
@@ -71,24 +98,8 @@
                     $body.='
                     </article>
                 </article>
-                <article class="right">
-                    <section class="top">
-                        <aside class="block">
-                            <p>CHECK - IN</p>
-                            <input type=date>
-                        </aside>
-                        <aside class="block">
-                            <p>CHECK - OUT</p>
-                            <input type=date>
-                        </aside>
-                    </section>
-                    <section class="bottom">
-                        <aside class="block">
-                            <p>GUESTS</p>
-                            <input type=number>
-                        </aside>
-                    </section>
-                    <button>BOOK NOW</button>'
+                <article class="right">'
+                    .$booking
                     .$wish.
                     '<h4>The Host</h4>
                     <article class="profile-user">

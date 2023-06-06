@@ -35,6 +35,13 @@ if (!empty($_GET)) {
                 echo $_GET['wish'];
                 $insertWishList = AccDAO::insertWishList($_SESSION['username'],$_GET['accommodation_id']);
             }
+            if(!empty($_POST)) {
+                $userData = AccDAO::getUserById($_SESSION['username']);
+                $hostData = AccDAO::getHostById($_GET['accommodation_id']);
+                AccDAO::insertReservation($_GET['accommodation_id'],$userData->ID_USER,$hostData->ID_U_HOST,$_POST["checkIn"],$_POST["checkOut"],0,$_POST["guests"]);
+                var_dump("Room Added");
+                // var_dump($_GET['accommodation_id'],$userData->ID_USER,$hostData->ID_U_HOST,$_POST["checkIn"],$_POST["checkOut"],0,$_POST["guests"]);
+            }
 
             $logged = true;
             echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,true);

@@ -114,6 +114,19 @@
              h4 {
                 padding-top: 2vh;
             }
+            .not-logged {
+                display: flex;
+                flex-direction: column;
+                a{
+                    background-color: #C6A47E;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    height: 4vh;
+                }
+            }
              .profile-user {
                 display: flex;
                 column-gap: 2vh;
@@ -128,11 +141,12 @@
                 }
                 font-size: 30px;
              }
-             >button {
+             .buttonB {
                 color: white;
                 background-color: #C6A47E;
                 border:none;
                 height: 4vh;
+                width: 100%;
              }
              .wForm {
                 width: 100%;
