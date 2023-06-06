@@ -110,7 +110,7 @@
                 <section>
             ';
             foreach($acmList as $acm){
-                $htmlList .= self::room($acm,$location,$guestNum,$sort);
+                $htmlList .= self::room($acm);
             }
             $htmlList .= '
                 </section>
@@ -120,7 +120,7 @@
             return $htmlList;
         }
 
-        static function room($acm,$location,$guestNum,$sort){
+        static function room($acm){
             //START: giving icon according to the room type
             $roomIcon = "";
             $price = "";

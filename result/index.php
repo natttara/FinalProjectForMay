@@ -28,10 +28,6 @@ if(!empty($_SESSION["logged"])){
     }
 echo Result::mainContent();
 
-if ( !empty($_GET['wish'])){
-    echo $_GET['wish'];
-    $insertWishList = AccDAO::insertWishList($_SESSION['username'],$_GET['wish']);
-}
 $acmList= AccDAO::get30($page);
 if ( !empty($_GET['location']) && empty($_GET['page'])  ) {
     if($_GET['location'] == "All Vancouver"){
