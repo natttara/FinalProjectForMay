@@ -3,17 +3,21 @@ $color2: rgb(198,164,126);
 
 @media (min-width: $desktopScreen){
 
-    h2 {
-        font-size: 26px;
+    .profile {
+
+        h2 {
+            font-size: 26px;
+        }
+    
+        h5 {
+            font-size: 16px;
+        }
+    
+        h4 {
+            font-size: 18px;
+        }
     }
 
-    h5 {
-        font-size: 16px;
-    }
-
-    h4 {
-        font-size: 18px;
-    }
 
     .pleft { 
         width: 30%;
@@ -57,6 +61,25 @@ $color2: rgb(198,164,126);
         > aside {
             display: flex;
             justify-content: space-between;
+        }
+    }
+
+    .wishList {
+        figure {
+            width: 30vh;
+        }
+        img {
+            height: 20vh;
+        }
+        article {
+            height: 20vh;
+            width: 40vh;
+        }
+        figcaption h4 {
+            font-size: 18px;
+        }
+        [class="fa-solid fa-draw-polygon"] {
+            font-size: 30px;
         }
     }
     

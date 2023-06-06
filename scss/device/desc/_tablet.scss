@@ -10,6 +10,11 @@
                     height: 20vh;
                 }
             }
+            
         }
+    }
+    .main-content .right .wForm [type="submit"]:hover {
+        color: $color2;
+        background-color: wheat;
     }
 }

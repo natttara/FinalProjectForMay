@@ -6,7 +6,7 @@
                 <section class="footerTop">
                     <article>
                         <aside>
-                            <a href="#"><i class="fa-solid fa-bed"></i></a>
+                            <a href="../home/"><i class="fa-solid fa-bed"></i></a>
                             <!-- replace with logo after decision -->
                             <h2>Van Booking</h2>
                         </aside>
@@ -20,10 +20,10 @@
                         <h3>Links</h3>
                         <ul>
                             <li><a href="../home/">Home</a></li>
-                            <li><a href="#">Your Profile</a></li>
+                            <li><a href="../profile/">Your Profile</a></li>
                             <li><a href="#">Form for owners</a></li>
-                            <li><a href="#">Sign in</a></li>
-                            <li><a href="#">Sign up</a></li>
+                            <li><a href="../signUp/">Sign in</a></li>
+                            <li><a href="../login/login.php">Sign up</a></li>
                         </ul>
                     </article>
                     <article>
