@@ -134,6 +134,18 @@
                 border:none;
                 height: 4vh;
              }
+             .wForm {
+                width: 100%;
+                [type="submit"]{
+                    color: white;
+                    background-color: #C6A47E;
+                    border:none;
+                    height: 4vh;
+                    width: 100%;
+                    font-size: 16px;
+                    transition: .4s;
+                }
+             }
              .top, .bottom {
                 display: flex;
                 justify-content: space-between;

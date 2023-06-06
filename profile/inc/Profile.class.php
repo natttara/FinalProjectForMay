@@ -18,7 +18,7 @@
         }
 
                                     // <?php echo $_SESSION['name']; 
-        static function mainContent($user,$acm){
+        static function mainContent($user,$acmlist){
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
@@ -200,10 +200,10 @@
                         <h3>WISH LIST</h3>
                     </aside>
                     <ul>';
-            // foreach($wishList as $wish){
-            //     $htmlMain .= self::wishListRoom($wish);
-            // }
-            $htmlMain .= self::wishListRoom($acm);
+            foreach($acmlist as $acm){
+                $htmlMain .= self::wishListRoom($acm);
+            }
+            // $htmlMain .= self::wishListRoom($acm);
             $htmlMain .= 
                     '</ul>
                 </section>
@@ -213,17 +213,17 @@
             return $htmlMain;
         }
 
-        static function wishListRoom($wish){
-            if($wish->SPECIAL_OFFER==1) {
-                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $wish->PRICE_PER_NIGHT.'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
+        static function wishListRoom($acm){
+            if($acm->SPECIAL_OFFER==1) {
+                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $acm->PRICE_PER_NIGHT.'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
             }else {
-                $price = '<h4 class="rPrice">'.$wish->PRICE_PER_NIGHT.' CAD /Night</h4>';
+                $price = '<h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD /Night</h4>';
             }
             $htmlWLRoom = '
             <li>
                 <a href="#">
                     <figure>
-                        <img src="'.$wish->PICTURE.'">
+                        <img src="'.$acm->PICTURE.'">
                         <figcaption>
                             <span>'
                                 .$price.
@@ -232,11 +232,11 @@
                         </figcaption>
                     </figure>
                     <article>
-                        <h3>'.$wish->NAME.'</h3>
-                        <h4>'.$wish->NEIGHBOURHOOD.'</h4>
+                        <h3>'.$acm->NAME.'</h3>
+                        <h4>'.$acm->NEIGHBOURHOOD.'</h4>
                         <aside>        
                             <i class="fa-solid fa-person-half-dress"></i>
-                            <h4>'.$wish->MAX_GUESTS.'</h4>
+                            <h4>'.$acm->MAX_GUESTS.'</h4>
                         </aside>
                     </article>
                 </a>

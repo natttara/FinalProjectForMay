@@ -16,6 +16,15 @@ class WishListDAO {
         return self:: $db->singleResult();
     }
 
+    public static function getIdByEmail($email) {
+        $sql= "SELECT ID_ACCOMMODATION,EMAIL FROM tb_wishlist WHERE EMAIL = :email;";
+        self::$db->query($sql);
+        self::$db->bind(":email",$email);
+        self::$db->execute();
+
+        return self:: $db->resultSet();
+    }
+
     public static function getAccById($id) {
         $sql= "SELECT B.ID_ACCOMMODATION,A.PICTURE,B.NAME,B.NEIGHBOURHOOD,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.IS_AVAILABLE,B.SPECIAL_OFFER,B.NEW_PRICE FROM `tb_acc_details` A 
         INNER JOIN tb_accommodations B 

@@ -18,7 +18,6 @@ if ( empty($_GET) && empty($_GET['page'])  ) {
         $page=$_GET['page'];
     }
 };
-$acmList= AccDAO::get30($page);
 echo Result::pageHead();
 if(!empty($_SESSION["logged"])){
     var_dump($_SESSION["username"]);
@@ -31,7 +30,9 @@ echo Result::mainContent();
 
 if ( !empty($_GET['wish'])){
     echo $_GET['wish'];
+    $insertWishList = AccDAO::insertWishList($_SESSION['username'],$_GET['wish']);
 }
+$acmList= AccDAO::get30($page);
 if ( !empty($_GET['location']) && empty($_GET['page'])  ) {
     if($_GET['location'] == "All Vancouver"){
         if(!empty($_GET['sortBy'])){

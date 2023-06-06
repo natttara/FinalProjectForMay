@@ -11,12 +11,23 @@ require_once("../Footer.Class.php");
 
 session_start();
 $email = $_SESSION['username'];
-$id = $_GET['id'];
 WishListDAO::startDB();
 $user = WishListDAO::getUserByEmail($email);
-$acm = WishListDAO::getAccById($id);
+
+$idlist = [];
+$wishlist = WishListDAO::getIdByEmail($email);
+foreach($wishlist as $wish){
+    $idlist[] = $wish->ID_ACCOMMODATION;
+}
+
+$acmlist = [];
+foreach ($idlist as $id) {
+    $acm = WishListDAO::getAccById($id);
+    $acmlist[] = $acm;
+}
+
 echo Header::HeaderNav("Home","name","0",true);
 echo Profile::headPage();
-echo Profile::mainContent($user,$acm);
+echo Profile::mainContent($user,$acmlist);
 echo Profile::endPage();
 echo Footer::footer();
