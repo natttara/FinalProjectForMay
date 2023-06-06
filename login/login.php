@@ -27,7 +27,7 @@ if(!empty($_POST)) {
             $_SESSION["logged"] = true;
             $_SESSION["username"] = $userEmail->EMAIL;
             $_SESSION["name"] = $userEmail->NAME;
-            $_SESSION["host"] =$userType;
+            $_SESSION["type"] =$userType;
 
             header("Location: ../home/");
         }else {

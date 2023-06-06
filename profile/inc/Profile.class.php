@@ -18,7 +18,7 @@
         }
 
                                     // <?php echo $_SESSION['name']; 
-        static function mainContent($user,$acmlist){
+        static function mainContent($user,$acmlist,$reservations){
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
@@ -205,7 +205,37 @@
             // $htmlMain .= self::wishListRoom($acm);
             $htmlMain .= 
                     '</ul>
-                </section>
+                </section>';
+                if($_SESSION['type']=='host') {
+                    $htmlMain .='<section class="Reservations">
+                    <aside>
+                    <h3>Requests</h3>
+                    </aside>
+                    <section class="requests">';
+                    foreach($reservations as $reserve){
+                        $htmlMain .='<figure>
+                        <img src="'.$reserve->PICTURE.'" >
+                        
+                        <figcaption>
+                        <p><strong>'.$reserve->USER_NAME.'</strong></p> <p>Would like to stay in <strong>'.$reserve->NAME.'</strong></p>
+                        <p>From <span class="gold">'.$reserve->CHECK_IN.'</span> to <span class="gold">'.$reserve->CHECK_OUT.'
+                       </span>.
+                       <p>Do you accept the request for the stay?</p>
+                       <aside class="accept">
+                       <p class="yes">Yes</p>
+                       <p class="no">No</p>
+                       </aside>
+                       </figcaption>
+    
+                        </figure>';
+                    }
+                    $htmlMain .='
+                    </section>
+                    </section>';
+                }else {
+                    $htmlMain .='';
+                }
+                $htmlMain .='
                 </section>
             </main>
             ';

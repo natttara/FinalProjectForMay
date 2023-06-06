@@ -310,6 +310,50 @@
             75%{ transform:rotate(-10deg);}
             100%{ transform:rotate(0deg);}
         } 
+
+
     }
+    .Reservations{
+        box-shadow: 0 0 12px lightgray;
+        border: 1px solid $color1;     
+        padding: 3vh;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        .requests {
+            display: flex   ;
+        }
+            figure{
+                display: flex;
+                column-gap: 4vh;
+                figcaption{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1vh;
+                }
+                img {
+                    width: 23vh;
+                    height: 20vh;
+                }
+                .gold {
+                    color:rgb(234 177 115);
+                    font-weight: bold;
+                    font-style: italic;
+                }
+
+                .accept{
+                    display: flex;
+                    column-gap: 4vh;
+                    font-weight: bold;
+                    .yes{
+                        color: green;
+                    }
+                    .no{
+                        color: red;
+
+                    }
+                }
+            }
+        }
     
 }
