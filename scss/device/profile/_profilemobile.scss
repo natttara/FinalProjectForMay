@@ -148,6 +148,8 @@
         vertical-align: top;
         padding: 0 15px 0 0;
     }
+
+   
       
     .toggle-1__input {
         display: none;
@@ -325,6 +327,111 @@
             75%{ transform:rotate(-10deg);}
             100%{ transform:rotate(0deg);}
         } 
+
+
     }
+    .trips{
+        box-shadow: 0 0 12px lightgray;
+        border: 1px solid $color1;   
+        padding: 3vh;
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        .gold {
+            color:rgb(120, 84, 45);
+            font-weight: bold;
+            font-style: italic;
+        }
+        figure{
+            display: flex;
+            column-gap: 2vh;
+            figcaption{
+                display: flex;
+                flex-direction: column;
+                row-gap: 1vh;
+            }
+        }
+        img{
+            width: 23vh;
+            height: 20vh;  
+        }
+    }
+    .allAcc{
+        box-shadow: 0 0 12px lightgray;
+        border: 1px solid $color1;     
+        padding: 3vh;
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        a{
+            color: black;
+        }
+        figure{
+            display: flex;
+            column-gap: 4vh;
+        figcaption{
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+        }
+    }
+
+        img {
+            width: 23vh;
+            height: 20vh;
+        }
+    }
+    .Reservations{
+        box-shadow: 0 0 12px lightgray;
+        border: 1px solid $color1;     
+        padding: 3vh;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        .requests {
+            display: flex;
+            flex-direction: column;
+            row-gap: 4vh;
+        }
+            figure{
+                display: flex;
+                column-gap: 4vh;
+                figcaption{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1vh;
+                }
+                img {
+                    width: 23vh;
+                    height: 20vh;
+                }
+                .gold {
+                    color:rgb(234 177 115);
+                    font-weight: bold;
+                    font-style: italic;
+                }
+
+                .accept{
+                    display: flex;
+                    column-gap: 4vh;
+                    font-weight: bold;
+                    .yes{
+                        color: green;
+                    }
+                    .no{
+                        color: red;
+
+                    }
+                }
+            }
+        }
+        .send{
+            background-color: $color2;
+            color: white;
+            border: solid 1px $color2;
+            width: 10vh;
+            cursor: pointer;
+            border-radius: 3px;
+        }
     
 }

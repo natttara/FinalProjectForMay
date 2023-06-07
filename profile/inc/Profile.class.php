@@ -16,8 +16,9 @@
             ';
             return $htmlHead;
         }
-
-        static function mainContent($user,$acmlist){
+                             
+        static function mainContent($user,$acmlist,$reservations,$allAcc,$trips){
+ 
             if($user->PICTURE == ""){
                 $user->PICTURE = "http://i.imgur.com/uc5X9Lc.png";
             }
@@ -214,7 +215,96 @@
             }
             $htmlMain .= 
                     '</ul>
-                </section>
+                </section>';
+                if($_SESSION['type']=='host') {
+                    $htmlMain .='<section class="Reservations">
+                    <aside>
+                    <h3>Requests</h3>
+                    </aside>
+                    <section class="requests">';
+                    foreach($reservations as $reserve){
+                        $htmlMain .='<figure>
+                        <img src="'.$reserve->PICTURE.'" >
+                        
+                        <figcaption>
+                        <p><strong>'.$reserve->USER_NAME.'</strong></p> <p>Would like to stay in <strong>'.$reserve->NAME.'</strong></p>
+                        <p>From <span class="gold">'.$reserve->CHECK_IN.'</span> to <span class="gold">'.$reserve->CHECK_OUT.'
+                       </span>.
+                       <p>Do you accept the request for the stay?</p>
+                       <form method="POST">
+                       <aside class="accept">
+                       <input type="radio" id="acceptation" name="acceptation" value="Yes">
+                       <p class="yes">Yes</p>
+                       <input type="radio" id="acceptation" name="acceptation" value="No">
+                       <p class="no">No</p>
+                       <input hidden id="reservation" name="reservation" type="text" value="'.$reserve->ID_RESERVATION.'">
+                       <button class="send">Send</button>
+                       </aside>
+                       </form>
+                       </figcaption>
+    
+                        </figure>';
+                    }
+                    $htmlMain .='
+                    </section>';
+                 
+                    
+                    $htmlMain .='</section>
+                    <section class="allAcc">
+                    <aside>
+                    <h3>Your Places</h3>
+                    </aside>';
+                   
+                        // 
+                        // <img src="'.$acc->NAME.'" >
+                        foreach($allAcc as $acc){
+                            $htmlMain .='
+                            <a href="../description/?accommodation_id='.$acc->ID_ACCOMMODATION.'">
+                            <figure>
+                            <img src="'.$acc->PICTURE.'" >
+                            <figcaption>
+                            <p><strong>'.$acc->NAME.'</strong></p>
+                            <p>'.$acc->NEIGHBOURHOOD.'</p>
+                            <p>'.$acc->ROOM_TYPE.'</p>
+                            <p>'.$acc->BEDS.' Bedrooms</p>
+                            <p><i class="fa-solid fa-star"></i> '.$acc->REVIEWS.'</p>
+
+                           <aside class="accept">
+                           </aside>
+                           </figcaption>
+                            </figure>
+                            </a>'
+                            ;
+
+                        }
+                        
+                
+                }else {
+                    $htmlMain .='<section class="trips">
+                    <aside>
+                    <h3>My Trips</h3>
+                    </aside>';
+
+                    if($trips){
+                        foreach($trips as $trip){
+                            $htmlMain .='
+                            <figure>
+                            <img src="'.$trip->PICTURE.'">
+                            <figcaption>
+                            <h5>Reservation ID:   #'.$trip->ID_RESERVATION.'</h5>
+                            <p>'.$trip->NAME.'</p>
+                            <p><span class="gold">From: </span> '.$trip->CHECK_IN.'</p>
+                            <p><span class="gold">To: </span> '.$trip->CHECK_OUT.'</p>
+                            <p><span class="gold">Host by: </span>  '.$trip->HOST_NAME.'</p>
+                            </figcaption>
+                            </figure>';
+                        }
+                    }else {
+                        $htmlMain.="<p>You don't have any trips yet";
+                    }
+                
+                }
+                $htmlMain .='
                 </section>
             </main>
             ';

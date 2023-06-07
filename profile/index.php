@@ -25,6 +25,15 @@ foreach ($idlist as $id) {
     $acm = WishListDAO::getAccById($id);
     $acmlist[] = $acm;
 }
+if($_SESSION["type"]=='host') {
+$reservations = WishListDAO::getReservations(strtolower($_SESSION["username"]));
+$accAll = WishListDAO::getAllByHost(strtolower($_SESSION["username"]));
+$trips='';
+}else {
+    $reservations='';  
+    $accAll=''; 
+    $trips = WishListDAO::getUserTrips(strtolower($_SESSION["username"]));
+}
 
 if(!empty($_SESSION["logged"])){
     var_dump($_SESSION["username"]);
@@ -55,13 +64,24 @@ if(!empty($_FILES)){
     }else{
     echo 'Upload fail'; 
     }
+
+if(!empty($_POST["acceptation"])){
+    if($_POST["acceptation"]=="No"){
+        WishListDAO::updateReservation($_POST["reservation"],2); 
+        header("Location: /");
+
+    }else {
+        WishListDAO::updateReservation($_POST["reservation"],1); 
+        header("Location: ./");
+
+    }
+}
 }
 
 echo Header::HeaderNav("Home","name","0",true);
 
 
-
 echo Profile::headPage();
-echo Profile::mainContent($user,$acmlist);
+echo Profile::mainContent($user,$acmlist,$reservations,$accAll,$trips);
 echo Profile::endPage();
 echo Footer::footer();

@@ -17,4 +17,12 @@ class UserDAO {
 
         return self::$db->singleResult();
     }
+    public static function getEmailHost( string $email ) {
+        $sql = "SELECT * FROM tb_hosts WHERE LOWER(email)=:email";
+        self::$db->query($sql);
+        self::$db->bind(":email",$email);
+        self::$db->execute();
+
+        return self::$db->singleResult();
+    }
 }
