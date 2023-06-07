@@ -27,16 +27,25 @@ if (!empty($_GET)) {
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
     $reviews = AccDAO::getReviewsId($_GET['accommodation_id']);
     if($singleAcc){
+        $amenities = explode(";",$singleAcc->AMENITIES);
         if(!empty($_SESSION["logged"])){
             var_dump($_SESSION["username"]);
+
+            if ( !empty($_GET['wish'])){
+                echo $_GET['wish'];
+                $insertWishList = AccDAO::insertWishList($_SESSION['username'],$_GET['accommodation_id']);
+            }
+
+            $logged = true;
             echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,true);
-            }else {
-                echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,false);
+            echo Desc:: body($singleAcc,$amenities,$reviews,$logged,$_GET['accommodation_id']);
+        }else {
+            $logged = false;
+            echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,false);
+            echo Desc:: body($singleAcc,$amenities,$reviews,$logged,$_GET['accommodation_id']);
             
             }
-         $amenities = explode(";",$singleAcc->AMENITIES);
         // echo Desc:: body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS,$amenities, $reviews,$singleAcc->SPECIAL_OFFER,$singleAcc->NEW_PRICE);
-        echo Desc:: body($singleAcc,$amenities,$reviews);
         echo Footer::footer();
     }else {
         echo Desc:: notFound();

@@ -1,11 +1,30 @@
-$color1: rgb(34,34,34);
-$color2: rgb(198,164,126);
 @media (min-width: $mobileScreen){
     .login{
         background-image: url("/login/inc/img/login.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        
+        input[type="text"],
+        input[type="password"]{
+            padding-top: 3%;
+            margin-top: 30px;
+            height: 45px;
+            width: 90%;
+            font-size: 18px;
+            margin-bottom: 20px;
+            background-color: white;
+            padding-left: 40px;
+    
+        }
         
     }
     
@@ -25,27 +44,6 @@ $color2: rgb(198,164,126);
             width: 150px;
             height: 150px;
         }
-    }
-    
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    
-    input[type="text"],
-    input[type="password"]{
-        padding-top: 3%;
-        margin-top: 30px;
-        height: 45px;
-        width: 90%;
-        font-size: 18px;
-        margin-bottom: 20px;
-        background-color: white;
-        padding-left: 40px;
-
     }
     
     .form-input::before{

@@ -35,4 +35,16 @@ class AccDAO {
 
         return self:: $db->resultSet();
     }
+
+    
+    public static function insertWishList($email,$id_acm) {
+        $sql = "INSERT INTO tb_wishlist(email,ID_ACCOMMODATION) VALUES (:email,:acmId)";
+
+        self::$db->query($sql);
+        self::$db->bind(":email",$email);
+        self::$db->bind(":acmId",$id_acm);
+        self::$db->execute();
+
+        return self::$db->lastInsertedId();
+    }
 }

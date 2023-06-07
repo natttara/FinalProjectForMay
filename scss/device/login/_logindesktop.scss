@@ -6,16 +6,17 @@
             width: 20vh;
             height: 20vh;
         }
-    }
-    
-    
-    input[type="text"],input[type="password"]{
-        width: 100%;
-        padding: 1vh;
-        &::placeholder{
-            padding-left: 5vh;
+        
+        input[type="text"],input[type="password"]{
+            width: 100%;
+            padding: 1vh;
+            &::placeholder{
+                padding-left: 5vh;
+            }
         }
     }
+    
+    
     
     .form-input::before{
         padding-left: 10px;

@@ -29,6 +29,7 @@
 
         static function formRow(){
             $form = '
+            <a href = "../addroom/">TEST</a>
             <section class="hForm">
                 <section class="hLayer">
                     <form action="../result/">
@@ -187,9 +188,8 @@
                     <img class="rPicture" src="'.$acm->PICTURE.'">
                     <figcaption>
                         <span>
-                            <h4 class="rPrice"><div class="test"><del>$'.$acm->PRICE_PER_NIGHT.'</del></div>  '.$acm->NEW_PRICE.' CAD /night</h4>
+                            <h4 class="rPrice"><div class="shiver"><del>$'.$acm->PRICE_PER_NIGHT.'</del></div>  '.$acm->NEW_PRICE.' CAD /night</h4>
                         </span>
-                        <i class="fa-solid fa-draw-polygon"></i>
                     </figcaption>
                 </figure>
                 <article>

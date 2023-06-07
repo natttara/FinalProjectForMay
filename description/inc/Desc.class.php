@@ -4,8 +4,18 @@
         
        
 
-        public static function body($acc,$amenities,$reviews) : string{
+        public static function body($acc,$amenities,$reviews,$logged,$id) : string{
 
+            if($logged){
+                $wish = '
+                <form action="#" class="wForm">
+                    <input type="hidden" name="accommodation_id" value="'.$id.'">
+                    <input type="hidden" name="wish" value="true">
+                    <input type="submit" value="Add to wishlist">
+                </form>';
+            }else {
+                $wish = "";
+            }
             $body = '
             <section class="container">
             <section class="body-desc">
@@ -65,29 +75,22 @@
                     <section class="top">
                         <aside class="block">
                             <p>CHECK - IN</p>
-                            <span>18</span>
-                            <p>Jan, 2019 - Saturday</p>
-                            <button>CHANGE</button>
+                            <input type=date>
                         </aside>
                         <aside class="block">
                             <p>CHECK - OUT</p>
-                            <span>21</span>
-                            <p>Feb, 2019 - Tuesday</p>
-                            <button>CHANGE</button>
+                            <input type=date>
                         </aside>
                     </section>
                     <section class="bottom">
                         <aside class="block">
                             <p>GUESTS</p>
-                            <span>3</span>
-                        </aside>
-                        <aside class="block">
-                            <p>Nights</p>
-                            <span>4</span>
+                            <input type=number>
                         </aside>
                     </section>
-                    <button>BOOK NOW</button>
-                    <h4>The Host</h4>
+                    <button>BOOK NOW</button>'
+                    .$wish.
+                    '<h4>The Host</h4>
                     <article class="profile-user">
                     <figure>
                     <img class="circle" src="' .$acc->HOST_PICTURE.'" alt="img-1">

@@ -8,13 +8,14 @@
         }
     }
     
-    
-    input[type="text"],input[type="password"]{
-        font-size: 24px;
-        font-weight: 700;
-        color: $color2;
-        display: inline-flex;
-        
+    .login {   
+        input[type="text"],input[type="password"]{
+            font-size: 24px;
+            font-weight: 700;
+            color: $color2;
+            display: inline-flex;
+            
+        }
     }
     
     .form-input::before{

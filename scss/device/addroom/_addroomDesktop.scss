@@ -59,7 +59,7 @@
       > input[type="email"],
       > input[type="tel"],
       > textarea,
-        button {
+      .subBtn {
             font-size: 18px;        
 
             &:focus,
@@ -89,7 +89,7 @@
     }
     
   
-    button {
+    .subBtn {
         width: 40%;
         margin-left: 0;
 
