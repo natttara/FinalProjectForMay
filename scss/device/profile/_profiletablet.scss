@@ -19,6 +19,16 @@ $color2: rgb(198,164,126);
     }
 
 
+    .eForm [type="submit"],
+    .fForm [type="submit"]{
+        transition: .4s;
+        &:hover {
+            background-color: white;
+            color: $color2;
+        }
+    }
+
+
     .pleft { 
         width: 35%;
 
@@ -85,13 +95,16 @@ $color2: rgb(198,164,126);
         li > a:hover {
             background-color: $color2;
         }
-        figcaption i {
+        .dForm [type="submit"] {
             transition: .4s;
             &:hover {
-                color: orange;
+                background-color: white;
+                color: red;
             }
         }
     }
+
+   
     
     
 }

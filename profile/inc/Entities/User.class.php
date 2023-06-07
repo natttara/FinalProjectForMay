@@ -6,6 +6,7 @@ class User {
     private string $name;
     private string $email;
     private string $password;
+	private string $picture;
 
 	public function getId() {
 		return $this->id;
@@ -45,5 +46,25 @@ class User {
 
 	public function setEmail(string $email) {
 		$this->email = $email;
+	}
+
+	/**
+	 * Get the value of picture
+	 */ 
+	public function getPicture()
+	{
+		return $this->picture;
+	}
+
+	/**
+	 * Set the value of picture
+	 *
+	 * @return  self
+	 */ 
+	public function setPicture(string $picture)
+	{
+		$this->picture = $picture;
+
+		return $this;
 	}
 }

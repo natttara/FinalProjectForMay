@@ -17,16 +17,6 @@
                         </blockquote>
                     </article>
                     <article>
-                        <h3>Links</h3>
-                        <ul>
-                            <li><a href="../home/">Home</a></li>
-                            <li><a href="../profile/">Your Profile</a></li>
-                            <li><a href="#">Form for owners</a></li>
-                            <li><a href="../signUp/">Sign in</a></li>
-                            <li><a href="../login/login.php">Sign up</a></li>
-                        </ul>
-                    </article>
-                    <article>
                         <h3>Contact</h3>
                         <ul>
                             <li>Address: 889 W Pender St #200, Vancouver, BC</li>
