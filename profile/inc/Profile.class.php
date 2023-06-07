@@ -18,7 +18,7 @@
         }
 
                                     // <?php echo $_SESSION['name']; 
-        static function mainContent($user,$acmlist,$reservations,$allAcc){
+        static function mainContent($user,$acmlist,$reservations,$allAcc,$trips){
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
@@ -221,10 +221,16 @@
                         <p>From <span class="gold">'.$reserve->CHECK_IN.'</span> to <span class="gold">'.$reserve->CHECK_OUT.'
                        </span>.
                        <p>Do you accept the request for the stay?</p>
+                       <form method="POST">
                        <aside class="accept">
+                       <input type="radio" id="acceptation" name="acceptation" value="Yes">
                        <p class="yes">Yes</p>
+                       <input type="radio" id="acceptation" name="acceptation" value="No">
                        <p class="no">No</p>
+                       <input hidden id="reservation" name="reservation" type="text" value="'.$reserve->ID_RESERVATION.'">
+                       <button class="send">Send</button>
                        </aside>
+                       </form>
                        </figcaption>
     
                         </figure>';
@@ -247,13 +253,15 @@
                             <figure>
                             <img src="'.$acc->PICTURE.'" >
                             <figcaption>
-                            <h3>'.$acc->NAME.'</h3>
+                            <p><strong>'.$acc->NAME.'</strong></p>
                             <p>'.$acc->NEIGHBOURHOOD.'</p>
                             <p>'.$acc->ROOM_TYPE.'</p>
                             <p>'.$acc->BEDS.' Bedrooms</p>
-                            <p><i class="fa-solid fa-star"></i>  
-                            '.$acc->REVIEWS.'</p>
-                            </figcaption>
+                            <p><i class="fa-solid fa-star"></i> '.$acc->REVIEWS.'</p>
+
+                           <aside class="accept">
+                           </aside>
+                           </figcaption>
                             </figure>
                             </a>'
                             ;
@@ -262,7 +270,29 @@
                         
                 
                 }else {
-                    $htmlMain .='';
+                    $htmlMain .='<section class="trips">
+                    <aside>
+                    <h3>My Trips</h3>
+                    </aside>';
+
+                    if($trips){
+                        foreach($trips as $trip){
+                            $htmlMain .='
+                            <figure>
+                            <img src="'.$trip->PICTURE.'">
+                            <figcaption>
+                            <h5>Reservation ID:   #'.$trip->ID_RESERVATION.'</h5>
+                            <p>'.$trip->NAME.'</p>
+                            <p><span class="gold">From: </span> '.$trip->CHECK_IN.'</p>
+                            <p><span class="gold">To: </span> '.$trip->CHECK_OUT.'</p>
+                            <p><span class="gold">Host by: </span>  '.$trip->HOST_NAME.'</p>
+                            </figcaption>
+                            </figure>';
+                        }
+                    }else {
+                        $htmlMain.="<p>You don't have any trips yet";
+                    }
+                
                 }
                 $htmlMain .='
                 </section>
