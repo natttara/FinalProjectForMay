@@ -19,8 +19,12 @@ if (empty($_POST)) {
     $hashedPass = hash('MD5',$_POST['password']);
     echo SignUp::successPage($_POST['name']);
     UserHostDAO::startDb();
+    $maxIdUser =  UserHostDAO::getMaxIdUser();
+    $newId =  $maxIdUser->ID_USER +1;
     
     $newUser = new User();
+
+    $newUser->setId_user($newId);
     $newUser->setName($_POST['name']);
     $newUser->setEmail($_POST['uEmail']);
     $newUser->setPassword($hashedPass);
@@ -39,8 +43,8 @@ if (empty($_POST)) {
 
     $hashedPass = hash('MD5',$_POST['password']);
     UserHostDAO::startDb();
-    $maxIdUser =  UserHostDAO::getMaxIdUser();
-    $newId =  $maxIdUser->HOST_ID +1;
+    $maxIdHost =  UserHostDAO::getMaxIdHost();
+    $newId =  $maxIdHost->HOST_ID +1;
     
     $newHost = new Host();
     $newHost->setHost_id($newId);

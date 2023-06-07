@@ -9,6 +9,15 @@ class UserHostDAO {
     }
 
     public static function getMaxIdUser() {
+        $sql = "SELECT * FROM `users` ORDER BY `ID_USER` DESC LIMIT 1";
+
+        self::$db->query($sql);
+        self::$db->execute();
+
+        return self::$db->singleResult();
+    }
+
+    public static function getMaxIdHost() {
         $sql = "SELECT * FROM `tb_hosts` ORDER BY `HOST_ID` DESC LIMIT 1";
 
         self::$db->query($sql);
@@ -18,10 +27,11 @@ class UserHostDAO {
     }
 
     public static function insertUser(User $newUser) {
-        $sql = "INSERT INTO users(name,email,password) VALUES (:name,:email,:password)";
+        $sql = "INSERT INTO users(id_user,name,email,password) VALUES (:id,:name,:email,:password)";
 
         self::$db->query($sql);
 
+        self::$db->bind(":id",$newUser->getId_user());
         self::$db->bind(":name",$newUser->getName());
         self::$db->bind(":email",$newUser->getEmail());
         self::$db->bind(":password",$newUser->getPassword());

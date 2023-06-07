@@ -54,7 +54,7 @@
                             <li><a href="#">SPECIAL OFFER</a></li>
                             <aside>';
                             if($logged) {
-                                $HeaderNav.='<li><a href="#">PROFILE</a></li>';
+                                $HeaderNav.='<li><a href="../profile/">PROFILE</a></li>';
                             }else {
                                 $HeaderNav.='<li><a href="#">SIGN IN</a></li>
                                 <li><a href="#">SIGN UP</a></li>';

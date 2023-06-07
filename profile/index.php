@@ -26,6 +26,14 @@ foreach ($idlist as $id) {
     $acmlist[] = $acm;
 }
 
+if(!empty($_SESSION["logged"])){
+    var_dump($_SESSION["username"]);
+    echo Header::HeaderNav("Home","name","0",true);
+}else {
+     echo Header::HeaderNav("Home","name","0",false);
+    
+}
+
 if (!empty($_POST['delete'])){
     WishListDAO::deleteAccById($_POST['delete']);
     header("Location: ../profile/");
@@ -50,6 +58,9 @@ if(!empty($_FILES)){
 }
 
 echo Header::HeaderNav("Home","name","0",true);
+
+
+
 echo Profile::headPage();
 echo Profile::mainContent($user,$acmlist);
 echo Profile::endPage();

@@ -36,9 +36,8 @@
                                 <input type="submit" value="UPLOAD">
                             </form>
                             <article>
-                                <h2>'
-                                    .$user->NAME.
-                                '</h2>
+                                <h2>'.$_SESSION['name'].'
+                                </h2>
                                 <h5>
                                     <a href="#">
                                         CHANGE INFORMATION <i class="fa-solid fa-pen-to-square"></i>
@@ -50,7 +49,7 @@
                                 <strong>
                                     Email :
                                 </strong>
-                                <a href = "mailto: '.$user->EMAIL.'">'.$user->EMAIL.'</a>
+                                <a href = "mailto:">'.$_SESSION['username'].'</a>
                             </aside>
                             <aside>
                                 <strong>
