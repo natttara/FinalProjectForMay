@@ -55,5 +55,19 @@ class WishListDAO {
         return self:: $db->singleResult();
     }
 
+    public static function getAllByHost($email) {
+        $sql= "SELECT B.ID_ACCOMMODATION,A.DESCRIPTION,A.PICTURE, A.BEDS,A.REVIEWS,A.HOST_NAME,A.HOST_PICTURE,B.NAME,B.NEIGHBOURHOOD,B.ROOM_TYPE,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.IS_AVAILABLE, A.AMENITIES,B.SPECIAL_OFFER,B.NEW_PRICE FROM `tb_acc_details` A 
+        INNER JOIN tb_accommodations B 
+        ON A.ID_ACCOMMODATION=B.ID_ACCOMMODATION
+        INNER JOIN tb_hosts C
+        ON A.ID_ACCOMMODATION= C.ID_ACCOMMODATION
+        WHERE LOWER(C.EMAIL)=:email";
+        self::$db->query($sql);
+        self::$db->bind(":email",$email);
+        self::$db->execute();
+
+        return self:: $db->resultSet();
+    }
+
      
 }

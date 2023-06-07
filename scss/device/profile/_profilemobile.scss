@@ -313,6 +313,32 @@
 
 
     }
+
+    .allAcc{
+        box-shadow: 0 0 12px lightgray;
+        border: 1px solid $color1;     
+        padding: 3vh;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        a{
+            color: black;
+        }
+        figure{
+            display: flex;
+            column-gap: 4vh;
+        figcaption{
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+        }
+    }
+
+        img {
+            width: 23vh;
+            height: 20vh;
+        }
+    }
     .Reservations{
         box-shadow: 0 0 12px lightgray;
         border: 1px solid $color1;     
@@ -321,7 +347,9 @@
         flex-direction: column;
         row-gap: 1vh;
         .requests {
-            display: flex   ;
+            display: flex;
+            flex-direction: column;
+            row-gap: 4vh;
         }
             figure{
                 display: flex;

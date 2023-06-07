@@ -27,8 +27,10 @@ foreach ($idlist as $id) {
 }
 if($_SESSION["type"]=='host') {
 $reservations = WishListDAO::getReservations(strtolower($_SESSION["username"]));
+$accAll = WishListDAO::getAllByHost(strtolower($_SESSION["username"]));
 }else {
-    $reservations='';   
+    $reservations='';  
+    $accAll=''; 
 }
 if(!empty($_SESSION["logged"])){
     var_dump($_SESSION["username"]);
@@ -38,6 +40,6 @@ if(!empty($_SESSION["logged"])){
     
     }
 echo Profile::headPage();
-echo Profile::mainContent($user,$acmlist,$reservations);
+echo Profile::mainContent($user,$acmlist,$reservations,$accAll);
 echo Profile::endPage();
 echo Footer::footer();

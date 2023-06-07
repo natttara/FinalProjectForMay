@@ -18,7 +18,7 @@
         }
 
                                     // <?php echo $_SESSION['name']; 
-        static function mainContent($user,$acmlist,$reservations){
+        static function mainContent($user,$acmlist,$reservations,$allAcc){
             $htmlMain = '
             <main class="profile">
                 <section class="pleft">
@@ -230,8 +230,37 @@
                         </figure>';
                     }
                     $htmlMain .='
-                    </section>
                     </section>';
+                 
+                    
+                    $htmlMain .='</section>
+                    <section class="allAcc">
+                    <aside>
+                    <h3>Your Places</h3>
+                    </aside>';
+                   
+                        // 
+                        // <img src="'.$acc->NAME.'" >
+                        foreach($allAcc as $acc){
+                            $htmlMain .='
+                            <a href="../description/?accommodation_id='.$acc->ID_ACCOMMODATION.'">
+                            <figure>
+                            <img src="'.$acc->PICTURE.'" >
+                            <figcaption>
+                            <h3>'.$acc->NAME.'</h3>
+                            <p>'.$acc->NEIGHBOURHOOD.'</p>
+                            <p>'.$acc->ROOM_TYPE.'</p>
+                            <p>'.$acc->BEDS.' Bedrooms</p>
+                            <p><i class="fa-solid fa-star"></i>  
+                            '.$acc->REVIEWS.'</p>
+                            </figcaption>
+                            </figure>
+                            </a>'
+                            ;
+
+                        }
+                        
+                
                 }else {
                     $htmlMain .='';
                 }
