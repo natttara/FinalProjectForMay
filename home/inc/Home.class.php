@@ -29,7 +29,6 @@
 
         static function formRow(){
             $form = '
-            <a href = "../addroom/">TEST</a>
             <section class="hForm">
                 <section class="hLayer">
                     <form action="../result/">
