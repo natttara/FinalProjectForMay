@@ -12,7 +12,6 @@ require_once("../Footer.Class.php");
 session_start();
 $email = $_SESSION['username'];
 WishListDAO::startDB();
-$user = WishListDAO::getUserByEmail($email);
 
 $idlist = [];
 $wishlist = WishListDAO::getIdByEmail($email);
@@ -28,15 +27,18 @@ foreach ($idlist as $id) {
 if($_SESSION["type"]=='host') {
 $reservations = WishListDAO::getReservations(strtolower($_SESSION["username"]));
 $accAll = WishListDAO::getAllByHost(strtolower($_SESSION["username"]));
+$user = WishListDAO::getByHost($email);
 $trips='';
 }else {
     $reservations='';  
     $accAll=''; 
     $trips = WishListDAO::getUserTrips(strtolower($_SESSION["username"]));
+$user = WishListDAO::getUserByEmail(strtolower($email));
+
+
 }
 
 if(!empty($_SESSION["logged"])){
-    var_dump($_SESSION["username"]);
     echo Header::HeaderNav("Home","name","0",true);
 }else {
      echo Header::HeaderNav("Home","name","0",false);
@@ -50,8 +52,13 @@ if (!empty($_POST['delete'])){
 
 if (!empty($_POST['erase'])){
     $img = "";
-    echo $img;
-    WishListDAO::insertPictureByEmail($email,$img);
+    if($_SESSION["type"]=='host') {
+        WishListDAO::insertPictureByEmailHost($_SESSION['name'],$img);
+
+    }else{
+        WishListDAO::insertPictureByEmail($email,$img);
+
+    }
     header("Location: ../profile/");
 }
 
@@ -59,16 +66,25 @@ if(!empty($_FILES)){
     if(move_uploaded_file($_FILES['upfile']['tmp_name'], 'img/'.$_FILES['upfile']['name'])){
     $img =  'img/'.$_FILES['upfile']['name'];
     echo $img;
-    WishListDAO::insertPictureByEmail($email,$img);
+    if($_SESSION["type"]=='host') {
+        WishListDAO::insertPictureByEmailHost($_SESSION['name'],$img);
+    }else{
+        WishListDAO::insertPictureByEmail($email,$img);
+
+    }
     header("Location: ../profile/");
     }else{
     echo 'Upload fail'; 
     }
 
+}
+
+
 if(!empty($_POST["acceptation"])){
     if($_POST["acceptation"]=="No"){
+        var_dump($_POST["reservation"]);
         WishListDAO::updateReservation($_POST["reservation"],2); 
-        header("Location: /");
+        header("Location: ./");
 
     }else {
         WishListDAO::updateReservation($_POST["reservation"],1); 
@@ -76,10 +92,6 @@ if(!empty($_POST["acceptation"])){
 
     }
 }
-}
-
-echo Header::HeaderNav("Home","name","0",true);
-
 
 echo Profile::headPage();
 echo Profile::mainContent($user,$acmlist,$reservations,$accAll,$trips);

@@ -18,11 +18,9 @@ if(!empty($_POST)) {
         $userEmail = UserDAO::getEmailHost(strtolower($email));
         $userType='host';
     }
-    var_dump($userEmail);
     if($email!='' && $password!='' ) {
 
         if(hash('MD5',$password)==$userEmail->PASSWORD) {
-            var_dump('good');
             session_start();
             $_SESSION["logged"] = true;
             $_SESSION["username"] = $userEmail->EMAIL;
@@ -31,7 +29,6 @@ if(!empty($_POST)) {
 
             header("Location: ../home/");
         }else {
-            var_dump('bad');
     
         }
     }

@@ -29,7 +29,6 @@ if (!empty($_GET)) {
     if($singleAcc){
         $amenities = explode(";",$singleAcc->AMENITIES);
         if(!empty($_SESSION["logged"])){
-            var_dump($_SESSION["username"]);
 
             if ( !empty($_GET['wish'])){
                 echo $_GET['wish'];
@@ -39,8 +38,6 @@ if (!empty($_GET)) {
                 $userData = AccDAO::getUserById($_SESSION['username']);
                 $hostData = AccDAO::getHostById($_GET['accommodation_id']);
                 AccDAO::insertReservation($_GET['accommodation_id'],$userData->ID_USER,$hostData->ID_U_HOST,$_POST["checkIn"],$_POST["checkOut"],0,$_POST["guests"]);
-                var_dump("Room Added");
-                // var_dump($_GET['accommodation_id'],$userData->ID_USER,$hostData->ID_U_HOST,$_POST["checkIn"],$_POST["checkOut"],0,$_POST["guests"]);
             }
 
             $logged = true;
