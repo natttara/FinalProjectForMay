@@ -25,13 +25,42 @@ foreach ($idlist as $id) {
     $acm = WishListDAO::getAccById($id);
     $acmlist[] = $acm;
 }
+
 if(!empty($_SESSION["logged"])){
     var_dump($_SESSION["username"]);
     echo Header::HeaderNav("Home","name","0",true);
-    }else {
-        echo Header::HeaderNav("Home","name","0",false);
+}else {
+     echo Header::HeaderNav("Home","name","0",false);
     
+}
+
+if (!empty($_POST['delete'])){
+    WishListDAO::deleteAccById($_POST['delete']);
+    header("Location: ../profile/");
+}
+
+if (!empty($_POST['erase'])){
+    $img = "";
+    echo $img;
+    WishListDAO::insertPictureByEmail($email,$img);
+    header("Location: ../profile/");
+}
+
+if(!empty($_FILES)){
+    if(move_uploaded_file($_FILES['upfile']['tmp_name'], 'img/'.$_FILES['upfile']['name'])){
+    $img =  'img/'.$_FILES['upfile']['name'];
+    echo $img;
+    WishListDAO::insertPictureByEmail($email,$img);
+    header("Location: ../profile/");
+    }else{
+    echo 'Upload fail'; 
     }
+}
+
+echo Header::HeaderNav("Home","name","0",true);
+
+
+
 echo Profile::headPage();
 echo Profile::mainContent($user,$acmlist);
 echo Profile::endPage();

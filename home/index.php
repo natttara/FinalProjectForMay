@@ -14,17 +14,17 @@ $acmList= AccDAO::getSpecialOffer();
 session_start();
 
 if(!empty($_GET)) {
-if($_GET['session']=="out") {
-    session_destroy();
-    echo Header::HeaderNav("Home","name","0",false);
-}
-}else {
-    if(!empty($_SESSION["logged"])){
-        echo Header::HeaderNav("Home","name","0",true);
-        }else {
-            echo Header::HeaderNav("Home","name","0",false);
-        
-        }
+    if($_GET['session']=="out") {
+        session_destroy();
+        echo Header::HeaderNav("Home","name","0",false);
+    }
+    }else {
+        if(!empty($_SESSION["logged"])){
+            echo Header::HeaderNav("Home","name","0",true);
+            }else {
+                echo Header::HeaderNav("Home","name","0",false);
+            
+            }
 }
 
 

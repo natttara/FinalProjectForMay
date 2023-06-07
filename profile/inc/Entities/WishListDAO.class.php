@@ -8,12 +8,22 @@ class WishListDAO {
     }
 
     public static function getUserByEmail($email) {
-        $sql= "SELECT ID_USER,NAME,EMAIL FROM users WHERE EMAIL = :email;";
+        $sql= "SELECT ID_USER,NAME,EMAIL,PASSWORD,PICTURE FROM users WHERE EMAIL = :email;";
         self::$db->query($sql);
         self::$db->bind(":email",$email);
         self::$db->execute();
 
         return self:: $db->singleResult();
+    }
+
+    public static function insertPictureByEmail($email,$picture){
+        $sql= "UPDATE users SET picture=:picture WHERE `EMAIL` = :email";
+        self::$db->query($sql);
+        self::$db->bind(":email",$email);
+        self::$db->bind(":picture",$picture);
+        self::$db->execute();
+
+        return self:: $db->lastInsertedId();
     }
 
     public static function getIdByEmail($email) {
@@ -35,6 +45,15 @@ class WishListDAO {
         self::$db->execute();
 
         return self:: $db->singleResult();
+    }
+
+    public static function deleteAccById($id) {
+        $sql= "DELETE FROM tb_wishlist WHERE `id_accommodation` = :id";
+        self::$db->query($sql);
+        self::$db->bind(":id",$id);
+        self::$db->execute();
+
+        return self:: $db->rowCount();
     }
 
      
