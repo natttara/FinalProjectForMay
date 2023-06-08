@@ -1,7 +1,7 @@
 <?php
 
 require_once("inc/config.inc.php");
-require_once("inc/Entities/Accommodation.class.php");
+require_once("../description/inc/Acc.class.php");
 require_once("inc/Utilities/PDOService.class.php");
 require_once("inc/Entities/AccDAO.class.php");
 require_once("./inc/Home.class.php");

@@ -170,38 +170,38 @@
 
             //START: giving icon according to the room type
             $roomIcon = "";
-            if($acm->ROOM_TYPE == "Entire home/apt"){
+            if($acm->getType() == "Entire home/apt"){
                 $roomIcon = '<i class="fa-solid fa-house"></i>';
-            }else if($acm->ROOM_TYPE == "Hotel room"){
+            }else if($acm->getType() == "Hotel room"){
                 $roomIcon = '<i class="fa-solid fa-hotel"></i>';
-            }else if($acm->ROOM_TYPE == "Private room"){
+            }else if($acm->getType() == "Private room"){
                 $roomIcon = '<i class="fa-solid fa-person-shelter"></i>';
-            }else if($acm->ROOM_TYPE == "Shared room"){
+            }else if($acm->getType() == "Shared room"){
                 $roomIcon = '<i class="fa-solid fa-people-roof"></i>';
             }
             //END: giving icon according to the room type
             
             $htmlRoom = '
-            <a href="../description/?accommodation_id='.$acm->ID_ACCOMMODATION.'" class="rAcm">
+            <a href="../description/?accommodation_id='.$acm->getId().'" class="rAcm">
                 <figure>
-                    <img class="rPicture" src="'.$acm->PICTURE.'">
+                    <img class="rPicture" src="'.$acm->getPicture().'">
                     <figcaption>
                         <span>
-                            <h4 class="rPrice"><div class="shiver"><del>$'.$acm->PRICE_PER_NIGHT.'</del></div>  '.$acm->NEW_PRICE.' CAD /night</h4>
+                            <h4 class="rPrice"><div class="shiver"><del>$'.$acm->getPrice().'</del></div>  '.$acm->new_price.' CAD /night</h4>
                         </span>
                     </figcaption>
                 </figure>
                 <article>
-                    <h3>'.$acm->NAME.'</h3>
-                    <h4 class="rPlace">'.'Location: '.$acm->NEIGHBOURHOOD.'</h4>
+                    <h3>'.$acm->getName().'</h3>
+                    <h4 class="rPlace">'.'Location: '.$acm->getNeighbourhood().'</h4>
                     <section>'.
                     $roomIcon
                         .'<aside>
                             <i id="rType" class="fa-solid fa-person-half-dress"></i>
-                            <h4 class="rPeople">'.$acm->MAX_GUESTS.'</h4>
+                            <h4 class="rPeople">'.$acm->getGuests().'</h4>
                         </aside>
                     </section>
-                    <span class="rHost"><h5 class="hostName">Host: '.$acm->HOST_NAME.'</h5></span>
+                    <span class="rHost"><h5 class="hostName">Host: '.$acm->getHostName().'</h5></span>
                 </article>
             </a>
             ';
