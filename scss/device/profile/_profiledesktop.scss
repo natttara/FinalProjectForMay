@@ -1,0 +1,92 @@
+$color1: rgb(34,34,34);
+$color2: rgb(198,164,126);
+
+@media (min-width: $desktopScreen){
+
+    .profile {
+
+        h2 {
+            font-size: 26px;
+        }
+    
+        h5 {
+            font-size: 16px;
+        }
+    
+        h4 {
+            font-size: 18px;
+        }
+    }
+
+
+    .pleft { 
+        width: 30%;
+
+        img {
+            height: 40%;
+            width: 60%;
+            
+        }
+
+        figcaption {
+            font-size: 20px;
+        }
+
+    }
+
+    .leftchoice {
+        font-size: 18px;
+    }
+
+
+    .status{
+        font-size: 20px;
+        row-gap: 2vh;
+    }
+
+    .level {
+
+        > li {
+            
+            height: 2vh;
+            
+        }
+
+    }
+
+    .passw {
+        flex-direction: column;
+        font-size: 16px;
+
+        > aside {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .wishList {
+        figure {
+            width: 30vh;
+        }
+        img {
+            height: 20vh;
+        }
+        article {
+            height: 20vh;
+            width: 40vh;
+        }
+        figcaption h4 {
+            font-size: 18px;
+        }
+        [class="fa-solid fa-draw-polygon"] {
+            font-size: 30px;
+        }
+    }
+
+    .pright {
+        width: 60%;
+    }
+    
+    
+    
+}

@@ -1,0 +1,39 @@
+@media (min-width: $desktopScreen){    
+    .containerLogin{
+        height: 60vh;
+       
+        img{
+            width: 20vh;
+            height: 20vh;
+        }
+        
+        input[type="text"],input[type="password"]{
+            width: 100%;
+            padding: 1vh;
+            &::placeholder{
+                padding-left: 5vh;
+            }
+        }
+    }
+    
+    
+    
+    .form-input::before{
+        padding-left: 10px;
+    }
+    
+    
+    .btn-login{
+        padding: 1vh;
+        width: 50%;
+        font-size: 16px;
+        transition: .4s;
+        &:hover{
+            cursor: pointer;
+            background-color: $color1;
+            border: none;
+            color: $color2;
+
+        }
+    }
+}
