@@ -35,6 +35,7 @@
 
                         <li><a href="../home/">HOME</a></li>
                         <li><a href="../home#specialOffer">SPECIAL OFFER</a></li>
+                        <li><a href="../result">ROOMS</a></li>
                         <aside class="log">';
                         if($logged) {
                             $HeaderNav.='<li><a href="../profile/">PROFILE</a></li>
