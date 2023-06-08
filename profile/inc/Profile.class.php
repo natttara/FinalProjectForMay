@@ -22,13 +22,17 @@
             if($_SESSION['type']=='user') {
                 if($user->PICTURE == ""){
                     $profileP  = "http://i.imgur.com/uc5X9Lc.png";
+                }else{
+                    $profileP = $user->PICTURE;
+
                 }
-                $profileP = $user->PICTURE;
             }else{
                 if($user->HOST_PICTURE == ""){
                     $profileP = "http://i.imgur.com/uc5X9Lc.png";
-                }  
-                $profileP = $user->HOST_PICTURE;
+                }  else {
+                    $profileP = $user->HOST_PICTURE;
+
+                }
             }
 
             $htmlMain = '
