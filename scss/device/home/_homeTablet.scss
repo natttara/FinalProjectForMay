@@ -1,0 +1,112 @@
+@media (min-width: $tabletScreen){
+    //START: Form section
+    .hLayer {
+        padding-left: 10%;
+        align-items: flex-start;
+        input,
+        option {
+            transition: .2s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color1;
+            }
+        }
+        [type="submit"]{
+            transition: .4s;
+            &:hover {
+                background-color: whitesmoke;
+                color: $color2;
+            }
+        }
+    }
+    //END: Form section
+    //START: Popular destination section
+    .hDestination {
+        > article {
+            width: 80vh;
+        }
+        > section {
+            flex-direction: row;
+            gap: 5vh;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        figure {
+            width: 38vh;
+            position: relative;
+            overflow: hidden;
+            border: 5px double $color1;
+            border-radius: 3px;
+            padding: 4px;
+            &:hover figcaption{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                bottom: 0;
+            }
+        }
+        figcaption {
+            position: absolute;
+            background-color: rgba($color: $color1, $alpha: 0.8);
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 0;
+            bottom: -20%;
+            row-gap: 3vh;
+            transition: .6s;
+            font-size: 20px;
+            h3 {
+                color: whitesmoke;
+            }
+        }
+        img {
+            height: 24vh;
+        }
+        a {
+            height: 4.5vh;
+            width: 4.5vh;
+            transition: .4s;
+            &:hover{
+                color: $color2;
+                background-color: whitesmoke;
+            }
+        }
+    }
+    //END: Popular destination section
+    //START: Accordion section
+    .accordion {
+        label:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+    }
+    //END: Accordion section
+    //START: Special offer section
+    .specialOffer {
+        > article {
+            width: 80vh;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        > section {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5vh;
+        }
+        a {
+            transition: .4s;
+            &:hover {
+                background-color: $color2;
+            }
+            figcaption i {
+                transition: .4s;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+    //END: Special offer section
+}
