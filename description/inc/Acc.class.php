@@ -5,8 +5,14 @@ class Accommodation {
     private string $name;
     private string $neighbourhood;
     private string $room_type;
-    private float $price;
+    private string $picture;
+    private string $description;
+    private float $price_per_night;
+    private float $special_offer;
     private string $max_guests;
+    private string $reviewer_name;
+    private string $host_picture;
+    private string $host_name;
     private string $IS_AVAILABLE;
 
     public function getId() {
@@ -17,9 +23,22 @@ class Accommodation {
 		$this->id_accommodation = $id;
 	}
 
-	public function getName() {
+	public  function getName() {
 		return $this->name;
 	}
+	public  function getDescription() {
+		return $this->description;
+	}
+	public  function getPicture() {
+		return $this->picture;
+	}
+	public  function getSpecial() {
+		return $this->special_offer;
+	}
+	public  function getReviewer() {
+		return $this->reviewer_name;
+	}
+
 
 	public function setName(string $name) {
 		$this->name = $name;
@@ -42,7 +61,10 @@ class Accommodation {
 	}
 
 	public function getPrice() {
-		return $this->price;
+		return $this->price_per_night;
+	}
+	public function getReview() {
+		return $this->reviews;
 	}
 
 	public function setPrice(float $price) {
@@ -63,6 +85,12 @@ class Accommodation {
 
 	public function setAvailability(string $IS_AVAILABLE) {
 		$this->IS_AVAILABLE = $IS_AVAILABLE;
+	}
+	public  function getHostPicture() {
+		return $this->host_picture;
+	}
+	public  function getHostName() {
+		return $this->host_name;
 	}
 
 }
