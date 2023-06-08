@@ -204,18 +204,20 @@
                                 </label>
                             </section>
                         </aside> -->
-                    </section>
-                    <section class="wishList">
-                    <aside>
-                        <h3>WISH LIST</h3>
-                    </aside>
-                    <ul>';
-            foreach($acmlist as $acm){
-                $htmlMain .= self::wishListRoom($acm);
-            }
-            $htmlMain .= 
+                    </section>';
+                    if($_SESSION['type']=='user') {
+                        $htmlMain.='<section class="wishList">
+                        <aside>
+                            <h3>WISH LIST</h3>
+                        </aside>
+                        <ul>';
+                        foreach($acmlist as $acm){
+                            $htmlMain .= self::wishListRoom($acm);
+                        }
+                        $htmlMain .= 
                     '</ul>
                 </section>';
+                    }
                 if($_SESSION['type']=='host') {
                     $htmlMain .='<section class="Reservations">
                     <aside>

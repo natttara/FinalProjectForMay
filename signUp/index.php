@@ -35,6 +35,8 @@ if (empty($_POST)) {
     $_SESSION["logged"] = true;
     $_SESSION["username"] = $_POST['uEmail'];
     $_SESSION["name"] = $_POST['name'];
+    $_SESSION["type"] ='user';
+
     header("Location: ../home/");
     
 }else if(!empty($_POST['name']) && !empty($_POST['oEmail']) && !empty($_POST['password'])){
@@ -59,6 +61,8 @@ if (empty($_POST)) {
     $_SESSION["logged"] = true;
     $_SESSION["username"] = $_POST['oEmail'];
     $_SESSION["name"] = $_POST['name'];
+    $_SESSION["type"] ='host';
+
     header("Location: ../home/");
 }
 

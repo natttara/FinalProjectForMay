@@ -25,6 +25,15 @@ class WishListDAO {
 
         return self:: $db->lastInsertedId();
     }
+    public static function insertPictureByEmailHost($host_name,$picture){
+        $sql= "UPDATE tb_hosts SET HOST_PICTURE=:picture WHERE `HOST_NAME` = :host_name";
+        self::$db->query($sql);
+        self::$db->bind(":host_name",$host_name);
+        self::$db->bind(":picture",$picture);
+        self::$db->execute();
+
+        return self:: $db->lastInsertedId();
+    }
 
     public static function getIdByEmail($email) {
         $sql= "SELECT ID_ACCOMMODATION,EMAIL FROM tb_wishlist WHERE EMAIL = :email;";
@@ -83,7 +92,7 @@ class WishListDAO {
     }
 
     public static function getAllByHost($email) {
-        $sql= "SELECT B.ID_ACCOMMODATION,A.DESCRIPTION,A.PICTURE, A.BEDS,A.REVIEWS,A.HOST_NAME,A.HOST_PICTURE,B.NAME,B.NEIGHBOURHOOD,B.ROOM_TYPE,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.IS_AVAILABLE, A.AMENITIES,B.SPECIAL_OFFER,B.NEW_PRICE FROM `tb_acc_details` A 
+        $sql= "SELECT B.ID_ACCOMMODATION,A.DESCRIPTION,A.PICTURE, A.BEDS,A.REVIEWS,A.HOST_NAME,A.HOST_PICTURE AS PICTURE,B.NAME,B.NEIGHBOURHOOD,B.ROOM_TYPE,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.IS_AVAILABLE, A.AMENITIES,B.SPECIAL_OFFER,B.NEW_PRICE FROM `tb_acc_details` A 
         INNER JOIN tb_accommodations B 
         ON A.ID_ACCOMMODATION=B.ID_ACCOMMODATION
         INNER JOIN tb_hosts C
@@ -95,6 +104,19 @@ class WishListDAO {
 
         return self:: $db->resultSet();
     }
+    public static function getByHost($email) {
+        $sql= "SELECT B.ID_ACCOMMODATION,A.DESCRIPTION,A.PICTURE, A.BEDS,A.REVIEWS,A.HOST_NAME,A.HOST_PICTURE AS PICTURE,B.NAME,B.NEIGHBOURHOOD,B.ROOM_TYPE,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.IS_AVAILABLE, A.AMENITIES,B.SPECIAL_OFFER,B.NEW_PRICE FROM `tb_acc_details` A 
+        INNER JOIN tb_accommodations B 
+        ON A.ID_ACCOMMODATION=B.ID_ACCOMMODATION
+        INNER JOIN tb_hosts C
+        ON A.ID_ACCOMMODATION= C.ID_ACCOMMODATION
+        WHERE LOWER(C.EMAIL)=:email";
+        self::$db->query($sql);
+        self::$db->bind(":email",$email);
+        self::$db->execute();
+
+        return self:: $db->singleResult();
+    }
 
     public static function updateReservation($id_reservation,$is_accepted) {
         $sql = "UPDATE tb_reservations SET IS_ACCEPTED=:is_accepted WHERE ID_RESERVATION=:id_reservation";
@@ -105,6 +127,7 @@ class WishListDAO {
         self::$db->execute();
 
         return self::$db->lastInsertedId();
+    } 
     public static function deleteAccById($id) {
         $sql= "DELETE FROM tb_wishlist WHERE `id_accommodation` = :id";
         self::$db->query($sql);
