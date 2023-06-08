@@ -5,6 +5,8 @@ require_once("./inc/Entity/User.class.php");
 require_once("./inc/Entity/PDOService.class.php");
 require_once("./inc/Entity/UserDAO.php");
 require_once("./inc/config.inc.php");
+require_once("../header/inc/Header.class.php");
+require_once("../Footer.Class.php");
 
 
 if(!empty($_POST)) {
@@ -36,6 +38,8 @@ if(!empty($_POST)) {
 };
 
 echo Login::pageHead();
+echo Header::HeaderNav("Home","name","0",false);
 echo Login::loginSection();
+echo Footer::footer();
 echo Login::endPage();
 
