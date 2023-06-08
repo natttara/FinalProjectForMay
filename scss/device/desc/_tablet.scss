@@ -13,8 +13,36 @@
             
         }
     }
+    .main-content{
+        .right{
+            .buttonB:hover{
+                color: $color2;
+                background-color: wheat;
+                cursor: pointer;
+            }
+        }
+    }
     .main-content .right .wForm [type="submit"]:hover {
         color: $color2;
         background-color: wheat;
+        cursor: pointer;
+
+    }
+    .allAcc{
+        a{
+            transition: .4s;
+        }
+        a:hover{
+            transform: scale(1.02);
+        }
+    }
+    .trips{
+        a{
+            transition: .4s;
+            color: black ;
+        }
+        a:hover{
+            transform: scale(1.02);
+        }
     }
 }
