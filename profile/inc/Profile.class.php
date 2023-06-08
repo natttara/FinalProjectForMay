@@ -174,7 +174,7 @@
 
                     if($trips){
                         foreach($trips as $trip){
-                            $htmlMain .='
+                            $htmlMain .='<a href="../description/?accommodation_id='.$trip->ID_ACCOMMODATION.'">
                             <figure>
                             <img src="'.$trip->PICTURE.'">
                             <figcaption>
@@ -184,7 +184,8 @@
                             <p><span class="gold">To: </span> '.$trip->CHECK_OUT.'</p>
                             <p><span class="gold">Host by: </span>  '.$trip->HOST_NAME.'</p>
                             </figcaption>
-                            </figure>';
+                            </figure>
+                            </a>';
                         }
                     }else {
                         $htmlMain.="<p>You don't have any trips yet";

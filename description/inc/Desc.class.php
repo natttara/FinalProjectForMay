@@ -19,17 +19,17 @@
                 <section class="top">
                 <aside class="block">
                     <p>CHECK - IN</p>
-                    <input name="checkIn" type=date>
+                    <input name="checkIn" type=date required>
                 </aside>
                 <aside class="block">
                     <p>CHECK - OUT</p>
-                    <input name="checkOut" type=date>
+                    <input name="checkOut" type=date required>
                 </aside>
             </section>
             <section class="bottom">
                 <aside class="block">
                     <p>GUESTS</p>
-                    <input name="guests" type=number>
+                    <input name="guests" type=number required>
                 </aside>
             </section>
             <button class="buttonB">BOOK NOW</button>
