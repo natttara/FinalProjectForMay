@@ -22,11 +22,11 @@ if(!empty($_POST)) {
     }
     if($email!='' && $password!='' ) {
 
-        if(hash('MD5',$password)==$userEmail->PASSWORD) {
+        if(hash('MD5',$password)==$userEmail->getPassword()) {
             session_start();
             $_SESSION["logged"] = true;
-            $_SESSION["username"] = $userEmail->EMAIL;
-            $_SESSION["name"] = $userEmail->NAME;
+            $_SESSION["username"] = $userEmail->getEmail();
+            $_SESSION["name"] = $userEmail->getName();
             $_SESSION["type"] =$userType;
 
             header("Location: ../home/");

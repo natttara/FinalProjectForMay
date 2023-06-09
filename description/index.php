@@ -2,8 +2,10 @@
 require_once("./inc/Desc.class.php");
 require_once("./inc/config.inc.php");
 require_once("./inc/Acc.class.php");
+require_once("./inc/Review.class.php");
 require_once("./inc/PDOService.class.php");
 require_once("./inc/AccDAO.class.php");
+require_once("./inc/RevDAO.class.php");
 require_once("../Footer.Class.php");
 require_once("../header/inc/Header.class.php");
 
@@ -24,8 +26,10 @@ require_once("../header/inc/Header.class.php");
 session_start();
 if (!empty($_GET)) {
     $Accomodation = AccDAO::startDB();
+    $Review = RevDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
-    $reviews = AccDAO::getReviewsId($_GET['accommodation_id']);
+    $reviews = RevDAO::getReviewsId($_GET['accommodation_id']);
+    // var_dump($singleAcc->getId());
     if($singleAcc){
         $amenities = explode(";",$singleAcc->AMENITIES);
         if(!empty($_SESSION["logged"])){
@@ -41,15 +45,14 @@ if (!empty($_GET)) {
             }
 
             $logged = true;
-            echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,true);
+            echo Header::HeaderNav("description",$singleAcc->getName(),$singleAcc->getReview(),true);
             echo Desc:: body($singleAcc,$amenities,$reviews,$logged,$_GET['accommodation_id']);
         }else {
             $logged = false;
-            echo Header::HeaderNav("description",$singleAcc->NAME,$singleAcc->REVIEWS,false);
+            echo Header::HeaderNav("description",$singleAcc->getName(),$singleAcc->getReview(),false);
             echo Desc:: body($singleAcc,$amenities,$reviews,$logged,$_GET['accommodation_id']);
             
             }
-        // echo Desc:: body($singleAcc->NAME,$singleAcc->NEIGHBOURHOOD,$singleAcc->ROOM_TYPE,$singleAcc-> MAX_GUESTS,$singleAcc-> PRICE_PER_NIGHT,$singleAcc-> DESCRIPTION,$singleAcc-> PICTURE,$singleAcc-> HOST_PICTURE,$singleAcc-> HOST_NAME,$singleAcc-> REVIEWS,$amenities, $reviews,$singleAcc->SPECIAL_OFFER,$singleAcc->NEW_PRICE);
         echo Footer::footer();
     }else {
         echo Desc:: notFound();

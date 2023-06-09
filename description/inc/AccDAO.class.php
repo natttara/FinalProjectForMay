@@ -16,7 +16,7 @@ class AccDAO {
     }
 
     public static function getaCCById($id) {
-        $sql= "SELECT B.ID_ACCOMMODATION,A.DESCRIPTION,A.PICTURE, A.BEDS,A.REVIEWS,A.HOST_NAME,A.HOST_PICTURE,B.NAME,B.NEIGHBOURHOOD,B.ROOM_TYPE,B.PRICE_PER_NIGHT,B.MAX_GUESTS,B.IS_AVAILABLE, A.AMENITIES,B.SPECIAL_OFFER,B.NEW_PRICE FROM `tb_acc_details` A 
+        $sql= "SELECT B.id_accommodation,A.description,A.picture, A.beds,A.reviews,A.host_name,A.host_picture,B.name,B.NEIGHBOURHOOD as neighbourhood,B.room_type,B.price_per_night,B.max_guests,B.IS_AVAILABLE, A.AMENITIES,B.special_offer,B.NEW_PRICE FROM `tb_acc_details` A 
         INNER JOIN tb_accommodations B 
         ON A.ID_ACCOMMODATION=B.ID_ACCOMMODATION
         WHERE B.ID_ACCOMMODATION=:id";
@@ -26,15 +26,20 @@ class AccDAO {
 
         return self:: $db->singleResult();
     }
-
-    public static function getReviewsId($id) {
-        $sql= "SELECT * FROM tb_reviews WHERE ID_ACCOMMODATION=:id";
+    public static function getAllByHost($email) {
+        $sql= "SELECT B.id_accommodation,A.description,A.picture, A.BEDS,A.reviews,A.host_name,A.host_picture,B.name,B.neighbourhood,B.room_type,B.price_per_night,B.max_guests,B.IS_AVAILABLE, A.AMENITIES,B.special_offer,B.NEW_PRICE FROM `tb_acc_details` A 
+        INNER JOIN tb_accommodations B 
+        ON A.ID_ACCOMMODATION=B.ID_ACCOMMODATION
+        INNER JOIN tb_hosts C
+        ON A.ID_ACCOMMODATION= C.ID_ACCOMMODATION
+        WHERE LOWER(C.EMAIL)=:email";
         self::$db->query($sql);
-        self::$db->bind(":id",$id);
+        self::$db->bind(":email",$email);
         self::$db->execute();
 
         return self:: $db->resultSet();
     }
+
 
     
     public static function insertWishList($email,$id_acm) {

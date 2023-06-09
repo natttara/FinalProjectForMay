@@ -20,14 +20,14 @@
         static function mainContent($user,$acmlist,$reservations,$allAcc,$trips){
             $profileP="";
             if($_SESSION['type']=='user') {
-                if($user->PICTURE == ""){
+                if($user->getPicture() == ""){
                     $profileP  = "http://i.imgur.com/uc5X9Lc.png";
                 }else{
-                    $profileP = $user->PICTURE;
+                    $profileP = $user->getPicture();
 
                 }
             }else{
-                if($user->HOST_PICTURE == ""){
+                if(!$user->HOST_PICTURE){
                     $profileP = "http://i.imgur.com/uc5X9Lc.png";
                 }  else {
                     $profileP = $user->HOST_PICTURE;
@@ -146,15 +146,15 @@
                         // <img src="'.$acc->NAME.'" >
                         foreach($allAcc as $acc){
                             $htmlMain .='
-                            <a href="../description/?accommodation_id='.$acc->ID_ACCOMMODATION.'">
+                            <a href="../description/?accommodation_id='.$acc->getId().'">
                             <figure>
-                            <img src="'.$acc->PICTURE.'" >
+                            <img src="'.$acc->getPicture().'" >
                             <figcaption>
-                            <p><strong>'.$acc->NAME.'</strong></p>
-                            <p>'.$acc->NEIGHBOURHOOD.'</p>
-                            <p>'.$acc->ROOM_TYPE.'</p>
+                            <p><strong>'.$acc->getName().'</strong></p>
+                            <p>'.$acc->getNeighbourhood().'</p>
+                            <p>'.$acc->getType().'</p>
                             <p>'.$acc->BEDS.' Bedrooms</p>
-                            <p><i class="fa-solid fa-star"></i> '.$acc->REVIEWS.'</p>
+                            <p><i class="fa-solid fa-star"></i> '.$acc->getReview().'</p>
 
                            <aside class="accept">
                            </aside>
@@ -200,16 +200,16 @@
         }
 
         static function wishListRoom($acm){
-            if($acm->SPECIAL_OFFER==1) {
-                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $acm->PRICE_PER_NIGHT.'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
+            if($acm->getSpecial()==1) {
+                $price = '<h4 class="rPrice"><div class="shiver"><del>$'. $acm->getPrice().'</del></div>'.$acm->NEW_PRICE.' CAD /Night</h4>';
             }else {
-                $price = '<h4 class="rPrice">'.$acm->PRICE_PER_NIGHT.' CAD /Night</h4>';
+                $price = '<h4 class="rPrice">'.$acm->getPrice().' CAD /Night</h4>';
             }
             $htmlWLRoom = '
             <li>
-                <a href="../description/?accommodation_id='.$acm->ID_ACCOMMODATION.'">
+                <a href="../description/?accommodation_id='.$acm->getId().'">
                     <figure>
-                        <img src="'.$acm->PICTURE.'">
+                        <img src="'.$acm->getPicture().'">
                         <figcaption>
                             <span>'
                                 .$price.
@@ -217,13 +217,13 @@
                         </figcaption>
                     </figure>
                     <article>
-                        <h3>'.$acm->NAME.'</h3>
-                        <h4>'.$acm->NEIGHBOURHOOD.'</h4>
+                        <h3>'.$acm->getName().'</h3>
+                        <h4>'.$acm->getNeighbourhood().'</h4>
                         <aside>        
                             <i class="fa-solid fa-person-half-dress"></i>
-                            <h4>'.$acm->MAX_GUESTS.'</h4>
+                            <h4>'.$acm->getGuests().'</h4>
                             <form action="#" class="dForm" method="post">
-                                <input type="hidden" name="delete" value="'.$acm->ID_ACCOMMODATION.'">
+                                <input type="hidden" name="delete" value="'.$acm->getId().'">
                                 <input type="submit" value="Remove">
                             </form>
                         </aside>

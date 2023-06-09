@@ -10,7 +10,7 @@ class UserDAO {
 
 
     public static function getEmail( string $email ) {
-        $sql = "SELECT * FROM users WHERE LOWER(EMAIL)=:email";
+        $sql = "SELECT id_user,name,email,password,picture FROM users WHERE LOWER(email)=:email";
         self::$db->query($sql);
         self::$db->bind(":email",$email);
         self::$db->execute();
@@ -18,7 +18,7 @@ class UserDAO {
         return self::$db->singleResult();
     }
     public static function getEmailHost( string $email ) {
-        $sql = "SELECT * FROM tb_hosts WHERE LOWER(email)=:email";
+        $sql = "SELECT id_u_host,host_id,name,id_accommodation,email,password FROM tb_hosts WHERE LOWER(email)=:email";
         self::$db->query($sql);
         self::$db->bind(":email",$email);
         self::$db->execute();

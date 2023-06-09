@@ -2,8 +2,10 @@
 
 require_once("./inc/config.inc.php");
 require_once("./inc/Entities/User.class.php");
-require_once("./inc/Entities/Accommodation.class.php");
+require_once("../description/inc/Acc.class.php");
+require_once("../description/inc/AccDAO.class.php");
 require_once("./inc/Utilities/PDOService.class.php");
+require_once("../login/inc/Entity/UserDAO.php");
 require_once("./inc/Entities/WishListDAO.class.php");
 require_once("../header/inc/Header.class.php");
 require_once("./inc/Profile.class.php");
@@ -12,6 +14,8 @@ require_once("../Footer.Class.php");
 session_start();
 $email = $_SESSION['username'];
 WishListDAO::startDB();
+UserDAO::startDB();
+AccDAO::startDB();
 
 $idlist = [];
 $wishlist = WishListDAO::getIdByEmail($email);
@@ -21,19 +25,19 @@ foreach($wishlist as $wish){
 
 $acmlist = [];
 foreach ($idlist as $id) {
-    $acm = WishListDAO::getAccById($id);
+    $acm = AccDAO::getAccById($id);
     $acmlist[] = $acm;
 }
 if($_SESSION["type"]=='host') {
 $reservations = WishListDAO::getReservations(strtolower($_SESSION["username"]));
-$accAll = WishListDAO::getAllByHost(strtolower($_SESSION["username"]));
-$user = WishListDAO::getByHost($email);
+$accAll = AccDAO::getAllByHost(strtolower($_SESSION["username"]));
+$user = WishListDAO::getByHost(strtolower($email));
 $trips='';
 }else {
     $reservations='';  
     $accAll=''; 
     $trips = WishListDAO::getUserTrips(strtolower($_SESSION["username"]));
-$user = WishListDAO::getUserByEmail(strtolower($email));
+    $user = UserDAO::getEmail(strtolower($email));
 
 
 }

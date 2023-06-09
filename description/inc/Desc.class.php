@@ -47,7 +47,7 @@
             <section class="container">
             <section class="body-desc">
             <section class="gallery">
-                <img class="banner" src="'.$acc->PICTURE.'" alt="pic">
+                <img class="banner" src="'.$acc->getPicture().'" alt="pic">
                 <figure>
                     <img src="./inc/img/img-2.jpg" alt="img-1">
                     <img src="./inc/img/img-3.jpg" alt="img-2">
@@ -59,16 +59,16 @@
                 <article class="left">
                     <aside class="info-banner">
                         <aside class="icons">
-                            <span><i class="fa-solid fa-map"></i>Neighbourhood: '.$acc->NEIGHBOURHOOD.'   </span>
-                            <span><i class="fa-regular fa-user"></i>Maximum Guests: '. $acc->MAX_GUESTS.'</span>
-                            <span><i class="fa-solid fa-bed"></i>Room Type: '. $acc->ROOM_TYPE.'  </span>
+                            <span><i class="fa-solid fa-map"></i>Neighbourhood: '.$acc->getNeighbourhood().'   </span>
+                            <span><i class="fa-regular fa-user"></i>Maximum Guests: '. $acc->getGuests().'</span>
+                            <span><i class="fa-solid fa-bed"></i>Room Type: '. $acc->getType().'  </span>
                         </aside>
                         <aside>
                             <span>From: ';
-                            if($acc->SPECIAL_OFFER==1) {
-                                $body.='<span class="number"><del>$'. $acc->PRICE_PER_NIGHT.'</del><span> $'.$acc->NEW_PRICE.'</span></span>';
+                            if($acc->getSpecial()==1) {
+                                $body.='<span class="number"><del>$'. $acc->getPrice().'</del><span> $'.$acc->NEW_PRICE.'</span></span>';
                             }else {
-                                $body.='<span class="number">$'. $acc->PRICE_PER_NIGHT.'</span>';
+                                $body.='<span class="number">$'. $acc->getPrice().'</span>';
                             }
                             
                             $body.=' /Night</span>           
@@ -76,7 +76,7 @@
                     </aside>
 
                     <article class="description">
-                        '. $acc->DESCRIPTION.'
+                        '. $acc->getDescription().'
                         <aside class="amenities">
                         <span><i class="fa-solid fa-tv"></i>   Amenities</span>
                             <ul>';
@@ -90,8 +90,8 @@
                     <h2>Reviews </h2>';
                     for($i=0;$i<count($reviews);$i++) {
                         $body.='<figure>'.'<img src="./inc/img/user.png">'.'<figcaption>'.
-                        '<h3>'.$reviews[$i]->REVIEWER_NAME.'</h3>'.
-                        '<p>'.$reviews[$i]->COMMENT.'</p>'.
+                        '<h3>'.$reviews[$i]->getReviewer().'</h3>'.
+                        '<p>'.$reviews[$i]->getComment().'</p>'.
                         '</figcaption>'.
                         '</figure>';
                     }
@@ -104,9 +104,9 @@
                     '<h4>The Host</h4>
                     <article class="profile-user">
                     <figure>
-                    <img class="circle" src="' .$acc->HOST_PICTURE.'" alt="img-1">
+                    <img class="circle" src="' .$acc->getHostPicture().'" alt="img-1">
                     </figure>
-                    <p>'.$acc->HOST_NAME.'</p>
+                    <p>'.$acc->getHostName().'</p>
                      </article>
                 </article>
             </section>

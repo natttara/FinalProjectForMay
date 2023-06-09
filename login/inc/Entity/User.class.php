@@ -5,8 +5,8 @@ class User {
     private int $id;
     private string $name;
     private string $email;
-
     private string $password;
+    private string $picture;
 
 	public function getId() {
 		return $this->id;
@@ -18,6 +18,9 @@ class User {
 
 	public function getName() {
 		return $this->name;
+	}
+	public function getPicture() {
+		return $this->picture;
 	}
 
 	public function setName(string $name) {
