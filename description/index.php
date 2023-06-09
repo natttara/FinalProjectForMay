@@ -29,7 +29,7 @@ if (!empty($_GET)) {
     $Review = RevDAO::startDB();
     $singleAcc = AccDAO::getaCCById($_GET['accommodation_id']);
     $reviews = RevDAO::getReviewsId($_GET['accommodation_id']);
-    var_dump($singleAcc->getId());
+    // var_dump($singleAcc->getId());
     if($singleAcc){
         $amenities = explode(";",$singleAcc->AMENITIES);
         if(!empty($_SESSION["logged"])){
